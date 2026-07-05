@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 10: Alternativas, Recursos y ¡Tu Futuro!</title>
+    <style>
+        /* --- ESTILOS GENERALES (Consistente, color tema final/futuro) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid #4a0e6c; /* Morado oscuro/profundo para culminación/sabiduría */ }
+        h1, h2, h3 { color: #3b0a5a; /* Morado más oscuro */ margin-bottom: 15px; }
+        h1 { text-align: center; border-bottom: 2px solid #4a0e6c; padding-bottom: 10px; font-size: 2em; }
+        p, li { margin-bottom: 12px; color: #555; }
+        strong { color: #3b0a5a; }
+        em { color: #28a745; font-weight: bold; } /* Verde para énfasis positivo/crecimiento */
+        code { background-color: #e9ecef; padding: 2px 5px; border-radius: 3px; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; }
+        /* CORRECCIÓN CSS Textarea */
+        textarea { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px; font-family: inherit; font-size: 1em; cursor: text; /* Cursor de texto normal */ }
+        select, input[type=text], input[type=number] { /* Añadido select y otros inputs para consistencia */
+             width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; font-family: inherit; font-size: 1em;
+        }
+        textarea:focus, select:focus, input:focus { border-color: #4a0e6c; outline: none; } /* Foco con color del nivel */
+        ul.resource-list li { margin-bottom: 8px; }
+        ul.resource-list a { color: #4a0e6c; text-decoration: none; font-weight: bold;}
+        ul.resource-list a:hover { text-decoration: underline; }
+
+        /* --- ESTILOS GAMIFICACIÓN (Final) --- */
+        .progress-bar-container { width: 100%; background-color: #e9ecef; border-radius: 5px; margin-bottom: 20px; height: 10px; overflow: hidden; }
+        .progress-bar { width: 100%; /* Nivel 10 de 10 ¡COMPLETO! */ height: 100%; background-color: #28a745; border-radius: 5px; transition: width 0.5s ease-in-out; }
+        .points-counter { text-align: right; font-size: 1.2em; font-weight: bold; color: #ffc107; margin-bottom: 20px; }
+        .points-counter span { background-color: #3b0a5a; color: white; padding: 5px 10px; border-radius: 15px; }
+
+        /* --- ESTILOS INTERACTIVOS (Capitalizar Experiencia, Alternativas, Plan Acción) --- */
+        .final-section { background-color: #f3eefc; /* Morado muy pálido */ border: 1px solid #dcd0f5; padding: 20px; margin-top: 25px; margin-bottom: 25px; border-radius: 8px; }
+        .final-section h3 { margin-top: 0; color: #5a32a1; } /* Morado intermedio */
+        .skills-list li { list-style-type: '✔️ '; padding-left: 5px; } /* Checkmark para habilidades */
+        .alternative-box { background-color: #fff; border: 1px solid #ddd; border-left: 5px solid #4a0e6c; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .alternative-box h4 { margin-top: 0; margin-bottom: 5px; color: #3b0a5a; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #3b0a5a; }
+        button.action-btn { display: inline-block; width: auto; padding: 10px 25px; margin-top: 10px; background-color: #4a0e6c; color: white; border: none; border-radius: 5px; font-size: 1em; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; text-align: center; }
+        button.action-btn:hover { background-color: #3b0a5a; }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; display: none; }
+        .feedback.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .feedback.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .feedback.warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; } /* Añadido estilo warning */
+
+
+        /* --- BOTÓN FINAL (Estilo diferente) --- */
+         .final-action-btn { display: block; width: fit-content; margin: 40px auto 20px auto; padding: 18px 40px; background: linear-gradient(45deg, #4a0e6c, #6f42c1); color: white; font-size: 1.2em; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(74, 14, 108, 0.4); }
+         .final-action-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(74, 14, 108, 0.6); }
+
+         /* Estilos para el contenedor de botones (si se mantiene para estructura futura) */
+         .button-group { margin-top: 20px; text-align: center; }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 10: Alternativas, Recursos y ¡Tu Plan de Acción Final!</h1>
+
+        <!-- Barra de Progreso y Puntos -->
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="level10-progress" style="width:100%;"></div> <!-- Directo al 100% -->
+        </div>
+        <div class="points-counter">Puntos Lógica Inversora (Nivel 10): <span id="points-10">0</span></div>
+        <p style="text-align:center; font-weight:bold; color:#3b0a5a;">¡FELICIDADES! Has llegado al final de este intensivo entrenamiento.</p>
+
+        <h2>Recap Nivel 9: La Salida Inteligente</h2>
+        <p>En el nivel anterior, aprendiste a reconocer cuándo es estratégico salir de un MLM y cómo hacerlo protegiendo tus finanzas y reputación. Ahora, cerramos el círculo: capitalizamos TODO lo aprendido, exploramos alternativas viables y definimos tus próximos pasos concretos.</p>
+        <p><em>Objetivo de este nivel: Identificar las habilidades y lecciones valiosas de tu experiencia (incluso si fue negativa), conocer opciones de emprendimiento alternativas en LatAm, encontrar recursos de apoyo y, lo más importante, crear TU plan de acción personal para el futuro.</em></p>
+
+        <!-- === Sección Capitalizando la Experiencia === -->
+        <div class="final-section">
+            <h3>Capitalizando la Experiencia MLM (¡Nada se Desperdicia!)</h3>
+            <p>Independientemente de tus resultados financieros, tu paso por el MLM (o el análisis realizado en este curso) te ha dejado lecciones y habilidades valiosas. ¡Reconócelas!</p>
+
+            <div class="alternative-box">
+                 <h4>Habilidades Desarrolladas (Potencialmente):</h4>
+                 <!-- CORRECCIÓN: Eliminado texto de estilo erróneo y usando ul/li correctamente -->
+                 <ul class="skills-list">
+                    <li>Ventas / Persuasión (ahora con enfoque ético)</li>
+                    <li>Hablar en Público / Comunicación</li>
+                    <li>Resiliencia al Rechazo</li>
+                    <li>Organización Básica / Seguimiento</li>
+                    <li>Networking Estratégico</li>
+                    <li>Autodisciplina / Motivación (Potencial)</li>
+                 </ul>
+            </div>
+            <div class="alternative-box">
+                 <h4>Lecciones Aprendidas (¡Las Más Valiosas!):</h4>
+                 <!-- CORRECCIÓN: Eliminado texto de estilo erróneo y usando ul/li correctamente -->
+                 <ul>
+                    <li>La importancia CRUCIAL del <strong>análisis financiero</strong> (costos, ROI, ganancia/hora).</li>
+                    <li>El poder del <strong>pensamiento crítico</strong> para evaluar promesas vs. realidad.</li>
+                    <li>La necesidad de un <strong>modelo de negocio sostenible</strong> y un producto con <strong>demanda real</strong>.</li>
+                    <li>La diferencia entre <strong>ingresos brutos y beneficio neto</strong>.</li>
+                    <li>El valor de la <strong>ética</strong> y la <strong>transparencia</strong> en los negocios.</li>
+                    <li>La importancia de la <strong>diversificación</strong> y la <strong>marca personal</strong>.</li>
+                 </ul>
+            </div>
+            <p class="feedback success" style="display: block;"><strong>Mentalidad de Crecimiento:</strong> Considera cada experiencia, buena o mala, como una inversión en tu aprendizaje. ¡Estas lecciones y habilidades son transferibles a CUALQUIER emprendimiento futuro! (+15 Puntos por Capitalizar Aprendizaje)</p>
+        </div>
+
+        <!-- === Sección Explorando Alternativas === -->
+        <div class="final-section">
+            <h3>Explorando Alternativas de Emprendimiento (Enfoque LatAm)</h3>
+            <p>Si decides que el MLM no es tu camino (o quieres diversificar fuertemente), hay un mundo de opciones. Aquí algunas ideas populares y viables en Latinoamérica:</p>
+
+             <div class="alternative-box">
+                 <h4>Negocios Online:</h4>
+                 <ul>
+                     <li><strong>E-commerce:</strong> Vender productos físicos. Opciones: Tienda Propia (Shopify, Tiendanube, Wix eCommerce), Dropshipping, Marketplaces (MercadoLibre, Amazon).</li>
+                     <li><strong>Marketing de Afiliados (Ético):</strong> Recomendar productos/servicios de otros a tu audiencia a cambio de comisión.</li>
+                     <li><strong>Creación de Contenido:</strong> Blog, YouTube, Podcast, Instagram, TikTok. Monetización vía publicidad, patrocinios, venta de productos/servicios propios.</li>
+                     <li><strong>Freelancing:</strong> Ofrecer tus habilidades (redacción, diseño, traducción, asistencia virtual, consultoría, coaching). Plataformas: Workana, Fiverr, Upwork, o directo.</li>
+                     <li><strong>Infoproductos:</strong> Crear y vender cursos online, ebooks, plantillas, webinars sobre tu área de expertise.</li>
+                 </ul>
+            </div>
+
+             <div class="alternative-box">
+                 <h4>Negocios Offline (o Híbridos):</h4>
+                 <ul>
+                     <li><strong>Servicios Locales:</strong> Basados en tus habilidades (consultoría, coaching, reparaciones, cuidado personal, etc.).</li>
+                     <li><strong>Pequeño Comercio:</strong> Tienda física de nicho (requiere análisis de mercado local).</li>
+                     <li><strong>Franquicias:</strong> Operar un negocio ya establecido (requiere inversión y análisis).</li>
+                     <li><strong>Economía Colaborativa:</strong> Airbnb, Uber/DiDi, Rappi, etc. (analiza costos vs. ganancias).</li>
+                 </ul>
+            </div>
+            <p class="feedback info" style="display: block;"><strong>Clave del Éxito:</strong> Elige algo alineado con <em>habilidades, pasiones E intereses del mercado</em>. ¡Investiga, planifica (¡usa lo aprendido aquí!) y empieza pequeño si es necesario! (+10 Puntos por Explorar Oportunidades)</p>
+        </div>
+
+        <!-- === Sección Recursos para Emprendedores === -->
+         <div class="final-section">
+            <h3>Recursos para Emprendedores en Latinoamérica</h3>
+            <p>No estás solo/a. Busca apoyo e información:</p>
+            <ul class="resource-list">
+                 <li><strong>Incubadoras y Aceleradoras Locales:</strong> Busca en tu ciudad o país (Ej: Start-Up Chile, Ruta N Medellín, Wayra, etc.).</li>
+                 <li><strong>Organismos de Apoyo Gubernamentales:</strong> Programas de apoyo a PyMEs y emprendedores.</li>
+                 <li><strong>Cámaras de Comercio Locales.</strong></li>
+                 <li><strong>Plataformas de Formación Online:</strong> Coursera, edX, Udemy, Platzi, Crehana, LinkedIn Learning.</li>
+                 <li><strong>Comunidades de Emprendedores Online/Offline:</strong> Grupos de Facebook, meetups, eventos.</li>
+                 <li><strong>Libros y Blogs de Negocios.</strong></li>
+            </ul>
+            <p><em>¡Sé proactivo/a en buscar información y apoyo!</em> (+5 Puntos por Buscar Recursos)</p>
+         </div>
+
+
+        <!-- === Sección IA como Aliado del Nuevo Emprendedor === -->
+         <div class="final-section" style="background-color: #e9ecef; border-color:#dee2e6;">
+            <h3 style="color: #6c757d;">IA como Aliado de Tu Nuevo Emprendimiento</h3>
+            <p>¡Usa la Inteligencia Artificial a tu favor desde el día cero!</p>
+            <ul>
+                <li><strong>Validación de Ideas:</strong> Investiga mercado, analiza sentimiento.</li>
+                <li><strong>Plan de Negocios:</strong> Estructura, investiga, redacta borradores.</li>
+                <li><strong>Marketing y Contenido:</strong> Genera ideas, redacta textos, crea imágenes básicas.</li>
+                <li><strong>Automatización de Tareas:</strong> Responde FAQs, programa posts.</li>
+            </ul>
+             <p class="feedback info" style="display: block;">La IA no reemplaza la estrategia, pero es un <strong>asistente potente y económico</strong>. (+5 Puntos por Visión Tecnológica Aplicada)</p>
+         </div>
+
+
+        <!-- === Actividad Final: Tu Plan de Acción Personal === -->
+        <div class="final-section">
+             <h3>Mi Plan de Acción Personal - ¡Próximos 30 Días!</h3>
+             <p>¡Es hora de comprometerte! Define tus próximos pasos concretos basados en TODO lo aprendido y decidido en este curso.</p>
+            <form id="action-plan-form-10">
+                <div class="input-group">
+                    <label for="ap_learning-10">1. ¿Cuál fue el aprendizaje MÁS IMPACTANTE de este curso para mí?</label>
+                    <textarea id="ap_learning-10" name="ap_learning" rows="2" placeholder="Ej: La importancia de calcular mi ganancia real por hora."></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="ap_decision-10">2. Mi decisión respecto a mi situación actual en MLM es:</label>
+                    <select id="ap_decision-10" name="ap_decision">
+                        <option value="">-- Selecciona tu decisión --</option>
+                        <option value="stay_strategy">Continuar, aplicando rigurosamente mentalidad/estrategias inversionista.</option>
+                        <option value="exit_strategy">Iniciar salida inteligente y estratégica.</option>
+                        <option value="analyse_more">Necesito analizar mis números más a fondo (revisar Niveles 4 y 5).</option>
+                        <option value="not_involved">No estoy en MLM, usaré esto para futuros emprendimientos.</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="ap_steps-10">3. Mis PRÓXIMOS 3 PASOS CONCRETOS en las próximas 4 semanas:</label>
+                    <textarea id="ap_steps-10" name="ap_steps" rows="4" placeholder="Sé específico y pon fechas si es posible. Ej:
+1. Calcular mi rentabilidad real de los últimos 3 meses (antes del [Fecha]).
+2. Empezar a publicar contenido de valor sobre [Tema] en [Plataforma] (a partir de [Fecha]).
+3. Investigar 2 alternativas de negocio (E-commerce y Freelancing) (para [Fecha])."></textarea>
+                </div>
+                <button type="button" class="action-btn" onclick="commitToActionPlan10(this, 20)">¡Me Comprometo con Mi Plan!</button>
+                <div id="feedback-action-plan-10" class="feedback"></div>
+            </form>
+        </div>
+
+
+        <!-- === Mensaje Final y Cierre === -->
+        <div class="final-message"> <!-- Usando clase final-message en lugar de congrats-message para consistencia -->
+            <h2>¡Has Completado la Transformación!</h2>
+            <p>Recorriste el camino <strong>de Soñador a Inversionista</strong>. Desmontaste mitos, enfrentaste la psicología, analizaste modelos, dominaste tus números, creaste estrategias, exploraste el liderazgo ético, la diversificación y hasta la salida inteligente.</p>
+            <p>Ya no eres la misma persona que empezó este curso. Ahora tienes las herramientas, el conocimiento y, lo más importante, la <strong>mentalidad crítica y estratégica</strong> para tomar el control de tu futuro profesional y financiero.</p>
+            <p>Recuerda siempre: <strong>Las emociones son humanas, pero las decisiones de negocio DEBEN basarse en LÓGICA, DATOS y ÉTICA.</strong></p>
+            <p>El poder ya no está en promesas externas, sino en <strong>TUS manos informadas</strong>. Ve y construye un futuro rentable, sostenible y, sobre todo, <strong>TUYO</strong>.</p>
+            <p><strong>¡MUCHO ÉXITO EN TU CAMINO COMO EMPRESARIO ESTRATEGA!</strong></p>
+            <p style="font-size:0.9em;"><em>(Puntuación Final Conceptual: <span id="final-points-10" style="font-weight:bold;">0</span> Pts Lógica Inversora. ¡El premio real es tu nueva mentalidad!)</em></p>
+            <!-- Botón Final de Acción -->
+            <button class="final-action-btn" onclick="finalAction10()">Finalizar Entrenamiento</button>
+            <div id="feedback-final-10" class="feedback" style="margin-top:10px;"></div>
+            <!-- Opcional: Enlace a Certificado -->
+            <!-- <p style="margin-top:15px;"><a href="URL_CERTIFICADO" target="_blank" style="font-weight:bold; color:#3b0a5a;">Descarga tu Certificado de Mentalidad Inversionista</a></p> -->
+        </div>
+
+        <!-- Contenedor de Botones (vacío o para otros botones si se añaden después) -->
+        <div class="button-group">
+             <!-- No hay botón para avanzar, y el botón Volver fue eliminado -->
+        </div>
+    </div>
+
+    <script>
+        // --- VARIABLES ESPECÍFICAS NIVEL 10 ---
+        let pointsNivel10 = 0; // Puntos solo para este nivel si se quisiera llevar cuenta separada
+        let finalTotalPoints = 0; // Para mostrar el total acumulado al final
+
+        // --- FUNCIONES AUXILIARES (Si fueran necesarias específicamente para Nivel 10) ---
+        function updatePoints10(pointsToAdd) {
+            pointsNivel10 += pointsToAdd;
+            // Actualizar contador específico del nivel (si existiera uno)
+            document.getElementById('points-10').innerText = pointsNivel10;
+            // Actualizar también el total conceptual si este script fuera standalone
+            finalTotalPoints += pointsToAdd; // Asumiendo que empezamos de 0 para este nivel standalone
+            document.getElementById('final-points-10').innerText = finalTotalPoints;
+
+             // Animar contador (opcional)
+             const pointsSpan = document.getElementById('points-10');
+             if (pointsSpan) {
+                pointsSpan.style.transform = 'scale(1.1)';
+                setTimeout(() => { pointsSpan.style.transform = 'scale(1)'; }, 150);
+             }
+        }
+
+         function showFeedback10(feedbackElementId, message, type = 'info') {
+            const feedbackDiv = document.getElementById(feedbackElementId);
+            if (feedbackDiv) {
+                // Usar un formato consistente con los otros niveles
+                 feedbackDiv.innerHTML = `<strong>${type === 'success' ? '¡ÉXITO!' : (type === 'warning' ? 'ATENCIÓN:' : 'INFO:')}</strong> ${message}`;
+                feedbackDiv.className = `feedback ${type}`;
+                feedbackDiv.style.display = 'block';
+            }
+        }
+
+        function disableButtonAndAddPoints10(buttonElement, points, pointsAttribute = 'data-points-added') {
+             if (!buttonElement.getAttribute(pointsAttribute)) {
+                 updatePoints10(points); // Usa la función de puntos del nivel
+                 buttonElement.setAttribute(pointsAttribute, 'true');
+                 buttonElement.disabled = true;
+                 buttonElement.style.opacity = '0.6';
+                 buttonElement.style.cursor = 'default';
+                 return true;
+             }
+             return false;
+        }
+
+        // --- FUNCIONES DE INTERACCIÓN NIVEL 10 ---
+        function commitToActionPlan10(buttonElement, points) {
+            const learning = document.getElementById('ap_learning-10').value.trim();
+            const decision = document.getElementById('ap_decision-10').value;
+            const steps = document.getElementById('ap_steps-10').value.trim();
+
+            if (learning.length > 0 && decision !== "" && steps.length > 0) {
+                showFeedback10('feedback-action-plan-10', "¡Plan Comprometido! La claridad y la acción son clave. ¡Ahora a ejecutar con disciplina!", 'success');
+                disableButtonAndAddPoints10(buttonElement, points);
+                buttonElement.textContent = '¡Plan Comprometido!';
+            } else {
+                showFeedback10('feedback-action-plan-10', "Por favor, completa todos los campos de tu plan de acción para comprometerte.", 'warning');
+            }
+        }
+
+        function finalAction10() {
+            showFeedback10('feedback-final-10',"¡Entrenamiento completado! ¡Mucho éxito en tu camino como inversionista estratega!", 'success');
+            const finalBtn = document.querySelector('.final-action-btn');
+            if(finalBtn) {
+                 finalBtn.disabled = true;
+                 finalBtn.style.opacity = '0.7';
+                 finalBtn.style.cursor = 'default';
+                 finalBtn.textContent = '¡Entrenamiento Finalizado!';
+            }
+             // Opcional: Animación o redirección
+             document.body.style.backgroundColor = '#e7dff2'; // Fondo morado claro temporal
+             setTimeout(() => { document.body.style.backgroundColor = '#f0f2f5'; }, 1500);
+        }
+
+        // --- FUNCIONALIDAD PARA IR AL NIVEL ANTERIOR (Ya no se usa desde la UI, pero se deja aquí por si acaso) ---
+        function goToPrevLevel(levelNum) {
+            // En un entorno real unificado, llamarías a showLevel(levelNum)
+            // Como este es standalone, solo podemos simular o poner un enlace real si sabes la URL
+            // alert(`Navegación simulada: Ir al Nivel ${levelNum}. En la versión unificada, esto funcionará correctamente.`);
+            // O podrías poner: window.location.href = 'URL_DEL_NIVEL_9';
+             console.warn("La función goToPrevLevel fue llamada, pero el botón asociado fue eliminado.");
+        }
+
+
+        // --- INICIALIZACIÓN NIVEL 10 (Standalone) ---
+        document.addEventListener('DOMContentLoaded', () => {
+             // Puntos fijos por lectura de secciones en este nivel
+             updatePoints10(15); // Capitalizar Aprendizaje
+             updatePoints10(10); // Explorar Oportunidades
+             updatePoints10(5);  // Buscar Recursos
+             updatePoints10(5);  // IA Aplicada
+             // Nota: Los puntos del plan de acción se añaden al hacer clic en el botón.
+             // Actualizar el total final mostrado (conceptual en standalone)
+            document.getElementById('final-points-10').innerText = finalTotalPoints;
+        });
+
+    </script>
+</body>
+</html>

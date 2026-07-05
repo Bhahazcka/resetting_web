@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 2: La Psicología del Multinivel</title>
+    <style>
+        /* --- ESTILOS GENERALES (Similares al Nivel 1 para consistencia) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid #dc3545; /* Rojo para Psicología/Alerta */ }
+        h1, h2, h3 { color: #a71d2a; /* Rojo oscuro títulos */ margin-bottom: 15px; }
+        h1 { text-align: center; border-bottom: 2px solid #dc3545; padding-bottom: 10px; font-size: 2em; }
+        p, li { margin-bottom: 12px; color: #555; }
+        strong { color: #a71d2a; }
+        em { color: #007bff; font-weight: bold; } /* Énfasis en azul */
+
+        /* --- ESTILOS GAMIFICACIÓN (Consistente) --- */
+        .progress-bar-container { width: 100%; background-color: #e9ecef; border-radius: 5px; margin-bottom: 20px; height: 10px; overflow: hidden; }
+        .progress-bar { width: 20%; /* Nivel 2 de 10 */ height: 100%; background-color: #28a745; border-radius: 5px; transition: width 0.5s ease-in-out; }
+        .points-counter { text-align: right; font-size: 1.2em; font-weight: bold; color: #ffc107; margin-bottom: 20px; }
+        .points-counter span { background-color: #a71d2a; color: white; padding: 5px 10px; border-radius: 15px; }
+
+        /* --- ESTILOS INTERACTIVOS (Consistente + Nuevos) --- */
+        .interactive-section { background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 20px; margin-top: 25px; margin-bottom: 25px; border-radius: 8px; }
+        .interactive-section h3 { margin-top: 0; color: #b34b54; } /* Rojo más suave para subsecciones */
+        .tactic-card, .bias-card { background-color: #fff; border: 1px solid #ddd; border-left: 5px solid #dc3545; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .tactic-card h4, .bias-card h4 { margin-top: 0; margin-bottom: 5px; color: #a71d2a; }
+        .example-latam { font-style: italic; color: #6c757d; border-left: 3px solid #ffc107; padding-left: 10px; margin-top: 8px; }
+        button.reveal-btn, button.quiz-btn { display: block; width: 100%; padding: 12px 15px; margin-top: 10px; background-color: #dc3545; color: white; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; transition: background-color 0.3s ease; text-align: left; }
+        button.reveal-btn:hover, button.quiz-btn:hover { background-color: #a71d2a; }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; display: none; }
+        .feedback.correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .feedback.incorrect { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .feedback.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .checklist-item { margin-bottom: 10px; }
+        .checklist-item input[type="checkbox"] { margin-right: 10px; }
+        .checklist-item label { display: inline; } /* Para que no salte línea */
+        #reflection-area { width: 95%; padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px; }
+
+        /* --- BOTÓN SIGUIENTE NIVEL (ESTILO AÚN PRESENTE PERO EL BOTÓN NO SE USA) --- */
+         .next-level-btn { display: block; width: fit-content; margin: 30px auto 0 auto; padding: 15px 30px; background-color: #28a745; color: white; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+         .next-level-btn:hover { background-color: #218838; transform: translateY(-2px); }
+         .hidden-content { display: none; margin-top: 10px; padding: 10px; background-color: #fff9e6; border-left: 3px solid #ffc107; } /* Amarillo claro para contenido oculto */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 2: La Psicología del Multinivel - Detectando la Manipulación</h1>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <!-- Nota: Los puntos se reinician en cada nivel en esta versión simple -->
+        <div class="points-counter">Puntos Lógica Inversora (Nivel 2): <span id="points">0</span></div>
+
+        <h2>Recap Nivel 1: La Cruda Realidad</h2>
+        <p>En el nivel anterior, confrontamos las promesas con los datos duros. Vimos que el éxito masivo es la excepción y las ganancias promedio suelen ser bajas o negativas. Ahora, la pregunta es: si los datos son tan claros, <strong>¿por qué tanta gente sigue entrando y persistiendo?</strong> La respuesta está en la poderosa <strong>psicología</strong> utilizada (consciente o inconscientemente) en el mundo MLM.</p>
+        <p><em>Objetivo de este nivel: Identificar y neutralizar las tácticas de persuasión y los sesgos cognitivos que pueden llevar a decisiones irracionales. ¡Activa tu escudo de pensamiento crítico!</em></p>
+
+        <!-- === Sección Tácticas de Influencia === -->
+        <div class="interactive-section">
+            <h3>Tácticas de Influencia Comunes (Basado en Cialdini y Observación MLM)</h3>
+            <p>Las empresas y líderes de MLM a menudo emplean técnicas de persuasión muy efectivas. Reconocerlas es el primer paso para no ser víctima de ellas. Explora las tácticas:</p>
+
+            <div class="tactic-card">
+                <h4>1. FOMO (Fear Of Missing Out - Miedo a Quedarse Fuera)</h4>
+                <p>Crear un sentido de urgencia artificial para que tomes decisiones rápidas sin pensar.</p>
+                <p class="example-latam"><strong>Ejemplo LatAm:</strong> "¡Esta oferta del kit fundador termina MAÑANA!", "¡Los que entran AHORA son los que se harán ricos!", "¡Últimos cupos para el evento exclusivo!"</p>
+                <button class="reveal-btn" onclick="revealInsight('insight-fomo', this)">Revelar Antídoto del Inversionista</button>
+                <div id="insight-fomo" class="hidden-content">
+                    <p><strong>Antídoto:</strong> Siempre pregúntate: ¿Es esta urgencia REAL o creada? ¿Qué pierdo REALMENTE si espero y analizo? Un buen negocio sigue siendo bueno mañana. <em>La prisa es enemiga del análisis.</em> (+5 Puntos Lógica por reconocerlo)</p>
+                </div>
+            </div>
+
+            <div class="tactic-card">
+                 <h4>2. Prueba Social</h4>
+                 <p>Mostrar que "mucha gente" lo está haciendo o teniendo éxito (aparente) para que sientas que es lo correcto o deseable.</p>
+                 <p class="example-latam"><strong>Ejemplo LatAm:</strong> Eventos masivos con aplausos y testimonios emotivos, fotos de cheques gigantes (sin contexto de gastos), "¡Únete a las miles de personas que están cambiando su vida!"</p>
+                 <button class="reveal-btn" onclick="revealInsight('insight-social', this)">Revelar Antídoto del Inversionista</button>
+                 <div id="insight-social" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Pregúntate: ¿Cuántos de estos son éxitos REALES y sostenibles vs. emoción temporal o fachada? ¿Son estos testimonios representativos de la MAYORÍA? Busca datos promedio, no anécdotas seleccionadas. <em>La popularidad no equivale a rentabilidad personal.</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+
+             <div class="tactic-card">
+                 <h4>3. Autoridad</h4>
+                 <p>Usar figuras carismáticas (líderes "Diamante", fundadores) para que aceptes sus palabras sin cuestionar, basándote en su estatus (aparente).</p>
+                 <p class="example-latam"><strong>Ejemplo LatAm:</strong> "Si lo dice el Doble Diamante Corona, debe ser verdad", "Nuestro fundador es un visionario, sigue el sistema".</p>
+                  <button class="reveal-btn" onclick="revealInsight('insight-authority', this)">Revelar Antídoto del Inversionista</button>
+                 <div id="insight-authority" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Respeta la experiencia, pero VERIFICA la información. ¿Tiene esta 'autoridad' datos que respalden sus afirmaciones? ¿Su éxito es aplicable a tu situación actual? ¿Gana dinero *porque* tú compras/reclutas? <em>Piensa por ti mismo, cuestiona con respeto.</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+
+             <div class="tactic-card">
+                 <h4>4. Compromiso y Coherencia</h4>
+                 <p>Te hacen dar pequeños "sí" iniciales (asistir a una charla, comprar un producto barato) que hacen más probable que sigas diciendo "sí" a compromisos mayores (comprar el kit caro, reclutar) para ser coherente contigo mismo.</p>
+                 <p class="example-latam"><strong>Ejemplo LatAm:</strong> "Prueba este batido increíble (barato)", luego "Asiste a esta charla gratuita", luego "Para empezar en serio, necesitas el kit premium".</p>
+                 <button class="reveal-btn" onclick="revealInsight('insight-commitment', this)">Revelar Antídoto del Inversionista</button>
+                 <div id="insight-commitment" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Evalúa cada decisión por separado, basada en sus méritos y costos/beneficios ACTUALES, no en decisiones pasadas. No dejes que pequeños compromisos te arrastren a grandes errores. <em>Está bien cambiar de opinión basado en nueva información.</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+
+            <div class="tactic-card">
+                 <h4>5. Simpatía y Lazo Emocional ("Love Bombing")</h4>
+                 <p>Crear un ambiente de "familia", apoyo y pertenencia muy fuerte, a menudo al inicio, para que sea más difícil irte o cuestionar por miedo a perder esa conexión social.</p>
+                 <p class="example-latam"><strong>Ejemplo LatAm:</strong> Bienvenidas súper efusivas, "¡Somos un equipo, una familia!", grupos de WhatsApp llenos de mensajes positivos y emojis, abrazos constantes en eventos.</p>
+                 <button class="reveal-btn" onclick="revealInsight('insight-liking', this)">Revelar Antídoto del Inversionista</button>
+                 <div id="insight-liking" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Disfruta las relaciones positivas, pero diferencia claramente la amistad del negocio. ¿Te presiona esta 'familia' a gastar dinero o tomar decisiones que no te convencen? ¿Se enfría la relación si bajas el ritmo? <em>Las decisiones financieras deben ser racionales, no basadas en mantener lazos afectivos.</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+             <div class="tactic-card">
+                 <h4>6. Presión Social</h4>
+                 <p>Uso directo o indirecto de la presión del grupo (upline, compañeros) para que compres más, reclutes más rápido o asistas a eventos.</p>
+                 <p class="example-latam"><strong>Ejemplo LatAm:</strong> "¿Todavía no eres [siguiente rango]? ¡Tienes que ponerle más ganas!", "Todos vamos al evento, ¿cómo no vas a ir tú?", Comparaciones públicas de resultados.</p>
+                  <button class="reveal-btn" onclick="revealInsight('insight-pressure', this)">Revelar Antídoto del Inversionista</button>
+                 <div id="insight-pressure" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Define TUS propios objetivos y TUS propios límites financieros y de tiempo. Comunícalos con asertividad. Aprende a decir "no" de forma educada pero firme. <em>Tu negocio, tus reglas (dentro de la ética). No cedas a la presión si va contra tu análisis.</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+             <div class="tactic-card">
+                 <h4>7. Recompensas Psicológicas</h4>
+                 <p>Ofrecer reconocimiento público (pines, aplausos, subir al escenario) que genera bienestar emocional y puede sustituir (o distraer de) la falta de ganancias económicas reales.</p>
+                 <p class="example-latam"><strong>Ejemplo LatAm:</strong> Ceremonias de reconocimiento constantes por rangos (incluso los que no implican ganancias significativas), diplomas, menciones en grupos.</p>
+                 <button class="reveal-btn" onclick="revealInsight('insight-rewards', this)">Revelar Antídoto del Inversionista</button>
+                 <div id="insight-rewards" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Disfruta el reconocimiento si es genuino, pero NUNCA lo confundas con rentabilidad. Pregúntate: ¿Este pin paga mis facturas? ¿Este aplauso compensa las horas no remuneradas? <em>Enfócate en las métricas financieras REALES (ROI, ganancia por hora).</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+        </div>
+
+        <!-- === Sección Sesgos Cognitivos === -->
+        <div class="interactive-section">
+            <h3>Sesgos Cognitivos: Las Trampas de Nuestra Propia Mente</h3>
+            <p>Además de las tácticas externas, nuestra propia mente puede jugarnos malas pasadas. Estos son atajos mentales que, en el contexto MLM, pueden ser peligrosos:</p>
+
+            <div class="bias-card">
+                <h4>1. Sesgo de Confirmación</h4>
+                <p>Buscar, interpretar y recordar información que confirma nuestras creencias preexistentes (ej. "El MLM sí funciona para mí"). Ignoramos o minimizamos la evidencia contraria.</p>
+                <button class="reveal-btn" onclick="revealInsight('insight-confirmation', this)">Revelar Antídoto del Inversionista</button>
+                <div id="insight-confirmation" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Busca activamente información que DESAFÍE tus creencias. Pregunta a críticos (constructivos). Analiza los datos de fracaso tanto como los de éxito. <em>Sé el abogado del diablo de tu propia inversión.</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+             <div class="bias-card">
+                <h4>2. Falacia del Costo Hundido</h4>
+                <p>Seguir invirtiendo tiempo, dinero o esfuerzo en algo porque ya has invertido mucho, incluso si racionalmente ya no tiene sentido.</p>
+                 <button class="reveal-btn" onclick="revealInsight('insight-sunkcost', this)">Revelar Antídoto del Inversionista</button>
+                 <div id="insight-sunkcost" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Toma decisiones basadas en el potencial FUTURO y los costos/beneficios A PARTIR DE AHORA. El dinero/tiempo pasado ya se fue. ¿Seguir invirtiendo HOY es la mejor decisión racional? <em>No tires dinero bueno detrás del malo.</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+             <div class="bias-card">
+                <h4>3. Optimismo Irrealista</h4>
+                <p>Creer que tenemos más probabilidades de éxito y menos de fracaso que la persona promedio. ("A otros les va mal, pero a mí me irá bien").</p>
+                 <button class="reveal-btn" onclick="revealInsight('insight-optimism', this)">Revelar Antídoto del Inversionista</button>
+                 <div id="insight-optimism" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Basa tus proyecciones en DATOS promedio y en una evaluación HONESTA de tus habilidades, recursos y el mercado REAL, no solo en el deseo. <em>Sé optimista en la acción (Growth Mindset), pero pesimista/realista en la planificación financiera.</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+            <div class="bias-card">
+                 <h4>4. Efecto Dunning-Kruger</h4>
+                 <p>Cuando tenemos poco conocimiento sobre algo, tendemos a sobrestimar nuestra competencia. A medida que aprendemos más, nos damos cuenta de lo complejo que es.</p>
+                 <button class="reveal-btn" onclick="revealInsight('insight-dunning', this)">Revelar Antídoto del Inversionista</button>
+                 <div id="insight-dunning" class="hidden-content">
+                     <p><strong>Antídoto:</strong> Humildad intelectual. Asume que siempre hay más que aprender. Busca conocimiento de fuentes diversas y críticas. Escucha a quienes tienen experiencia REAL (y resultados comprobables). <em>Nunca dejes de aprender y cuestionar tu propio nivel de expertise.</em> (+5 Puntos Lógica)</p>
+                 </div>
+            </div>
+        </div>
+
+         <!-- === Sección IA como Herramienta de Análisis (Mención) === -->
+         <div class="interactive-section">
+             <h3>IA como Detector de Patrones (Concepto)</h3>
+             <p>Imagina usar herramientas de IA (Inteligencia Artificial) en el futuro:</p>
+             <ul>
+                 <li><strong>Análisis de Sentimiento:</strong> Una IA podría analizar miles de comentarios en grupos de MLM y detectar un uso excesivo de lenguaje emocional, FOMO o presión social.</li>
+                 <li><strong>Verificación de Afirmaciones:</strong> IA podría contrastar afirmaciones de productos milagrosos con bases de datos científicas (aunque esto requiere IA avanzada).</li>
+             </ul>
+             <p><em>Por ahora, tu CEREBRO y PENSAMIENTO CRÍTICO son tu mejor IA. ¡Úsalos!</em></p>
+             <p class="feedback info" style="display: block;"><strong>+2 Puntos Visión Futura:</strong> Reconocer el potencial de la tecnología.</p>
+         </div>
+
+        <!-- === Ejercicio de Auto-Reflexión === -->
+        <div class="interactive-section">
+            <h3>Ejercicio de Auto-Reflexión (Confidencial)</h3>
+            <p>Es hora de mirarte al espejo con honestidad radical. Responde estas preguntas SÓLO PARA TI:</p>
+            <form id="reflection-form">
+                <div class="checklist-item">
+                    <label for="q1">1. ¿Qué me motivó REALMENTE a unirme o persistir? (Marca todas las que apliquen)</label><br>
+                    <input type="checkbox" id="motive1" name="motivation" value="dinero"> Dinero/Libertad Financiera<br>
+                    <input type="checkbox" id="motive2" name="motivation" value="producto"> Me encantó el producto<br>
+                    <input type="checkbox" id="motive3" name="motivation" value="comunidad"> Pertenencia/Comunidad/Amigos<br>
+                    <input type="checkbox" id="motive4" name="motivation" value="reconocimiento"> Reconocimiento/Estatus<br>
+                    <input type="checkbox" id="motive5" name="motivation" value="ayudar"> 'Ayudar' a otros<br>
+                    <input type="checkbox" id="motive6" name="motivation" value="presion"> Presión de alguien<br>
+                </div>
+                <div class="checklist-item">
+                    <label for="q2">2. ¿He sentido presión (directa o indirecta) para comprar más, reclutar más rápido o ir a eventos caros?</label><br>
+                    <input type="radio" id="pressure_yes" name="pressure" value="yes"> Sí, frecuentemente
+                    <input type="radio" id="pressure_some" name="pressure" value="sometimes"> Sí, a veces
+                    <input type="radio" id="pressure_no" name="pressure" value="no"> No, nunca
+                </div>
+                 <div class="checklist-item">
+                    <label for="q3">3. ¿He tomado decisiones importantes (inversión, tiempo) más basadas en la emoción del momento (FOMO, testimonios) que en un análisis frío de datos?</label><br>
+                     <input type="radio" id="emotion_yes" name="emotion" value="yes"> Sí, a menudo
+                    <input type="radio" id="emotion_some" name="emotion" value="sometimes"> Sí, a veces
+                    <input type="radio" id="emotion_no" name="emotion" value="no"> No, siempre analizo
+                </div>
+                <div class="checklist-item">
+                     <label for="reflection-text">4. ¿Estoy siendo 100% honesto conmigo mismo sobre mis resultados (gastos vs. ganancias reales) y mis expectativas futuras?</label><br>
+                     <textarea id="reflection-text" name="honesty" rows="3" style="width: 95%;" placeholder="Reflexiona brevemente aquí... (No se guarda)"></textarea>
+                </div>
+                <button type="button" class="reveal-btn" style="background-color: #ffc107; color: #333;" onclick="showReflectionFeedback()">Ver Feedback de Conciencia</button>
+                 <div id="feedback-reflection" class="feedback"></div>
+            </form>
+        </div>
+
+
+        <h2>Reflexión Final del Nivel 2</h2>
+        <p>Hoy hemos desarmado la caja de herramientas psicológicas que a menudo se usa en el MLM. Hemos identificado las tácticas de influencia externa y los sesgos internos que nos hacen vulnerables. Reconocerlos NO te hace inmune automáticamente, pero te da la <strong>oportunidad de elegir una respuesta racional</strong> en lugar de una reacción emocional.</p>
+        <p><strong>Un inversionista controla sus emociones y analiza las motivaciones (propias y ajenas). Este es tu escudo protector.</strong></p>
+        <p><strong>Puntos Clave de Hoy:</strong> Identifica FOMO, Prueba Social, Autoridad, Compromiso, Simpatía, Presión y Recompensas Psicológicas. Reconoce tus propios Sesgos (Confirmación, Costo Hundido, Optimismo, Dunning-Kruger). ¡Sé brutalmente honesto contigo mismo!</p>
+
+        <!-- EL BOTÓN FINAL HA SIDO ELIMINADO -->
+        <!-- Ya no hay botón <a href="..." class="next-level-btn"> aquí -->
+
+    </div>
+
+    <script>
+        let userPoints = 0; // Los puntos se reinician en cada nivel en esta implementación
+
+        function updatePoints(points) {
+            userPoints += points;
+            document.getElementById('points').innerText = userPoints;
+             // Pequeña animación visual para el contador
+             const pointsSpan = document.getElementById('points');
+             pointsSpan.style.transform = 'scale(1.2)';
+             pointsSpan.style.transition = 'transform 0.2s ease-out';
+             setTimeout(() => { pointsSpan.style.transform = 'scale(1)'; }, 200);
+        }
+
+        function revealInsight(insightId, button) {
+             const insightDiv = document.getElementById(insightId);
+             const feedback = insightDiv.querySelector('.feedback'); // Busca el feedback dentro del insight
+             if (!feedback) { // Añadir feedback si no existe
+                 const feedbackDiv = document.createElement('p');
+                 feedbackDiv.className = 'feedback info';
+                 insightDiv.appendChild(feedbackDiv);
+             }
+
+             if (insightDiv.style.display === 'none' || insightDiv.style.display === '') {
+                 insightDiv.style.display = 'block';
+                 button.textContent = 'Ocultar Antídoto'; // Cambia texto del botón
+                 // Otorga puntos solo la primera vez
+                 if (!button.dataset.revealed) {
+                     let points = 0;
+                     // Intenta extraer puntos del texto del feedback interno
+                     const pointsText = insightDiv.innerText; // Tomar todo el texto interno
+                     const pointsMatch = pointsText.match(/(\+?\-?\d+)\s+Puntos/);
+                     if (pointsMatch && pointsMatch[1]) {
+                         points = parseInt(pointsMatch[1]);
+                         updatePoints(points);
+                         // Mostrar el feedback si existe y contiene puntos
+                          if(feedback) feedback.style.display = 'block';
+                          feedback.innerHTML = `<strong>INFO:</strong> +${points} Puntos Lógica reconocidos.`; // Actualizar feedback
+                     } else {
+                          console.warn("No se pudieron extraer puntos para:", insightId);
+                          if(feedback) feedback.style.display = 'none'; // Ocultar si no hay puntos
+                     }
+                      button.dataset.revealed = 'true';
+                 } else {
+                      // Si ya fue revelado, solo mostrar/ocultar el feedback si existe
+                      if(feedback) feedback.style.display = 'block';
+                 }
+             } else {
+                 insightDiv.style.display = 'none';
+                 button.textContent = 'Revelar Antídoto del Inversionista'; // Restaura texto
+                  // Ocultar feedback al ocultar insight
+                 if(feedback) feedback.style.display = 'none';
+             }
+        }
+
+
+        function showReflectionFeedback() {
+            const feedbackDiv = document.getElementById('feedback-reflection');
+            const form = document.getElementById('reflection-form'); // Referencia al form
+            const button = form.querySelector('button'); // Botón dentro del form
+
+            // Lógica simple de feedback basada en respuestas (ejemplo)
+            const motiveComunidad = document.getElementById('motive3').checked;
+            const pressureYes = document.getElementById('pressure_yes').checked;
+            const emotionYes = document.getElementById('emotion_yes').checked;
+
+            let message = "<strong>Reflexión Clave:</strong><br>";
+            let points = 0;
+
+            if (motiveComunidad || pressureYes || emotionYes) {
+                message += "Es crucial separar las motivaciones sociales/emocionales de las decisiones de negocio. Reconocer la presión o la toma de decisiones emocionales es el primer paso para corregirlo.<br>";
+                 points += 3; // Puntos por reconocerlo
+            } else {
+                 message += "Sea cual sea tu motivación principal, asegúrate de que tus acciones estén alineadas con un análisis RACIONAL de costos y beneficios.<br>";
+                 points += 2; // Puntos por reflexión general
+            }
+
+            message += "Ser honesto contigo mismo sobre resultados y expectativas es FUNDAMENTAL. Sigue cuestionando y analizando.";
+            points += 5; // Puntos por completar la reflexión
+
+             feedbackDiv.innerHTML = message;
+             feedbackDiv.className = 'feedback info'; // Feedback tipo informativo
+             feedbackDiv.style.display = 'block';
+
+
+             // Otorgar puntos y deshabilitar botón SOLO la primera vez
+             if (!button.dataset.feedbackGiven) {
+                updatePoints(points);
+                button.dataset.feedbackGiven = 'true';
+                button.disabled = true;
+                button.style.opacity = '0.6';
+                button.textContent = 'Feedback Recibido';
+             }
+        }
+
+
+         // Inicializar puntos al cargar
+         document.addEventListener('DOMContentLoaded', () => {
+             updatePoints(0); // Asegura que el contador muestre 0 al inicio del nivel
+             // Añadir puntos fijos por lectura (ejemplo)
+             const iaFeedback = document.querySelector('.interactive-section:nth-of-type(3) .feedback.info');
+             if (iaFeedback){
+                 const pointsMatch = iaFeedback.innerText.match(/(\+?\-?\d+)\s+Puntos/);
+                 if(pointsMatch && pointsMatch[1]) updatePoints(parseInt(pointsMatch[1]));
+             }
+         });
+
+    </script>
+</body>
+</html>

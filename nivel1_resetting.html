@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 1: La Promesa vs. La Realidad</title>
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5; /* Fondo suave */
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff; /* Contenedor blanco */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 8px solid #007bff; /* Borde azul vibrante */
+        }
+        h1, h2, h3 {
+            color: #0056b3; /* Azul oscuro para títulos */
+            margin-bottom: 15px;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            font-size: 2em;
+        }
+        p, li {
+            margin-bottom: 12px;
+            color: #555; /* Texto ligeramente más suave */
+        }
+        strong {
+            color: #0056b3;
+        }
+        em {
+            color: #d9534f; /* Énfasis en rojo para alertas */
+            font-weight: bold;
+        }
+
+        /* --- ESTILOS GAMIFICACIÓN --- */
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            width: 10%; /* Nivel 1 de 10 */
+            height: 100%;
+            background-color: #28a745; /* Verde progreso */
+            border-radius: 5px;
+            transition: width 0.5s ease-in-out;
+        }
+        .points-counter {
+            text-align: right;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ffc107; /* Amarillo para puntos */
+            margin-bottom: 20px;
+        }
+        .points-counter span {
+             background-color: #0056b3;
+             color: white;
+             padding: 5px 10px;
+             border-radius: 15px;
+        }
+
+        /* --- ESTILOS INTERACTIVOS --- */
+        .decision-point, .myth-buster, .stats-check, .case-study {
+            background-color: #f8f9fa; /* Fondo ligeramente gris para secciones interactivas */
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+        .decision-point h3, .myth-buster h3, .stats-check h3, .case-study h3 {
+            margin-top: 0;
+            color: #17a2b8; /* Cian para títulos interactivos */
+        }
+        button.decision-btn, button.quiz-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 10px;
+            background-color: #007bff; /* Botón azul primario */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: left;
+        }
+        button.decision-btn:hover, button.quiz-btn:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none; /* Oculto por defecto */
+        }
+        .feedback.correct {
+            background-color: #d4edda; /* Verde claro para correcto */
+            color: #155724; /* Verde oscuro texto */
+            border: 1px solid #c3e6cb;
+        }
+        .feedback.incorrect {
+            background-color: #f8d7da; /* Rojo claro para incorrecto */
+            color: #721c24; /* Rojo oscuro texto */
+            border: 1px solid #f5c6cb;
+        }
+        .feedback.info {
+            background-color: #d1ecf1; /* Cian claro para info */
+            color: #0c5460; /* Cian oscuro texto */
+            border: 1px solid #bee5eb;
+        }
+        .hidden-reality {
+            display: none; /* Oculto hasta hacer clic */
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-left: 3px solid #ffc107; /* Borde amarillo para la 'realidad' */
+        }
+         /* --- ESTILOS TABLA --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Filas pares con fondo gris claro */
+        }
+         /* --- BOTÓN SIGUIENTE NIVEL --- */
+         .next-level-btn {
+            display: block; /* Asegura que ocupa su propia línea */
+            width: fit-content; /* Se ajusta al tamaño del texto */
+            margin: 30px auto 0 auto; /* Centrado y con margen superior */
+            padding: 15px 30px;
+            background-color: #28a745; /* Verde para indicar avance */
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none; /* Quita subrayado si es un enlace */
+            border: none;
+            border-radius: 25px; /* Más redondeado */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+         }
+         .next-level-btn:hover {
+            background-color: #218838; /* Verde más oscuro al pasar */
+            transform: translateY(-2px); /* Ligero efecto de elevación */
+         }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 1: La Promesa vs. La Realidad</h1>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="points-counter">Puntos Lógica Inversora: <span id="points">0</span></div>
+
+        <h2>Bienvenida y Declaración de Intenciones</h2>
+        <p>¡Bienvenido/a! Estás a punto de iniciar un viaje transformador. Aquí, trataremos el Multinivel (MLM) con la seriedad que merece: <strong>como un negocio</strong>. Olvida por un momento la emoción, los sueños y la presión social. Ponte el sombrero de <strong>inversionista analítico</strong>. Nuestro objetivo es darte las herramientas para tomar decisiones lógicas, basadas en datos y orientadas a la rentabilidad real (o a una salida estratégica).</p>
+        <p><em>¿Estás listo/a para enfrentar la realidad, por incómoda que sea, y tomar el control?</em></p>
+
+        <!-- === Sección Mitos Comunes === -->
+        <div class="myth-buster">
+            <h3>Desmontando Mitos Comunes del MLM</h3>
+            <p>El MLM a menudo se vende con promesas brillantes. Analicemos las 3 más comunes con mentalidad crítica. Haz clic en cada mito para revelar la realidad:</p>
+
+            <div id="myth1">
+                <button class="decision-btn" onclick="toggleReality('reality1', 'myth1')"><strong>Mito 1:</strong> "Generarás Ingresos Pasivos Rápidamente"</button>
+                <div id="reality1" class="hidden-reality">
+                    <p><strong>Realidad del Inversionista:</strong> Los 'ingresos pasivos' en MLM generalmente requieren años de construcción de una red GRANDE, ACTIVA y PRODUCTIVA (que venda a clientes finales), además de un esfuerzo CONSTANTE de soporte, motivación y reemplazo de quienes abandonan. El 90% del trabajo es muy activo (ventas, prospección, seguimiento). La 'pasividad' es la excepción, no la regla, y suele llegar (si llega) mucho más tarde y con más esfuerzo del prometido. <em>¡Considera el tiempo como tu inversión más valiosa!</em></p>
+                    <p class="feedback info"><strong>+5 Puntos Claridad:</strong> Entender la diferencia entre ingreso activo y pasivo es crucial.</p>
+                </div>
+            </div>
+
+            <div id="myth2">
+                <button class="decision-btn" onclick="toggleReality('reality2', 'myth2')"><strong>Mito 2:</strong> "Alcanzarás la Libertad Financiera"</button>
+                 <div id="reality2" class="hidden-reality">
+                    <p><strong>Realidad del Inversionista:</strong> 'Libertad Financiera' significa tener suficientes ingresos pasivos para cubrir tus gastos de vida sin trabajar activamente. Si bien es *posible* en MLM para una minoría ínfima (a menudo los que entraron muy temprano o tenían ventajas previas), las estadísticas (que veremos) muestran que la GRAN MAYORÍA no alcanza ni un salario mínimo, mucho menos la libertad financiera. Depender de una sola fuente de ingresos volátil es lo opuesto a la seguridad financiera. <em>Define qué significa 'libertad financiera' PARA TI y calcula cuánto necesitarías REALMENTE.</em></p>
+                    <p class="feedback info"><strong>+5 Puntos Realismo:</strong> Alinear expectativas con datos es clave.</p>
+                </div>
+            </div>
+
+             <div id="myth3">
+                <button class="decision-btn" onclick="toggleReality('reality3', 'myth3')"><strong>Mito 3:</strong> "Este negocio se trata de Ayudar a Otros"</button>
+                 <div id="reality3" class="hidden-reality">
+                    <p><strong>Realidad del Inversionista:</strong> Si bien puedes sentir que ayudas a otros al ofrecer un producto o una 'oportunidad', el modelo de negocio MLM está estructuralmente diseñado para beneficiar principalmente a la empresa y a quienes están en la cima de la red. El reclutamiento es el motor financiero principal en muchos casos. La 'ayuda' puede ser un subproducto, pero pregúntate: ¿Es la forma MÁS EFECTIVA y ÉTICA de ayudar, considerando las altas tasas de fracaso y pérdida económica de los participantes? <em>Un negocio busca rentabilidad; la ayuda genuina debe evaluarse por separado.</em></p>
+                     <p class="feedback info"><strong>+5 Puntos Ética Empresarial:</strong> Analizar la intención vs. el resultado del modelo.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- === Sección Estadísticas Impactantes === -->
+        <div class="stats-check">
+             <h3>Estadísticas Impactantes (La Ducha Fría de Datos)</h3>
+             <p>Los números no mienten. Aunque las cifras exactas varían por país y empresa, estudios globales (como los de la FTC en EE.UU. o análisis independientes) pintan un cuadro consistente:</p>
+             <ul>
+                <li>Más del <strong>95%</strong> (y a menudo más del 99%) de los participantes de MLM <strong>gastan más dinero del que ganan</strong> o ganan cantidades insignificantes (menos del salario mínimo por hora trabajada).</li>
+                <li>La mayoría de las ganancias de la empresa y de los pocos que están en la cima proviene de las compras de los propios distribuidores (inventario, autoconsumo), no de ventas a clientes finales fuera de la red.</li>
+             </ul>
+             <p><strong>Reflexión de Inversionista:</strong> Operarías en un sector donde el 95-99% no tiene éxito financiero? Si decides hacerlo, necesitas una estrategia EXCEPCIONAL y un análisis riguroso.</p>
+
+             <h4>Comparativa Rápida (Ejemplo - Valores Ilustrativos):</h4>
+             <table>
+                <thead>
+                    <tr>
+                        <th>País (LatAm Ejemplo)</th>
+                        <th>Salario Mínimo Mensual (Aprox. USD)</th>
+                        <th>Ingreso Neto Mensual *Promedio* MLM (Estimado Estudios)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>México</td>
+                        <td>~ $350-400 USD</td>
+                        <td>< $50 USD (o negativo)</td>
+                    </tr>
+                     <tr>
+                        <td>Colombia</td>
+                        <td>~ $300-350 USD</td>
+                         <td>< $50 USD (o negativo)</td>
+                    </tr>
+                     <tr>
+                        <td>Perú</td>
+                        <td>~ $280-330 USD</td>
+                         <td>< $50 USD (o negativo)</td>
+                    </tr>
+                    <tr>
+                        <td>Argentina</td>
+                        <td>Variable (Inflación alta) ~ $150-250 USD</td>
+                         <td>< $50 USD (o negativo)</td>
+                    </tr>
+                </tbody>
+             </table>
+             <small>*Nota: Valores muy aproximados y pueden variar enormemente. El punto es la magnitud de la diferencia.*</small>
+
+             <div class="decision-point">
+                 <h3>Decisión Rápida: Interpretación</h3>
+                 <p>Al ver estas estadísticas, ¿cuál es la reacción MÁS LÓGICA para un aspirante a inversionista?</p>
+                 <button class="quiz-btn" onclick="handleQuiz('stats', 'A')">A) Ignorarlas, la motivación y el esfuerzo personal lo superan todo.</button>
+                 <button class="quiz-btn" onclick="handleQuiz('stats', 'B')">B) Sentirse desanimado y abandonar la idea inmediatamente.</button>
+                 <button class="quiz-btn" onclick="handleQuiz('stats', 'C')">C) Aceptarlas como un factor de riesgo MUY ALTO que exige un análisis profundo y una estrategia superior a la media si se decide proceder.</button>
+                 <div id="feedback-stats" class="feedback"></div>
+             </div>
+        </div>
+
+        <!-- === Sección Casos de Estudio === -->
+        <div class="case-study">
+            <h3>Casos de Estudio (Realidad LatAm)</h3>
+            <p>Veamos ejemplos rápidos para ilustrar:</p>
+            <ul>
+                <li><strong>Éxito (con asterisco):</strong> "David" (Suplementos) entró hace 8 años, tenía experiencia previa en ventas B2B y una red de contactos amplia. Invirtió fuerte en eventos y capacitación ($$$$) los primeros 3 años. Hoy tiene ingresos altos, pero admite que el 90% de su red gana poco o nada y el 'secreto' fue entrar temprano y su habilidad *previa*. <strong>Lección:</strong> El éxito existe, pero ¿es replicable HOY para alguien sin esas ventajas? ¿A qué costo?</li>
+                <li><strong>Fracaso Común:</strong> "Luisa" (Cosméticos) entró por una amiga, emocionada por los productos y la 'comunidad'. Invirtió en el kit grande y stock inicial ($500 USD). Presionada a comprar más para 'calificar'. Vendió algo a familia, pero le costaba encontrar clientes nuevos. Gastaba en gasolina, muestras, eventos. Después de 8 meses, calculó que había gastado $1200 y ganado $300. Abandonó endeudada y con relaciones tensas. <strong>Lección:</strong> La emoción no paga las cuentas. Los costos ocultos y la dificultad de venta real son factores clave.</li>
+                 <li><strong>Crypto MLM (Alto Riesgo):</strong> "Andrés" ganó dinero rápido en un MLM de criptomonedas. ¿Por qué? Entró en pleno 'boom' del mercado (2021), no tanto por el modelo MLM en sí. Cuando el mercado cripto cayó, la red colapsó, muchos perdieron todo. Él sacó ganancias a tiempo, pero admite que fue suerte y timing. <strong>Lección:</strong> No confundir la volatilidad del activo subyacente con la solidez del modelo de negocio. Riesgo extremo.</li>
+            </ul>
+
+             <div class="decision-point">
+                 <h3>Decisión Clave: Tu Enfoque</h3>
+                 <p>Tras escuchar estas historias (muy comunes), ¿qué enfoque adoptarás DE AHORA EN ADELANTE al evaluar tu participación en MLM?</p>
+                 <button class="quiz-btn" onclick="handleQuiz('approach', 'A')">A) Enfocarme sólo en las historias de éxito como inspiración.</button>
+                 <button class="quiz-btn" onclick="handleQuiz('approach', 'B')">B) Analizar CADA aspecto (costos, tiempo, producto, plan de compensación, estadísticas) con escepticismo y datos antes de invertir más tiempo o dinero.</button>
+                 <button class="quiz-btn" onclick="handleQuiz('approach', 'C')">C) Confiar en mi upline y en el sistema que me da la compañía.</button>
+                 <div id="feedback-approach" class="feedback"></div>
+             </div>
+        </div>
+
+         <!-- === Actividad y Reflexión Final === -->
+         <div class="myth-buster">
+             <h3>Actividad: Honestidad Brutal (Para ti)</h3>
+             <p>Tómate un minuto. Piensa en las promesas que TÚ escuchaste al entrar (o considerar entrar). ¿Cuáles se han cumplido HASTA AHORA, basándote en tu experiencia y los datos vistos hoy?</p>
+             <textarea id="reflection" rows="4" style="width: 95%; padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px;" placeholder="Escribe aquí tu reflexión personal. No se guardará, es solo para ti."></textarea>
+             <p><small>Este ejercicio es para tu autoconciencia. La honestidad contigo mismo es el primer paso del inversionista.</small></p>
+         </div>
+
+        <h2>Reflexión Final del Nivel 1</h2>
+        <p>Hoy hemos empezado a quitar la maleza de las promesas y a mirar el terreno real del MLM con ojos de inversionista. Hemos visto que los mitos comunes chocan con la realidad estadística y los casos prácticos. Entender esto no es para desanimarte, sino para <strong>empoderarte</strong>. Un inversionista informado toma mejores decisiones.</p>
+        <p><strong>Puntos Clave de Hoy:</strong> Cuestiona los mitos, enfrenta las estadísticas, analiza los casos y sé honesto contigo mismo.</p>
+      
+  </div>
+
+    <script>
+        let userPoints = 0;
+
+        function updatePoints(points) {
+            userPoints += points;
+            document.getElementById('points').innerText = userPoints;
+        }
+
+        function toggleReality(realityId, mythId) {
+            const realityDiv = document.getElementById(realityId);
+            const mythDiv = document.getElementById(mythId);
+            const feedback = realityDiv.querySelector('.feedback');
+            const button = mythDiv.querySelector('button'); // Seleccionar el botón
+
+            if (realityDiv.style.display === 'none' || realityDiv.style.display === '') {
+                realityDiv.style.display = 'block';
+                // Da puntos solo la primera vez que se revela y deshabilita parcialmente
+                 if (button && !button.dataset.revealed) {
+                    try {
+                         // Extraer puntos del texto del feedback
+                         const pointsText = feedback.innerText;
+                         const pointsMatch = pointsText.match(/(\+?\-?\d+)\s+Puntos/);
+                         if (pointsMatch && pointsMatch[1]) {
+                            const points = parseInt(pointsMatch[1]);
+                            updatePoints(points);
+                         } else {
+                             console.warn("No se pudieron extraer los puntos del feedback:", pointsText);
+                         }
+                    } catch (e) {
+                         console.error("Error al procesar puntos del feedback:", e);
+                    }
+                    button.dataset.revealed = 'true'; // Marca como revelado
+                    feedback.style.display = 'block'; // Muestra el feedback de puntos
+                    // Opcional: Cambiar estilo del botón para indicar que ya se usó
+                    // button.style.opacity = '0.7';
+                    // button.style.cursor = 'default';
+                 }
+            } else {
+                realityDiv.style.display = 'none'; // Ocultar si se vuelve a hacer clic
+            }
+        }
+
+
+         function handleQuiz(quizId, chosenAnswer) {
+            const feedbackDiv = document.getElementById(`feedback-${quizId}`);
+            let points = 0;
+            let message = '';
+            let correct = false; // Cambiado a booleano para claridad
+            let feedbackType = 'incorrect'; // Tipo de feedback CSS
+
+             // Encuentra el contenedor del quiz para deshabilitar botones y marcar como respondido
+            const quizContainer = feedbackDiv.closest('.decision-point');
+
+
+            // --- Evitar sumar puntos si ya se respondió ---
+            if (quizContainer && quizContainer.dataset.answered === 'true') {
+                // Mostrar el feedback anterior si ya existe, o simplemente no hacer nada más
+                const existingFeedback = feedbackDiv.innerHTML;
+                 if(!existingFeedback) { // Si por alguna razón no hay feedback previo, calcularlo de nuevo pero sin puntos
+                    // (Lógica de cálculo de mensaje sin updatePoints iría aquí si fuera necesario)
+                     // Por ahora, simplemente salimos para evitar recalcular y mostrar de nuevo.
+                     console.log("Quiz ya respondido:", quizId);
+                } else {
+                     feedbackDiv.style.display = 'block'; // Asegurarse de que el feedback previo sea visible
+                }
+                return;
+            }
+            // --- Fin de la comprobación ---
+
+
+            // Deshabilitar botones después de elegir (Solo la primera vez)
+            const buttons = quizContainer.querySelectorAll('.quiz-btn');
+            buttons.forEach(button => {
+                button.disabled = true;
+                 button.style.opacity = '0.6'; // Estilo para indicar deshabilitado
+                 button.style.cursor = 'default';
+            });
+
+             // Marcar el contenedor como respondido
+            if (quizContainer) {
+                 quizContainer.dataset.answered = 'true';
+            }
+
+
+            // Lógica de puntos y mensajes (como la tenías)
+            if (quizId === 'stats') {
+                if (chosenAnswer === 'C') {
+                    points = 15;
+                    message = '¡Excelente! Mentalidad de inversionista puro... (+15 Pts Lógica).';
+                    correct = true;
+                    feedbackType = 'correct';
+                } else if (chosenAnswer === 'A') {
+                    points = -10;
+                    message = '¡Alerta Emocional! Ignorar datos es receta para fracaso... (-10 Pts Lógica).';
+                    correct = false;
+                    feedbackType = 'incorrect';
+                } else { // B
+                    points = 0;
+                    message = 'Comprensible, pero inversionista analiza antes de descartar... (0 Puntos).';
+                    correct = false; // O podrías considerarlo 'info'
+                    feedbackType = 'info';
+                }
+            } else if (quizId === 'approach') {
+                 if (chosenAnswer === 'B') {
+                    points = 20;
+                    message = '¡Perfecto! Enfoque inversionista. Análisis crítico, escepticismo, EVIDENCIA... (+20 Pts Lógica).';
+                    correct = true;
+                    feedbackType = 'correct';
+                } else if (chosenAnswer === 'A') {
+                    points = -15;
+                    message = '¡Peligro! Sesgo Supervivencia... (-15 Pts Lógica).';
+                    correct = false;
+                    feedbackType = 'incorrect';
+                } else { // C
+                    points = -10;
+                    message = '¡Cuidado! Mentalidad seguidor... (-10 Pts Lógica).';
+                    correct = false;
+                    feedbackType = 'incorrect';
+                }
+            }
+
+             // Actualizar puntos SOLO si es la primera respuesta
+             updatePoints(points);
+
+
+             // Mostrar feedback
+             feedbackDiv.innerHTML = message;
+             feedbackDiv.className = 'feedback'; // Reset class
+             feedbackDiv.classList.add(feedbackType); // Añadir la clase correcta
+             feedbackDiv.style.display = 'block';
+         }
+
+         // Inicializar puntos al cargar
+         document.addEventListener('DOMContentLoaded', () => {
+             updatePoints(0); // Asegura que el contador muestre 0 al inicio
+         });
+
+    </script>
+</body>
+</html>

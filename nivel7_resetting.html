@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 7: Liderazgo Consciente y Ético en MLM</title>
+    <style>
+        /* --- ESTILOS GENERALES (Consistente, color tema liderazgo/ética) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid #28a745; /* Verde para crecimiento/ética */ }
+        h1, h2, h3 { color: #1e7e34; /* Verde oscuro */ margin-bottom: 15px; }
+        h1 { text-align: center; border-bottom: 2px solid #28a745; padding-bottom: 10px; font-size: 2em; }
+        p, li { margin-bottom: 12px; color: #555; }
+        strong { color: #1e7e34; }
+        em { color: #007bff; font-weight: bold; } /* Azul para énfasis positivo */
+        code { background-color: #e9ecef; padding: 2px 5px; border-radius: 3px; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; }
+        textarea { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px; font-family: inherit; font-size: 1em; }
+        input[type=text], select { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; }
+        input:focus, textarea:focus, select:focus { border-color: #28a745; outline: none; }
+
+        /* --- ESTILOS GAMIFICACIÓN (Consistente) --- */
+        .progress-bar-container { width: 100%; background-color: #e9ecef; border-radius: 5px; margin-bottom: 20px; height: 10px; overflow: hidden; }
+        .progress-bar { width: 70%; /* Nivel 7 de 10 */ height: 100%; background-color: #28a745; border-radius: 5px; transition: width 0.5s ease-in-out; }
+        .points-counter { text-align: right; font-size: 1.2em; font-weight: bold; color: #ffc107; margin-bottom: 20px; }
+        .points-counter span { background-color: #1e7e34; color: white; padding: 5px 10px; border-radius: 15px; }
+
+        /* --- ESTILOS INTERACTIVOS (Liderazgo y Ética) --- */
+        .leadership-section { background-color: #eafaf1; /* Verde muy pálido */ border: 1px solid #c3e6cb; padding: 20px; margin-top: 25px; margin-bottom: 25px; border-radius: 8px; }
+        .leadership-section h3 { margin-top: 0; color: #155724; } /* Verde más oscuro subsecciones */
+        .principle-box { background-color: #fff; border: 1px solid #ddd; border-left: 5px solid #28a745; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .principle-box h4 { margin-top: 0; margin-bottom: 5px; color: #1e7e34; }
+        .scenario-box { border: 1px dashed #ccc; padding: 15px; margin-top: 15px; border-radius: 5px; background-color: #f8f9fa; }
+        .scenario-box p { font-style: italic; margin-bottom: 15px; }
+        .scenario-box button { display: block; width: 100%; padding: 10px 15px; margin-top: 8px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 0.95em; cursor: pointer; transition: background-color 0.3s ease; text-align: left; }
+        .scenario-box button:hover { background-color: #0056b3; }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; display: none; }
+        .feedback.correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .feedback.incorrect { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } /* Rojo para no ético */
+        .feedback.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .checklist-item { margin-bottom: 10px; }
+        .checklist-item input[type="checkbox"] { margin-right: 10px; vertical-align: middle; } /* Alineado checkbox */
+        .checklist-item label { font-weight: normal; display: inline; vertical-align: middle; } /* Alineado label */
+
+        /* --- BOTÓN SIGUIENTE NIVEL (ESTILO AÚN PRESENTE PERO EL BOTÓN NO SE USA) --- */
+         .next-level-btn { display: block; width: fit-content; margin: 30px auto 0 auto; padding: 15px 30px; background-color: #28a745; color: white; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+         .next-level-btn:hover { background-color: #218838; transform: translateY(-2px); }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 7: Liderazgo Consciente - Construyendo (si decides) un Equipo Ético y Sostenible</h1>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="points-counter">Puntos Lógica Inversora (Nivel 7): <span id="points">0</span></div>
+
+        <h2>Recap Nivel 6: Tu Plan Estratégico</h2>
+        <p>¡Ya tienes tu plan de negocio! Ahora, si parte de tu estrategia incluye construir una red (downline), surge una pregunta CRUCIAL: <strong>¿Es posible construir un equipo en MLM de forma ética y sostenible, sin recurrir a las tácticas de presión y manipulación que criticamos en el Nivel 2?</strong></p>
+        <p>La respuesta corta es: <em>Es difícil, pero no imposible si aplicas principios de liderazgo consciente y ético.</em> Este nivel te dará las herramientas para intentarlo, o para aplicar estos principios en cualquier otro ámbito empresarial.</p>
+        <p><em>Objetivo de este nivel: Desarrollar habilidades de liderazgo ético para reclutar, capacitar y motivar a un equipo (si aplica) basado en la transparencia, el respeto y el enfoque en resultados REALISTAS, aplicando conceptos de HBS como Negociación Basada en Principios y Liderazgo Adaptativo.</em></p>
+
+
+        <!-- === Sección Reclutamiento Ético === -->
+        <div class="leadership-section">
+            <h3>Reclutamiento Ético: Transparencia Radical (Aplicando HBS)</h3>
+            <p>Olvídate de "cerrar" a cualquiera. Busca construir relaciones profesionales basadas en la honestidad. Principios clave:</p>
+
+            <div class="principle-box">
+                 <h4>1. Transparencia TOTAL sobre la Oportunidad</h4>
+                 <p>Presenta la realidad completa: <strong>Pros Y CONTRAS</strong>. Usa tus propios cálculos (o los promedios realistas si no tienes datos propios aún) de Niveles 4 y 5.</p>
+                 <ul>
+                     <li>Menciona la inversión inicial y gastos mensuales REALES.</li>
+                     <li>Habla del TIEMPO necesario y del esfuerzo requerido.</li>
+                     <li>Muestra estadísticas REALISTAS de éxito/fracaso (las del Nivel 1).</li>
+                     <li>Explica claramente el plan de compensación (la parte de ventas vs. la de reclutamiento).</li>
+                 </ul>
+                 <!-- <p><em>"Prefiero un 'no' informado ahora..."</em> (+10 Puntos Ética)</p> --> <!-- Puntos gestionados en JS -->
+            </div>
+
+             <div class="principle-box">
+                 <h4>2. CERO Presión, CERO FOMO</h4>
+                 <p>Dale al prospecto toda la información y el TIEMPO para analizarla y tomar SU decisión. Nada de "ofertas que terminan ya" o "tienes que decidir ahora".</p>
+                 <!-- <p><em>Un verdadero líder respeta la autonomía del otro.</em> (+5 Puntos Respeto)</p> -->
+            </div>
+
+             <div class="principle-box">
+                 <h4>3. Enfoque en el Perfil CORRECTO (Calidad sobre Cantidad)</h4>
+                 <p>Busca personas con el perfil que definiste en tu plan (Nivel 6): mentalidad empresarial, ética de trabajo, capacidad/voluntad de inversión realista (tiempo/dinero), autodisciplina. </p>
+                 <!-- <p><em>No reclutes por desesperación...</em> (+5 Puntos Estrategia)</p> -->
+            </div>
+
+             <div class="principle-box">
+                 <h4>4. Negociación Basada en Principios (Harvard)</h4>
+                 <p>En la conversación, enfócate en:</p>
+                 <ul>
+                     <li><strong>Intereses, no Posiciones:</strong> ¿Qué busca REALMENTE el prospecto?</li>
+                     <li><strong>Opciones de Mutuo Beneficio:</strong> Explora si esta es la MEJOR opción para sus intereses.</li>
+                     <li><strong>Criterios Objetivos:</strong> Usa datos (costos, ganancias promedio, tiempo).</li>
+                 </ul>
+                 <!-- <p><em>El objetivo no es 'ganar' el recluta, sino encontrar buen encaje.</em> (+10 Puntos HBS Aplicado)</p> -->
+            </div>
+
+            <div class="scenario-box">
+                <h4>Escenario de Reclutamiento: ¿Qué Harías?</h4>
+                <p>Hablas con Ana, una amiga desempleada y algo desesperada. Le encanta el producto pero duda de invertir. Tu upline te presiona para 'cerrarla' hoy mismo porque hay una 'promo'.</p>
+                <button onclick="handleScenario('recruit_pressure', 'feedback-recruit', -10, this)">A) Presionarla suavemente, enfocándote en la promo y lo mucho que 'necesita' esto.</button>
+                <button onclick="handleScenario('recruit_honest', 'feedback-recruit', 15, this)">B) Explicarle con total honestidad los costos, el tiempo requerido, las bajas probabilidades promedio de éxito rápido, y darle tiempo para pensarlo, sugiriendo incluso que explore otras opciones laborales también.</button>
+                 <button onclick="handleScenario('recruit_upline', 'feedback-recruit', -10, this)">C) Seguir el consejo del upline, cerrar la promo y 'ayudarla' a encontrar el dinero.</button>
+                <div id="feedback-recruit" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- === Sección Capacitación y Soporte Realista === -->
+        <div class="leadership-section">
+            <h3>Capacitación y Soporte Realista (Más Allá de la Motivación Vacía)</h3>
+            <p>Si formas un equipo, tu rol como líder ético es:</p>
+            <ul>
+                <li><strong>Enseñar Habilidades de NEGOCIO Reales:</strong>
+                    <ul>
+                        <li>Técnicas de Venta Consultiva.</li>
+                        <li>Marketing Digital Básico (no spam).</li>
+                        <li>Gestión Financiera Personal.</li>
+                        <li>Planificación y Gestión del Tiempo.</li>
+                    </ul>
+                </li>
+                 <li><strong>Fomentar el Pensamiento CRÍTICO.</strong></li>
+                 <li><strong>Establecer Expectativas REALISTAS.</strong></li>
+                 <li><strong>Celebrar el ESFUERZO y el APRENDIZAJE (Growth Mindset - Dweck).</strong></li>
+                <li><strong>Ser el Ejemplo de Ética y Transparencia.</strong></li>
+            </ul>
+             <p class="feedback info" style="display: block;"><strong>Liderazgo Transformacional vs. Transaccional:</strong> ...dándoles habilidades y mentalidad empresarial real. </p> <!-- Puntos asociados en JS si se desea -->
+        </div>
+
+
+        <!-- === Sección Liderazgo Adaptativo === -->
+        <div class="leadership-section">
+            <h3>Liderazgo Adaptativo (Harvard - Heifetz): Navegando la Realidad</h3>
+            <p>El MLM está lleno de desafíos complejos sin respuestas fáciles (desafíos adaptativos). Un líder adaptativo:</p>
+            <div class="principle-box">
+                 <h4>1. Diagnostica la Situación REAL (Sale al "Balcón")</h4>
+                 <p>Observa objetivamente lo que pasa... ¿VERDADEROS obstáculos?</p>
+            </div>
+             <div class="principle-box">
+                 <h4>2. Interviene con Habilidad (No da Falsas Soluciones)</h4>
+                 <p>Hace preguntas difíciles, expone los conflictos...</p>
+             </div>
+             <div class="principle-box">
+                  <h4>3. Orienta, no Manda (Devuelve el Trabajo al Equipo)</h4>
+                  <p>Empodera al equipo para que encuentren SUS PROPIAS soluciones...</p>
+             </div>
+             <div class="principle-box">
+                  <h4>4. Protege las Voces Disidentes</h4>
+                  <p>Escucha activamente a quienes expresan dudas o críticas constructivas...</p>
+             </div>
+
+            <div class="scenario-box">
+                <h4>Escenario de Liderazgo: ¿Qué Harías?</h4>
+                <p>Varios miembros de tu equipo se quejan de que invierten mucho tiempo pero apenas ganan dinero, y están desmotivados. Tu upline dice que "les falta creencia" y que deben "trabajar más duro".</p>
+                <button onclick="handleScenario('lead_ignore', 'feedback-lead', -10, this)">A) Repetir el discurso del upline: "¡Necesitan más pasión y acción masiva!"</button>
+                <button onclick="handleScenario('lead_listen', 'feedback-lead', 15, this)">B) Escucharlos activamente, validar sus frustraciones, analizar JUNTOS sus números reales (costos vs. ingresos vs. tiempo), y explorar ESTRATEGIAS REALISTAS para mejorar la rentabilidad (o considerar si el modelo es viable para ellos).</button>
+                <button onclick="handleScenario('lead_technical', 'feedback-lead', -10, this)">C) Darles un nuevo guion de ventas o una táctica de redes sociales como solución rápida.</button>
+                <div id="feedback-lead" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- === Sección Cultura de Honestidad y Debate Ético === -->
+        <div class="leadership-section">
+            <h3>Creando una Cultura de Honestidad Radical</h3>
+            <p>La base de un equipo sostenible (si es posible en MLM) es la confianza, y la confianza nace de la honestidad.</p>
+            <ul>
+                <li><strong>Sé el Ejemplo:</strong> No exageres tus propios resultados...</li>
+                <li><strong>Comparte Datos Reales (Agregados/Anónimos):</strong> ...para mantener los pies en la tierra.</li>
+                <li><strong>Fomenta la Comunicación Abierta:</strong> ...hablar de desafíos SIN miedo.</li>
+                <li><strong>No Tolerancia a Prácticas Engañosas:</strong> ...líneas rojas claras.</li>
+            </ul>
+
+             <h4>Debate Ético Abierto (Para Reflexión Personal)</h4>
+             <form id="ethics-reflection">
+                 <div class="checklist-item">
+                     <input type="checkbox" id="ethics1" name="ethics"> <label for="ethics1">¿Es posible construir un GRAN equipo en MLM SIN caer en ALGUNA forma de exageración, presión sutil o promoción de un sistema con probabilidades de éxito bajas?</label>
+                 </div>
+                  <div class="checklist-item">
+                      <input type="checkbox" id="ethics2" name="ethics"> <label for="ethics2">Si mi upline me presiona a usar tácticas que considero poco éticas, ¿cómo manejaré la situación manteniendo mi integridad Y (si es posible) la relación profesional?</label>
+                 </div>
+                 <div class="checklist-item">
+                      <input type="checkbox" id="ethics3" name="ethics"> <label for="ethics3">¿Dónde está MI línea ética personal en términos de promesas, reclutamiento y promoción de productos?</label>
+                 </div>
+             </form>
+              <p class="feedback info" style="display: block;">Reflexionar sobre estos dilemas es parte del liderazgo consciente. No hay respuestas fáciles, pero tener claridad sobre tus valores es fundamental. </p> <!-- Puntos asociados en JS si se desea -->
+        </div>
+
+        <!-- === Mención IA para Gestión de Equipos === -->
+         <div class="leadership-section" style="background-color: #e9ecef; border-color:#dee2e6;">
+            <h3 style="color: #6c757d;">IA para Gestión de Equipos (Si Crece)</h3>
+            <p>Si tu equipo crece significativamente, herramientas con IA podrían ayudar a:</p>
+            <ul>
+                <li>Optimizar la comunicación grupal.</li>
+                <li>Realizar seguimiento de tareas o metas (si se establecen).</li>
+                <li>Analizar (con ética y transparencia) patrones de desempeño para identificar necesidades de apoyo.</li>
+            </ul>
+            <p><em>Siempre priorizando la conexión humana y la ética sobre la automatización fría.</em></p>
+             <!-- <p class="feedback info" style="display: block;"><strong>+2 Puntos Visión Tecnológica</strong></p> --> <!-- Puntos asociados en JS si se desea -->
+         </div>
+
+
+        <h2>Reflexión Final del Nivel 7</h2>
+        <p>Liderar en MLM (o en cualquier negocio) requiere más que carisma; exige <strong>integridad, estrategia y una profunda conciencia</strong> de la realidad humana y financiera. Has explorado cómo reclutar con transparencia, capacitar con realismo y aplicar principios de liderazgo adaptativo.</p>
+        <p><strong>El liderazgo real no manipula; inspira, desarrolla y empodera con honestidad.</strong> Un equipo construido sobre estas bases (si el modelo de negocio lo permite) será más resiliente, más sostenible y, sobre todo, más ético.</p>
+        <p><strong>Puntos Clave de Hoy:</strong> Recluta con transparencia radical (costos, tiempo, probabilidades). Capacita en habilidades reales, no solo motivación. Aplica Liderazgo Adaptativo (diagnostica, interviene con habilidad, orienta). Fomenta una cultura de honestidad. Define tus líneas éticas.</p>
+        <p>Ahora que sabes cómo liderar éticamente (si eliges construir equipo), el Nivel 8 explorará cómo <strong>diversificar tus ingresos y construir tu marca personal</strong>, para no depender exclusivamente del MLM.</p>
+
+        <!-- EL BOTÓN FINAL HA SIDO ELIMINADO -->
+        <!-- Ya no hay botón <a href="..." class="next-level-btn"> aquí -->
+
+    </div>
+
+    <script>
+        let userPoints = 0; // Reinicia en cada nivel
+
+        function updatePoints(points) {
+            userPoints += points;
+            document.getElementById('points').innerText = userPoints;
+             const pointsSpan = document.getElementById('points');
+             pointsSpan.style.transform = 'scale(1.2)';
+             pointsSpan.style.transition = 'transform 0.2s ease-out';
+             setTimeout(() => { pointsSpan.style.transform = 'scale(1)'; }, 200);
+        }
+
+        // Variable para rastrear si los puntos de un escenario específico ya se dieron
+        const scenarioAnswered = {};
+
+        function handleScenario(scenarioChoice, feedbackId, pointsValue, buttonElement) {
+             const feedbackDiv = document.getElementById(feedbackId);
+             const scenarioContainer = buttonElement.closest('.scenario-box');
+             const scenarioKey = feedbackId; // Usar el ID del feedback como clave única
+
+             // Evitar recalcular si ya se respondió
+             if (scenarioAnswered[scenarioKey]) {
+                 feedbackDiv.style.display = 'block'; // Mostrar feedback anterior
+                 return;
+             }
+
+             let message = '';
+             let type = 'incorrect';
+             let points = pointsValue; // Usar el valor pasado
+
+             // Deshabilitar botones del escenario
+             const buttons = scenarioContainer.querySelectorAll('button');
+             buttons.forEach(btn => { btn.disabled = true; btn.style.opacity = '0.6'; btn.style.cursor = 'default'; });
+
+             // Lógica específica por escenario (simplificada, asume que el 'correcto' tiene puntos positivos)
+             if (scenarioChoice.includes('honest') || scenarioChoice.includes('listen')) {
+                 if (points > 0) { // Asume que la opción correcta tiene puntos positivos
+                     message = `¡Excelente! Decisión ética y de liderazgo. ${points > 0 ? '(+' + points + ' Pts)' : ''}`;
+                     type = 'correct';
+                 } else {
+                      message = `Respuesta razonable, pero evalúa implicaciones. ${points !== 0 ? '(' + points + ' Pts)' : ''}`;
+                      type = 'info';
+                 }
+             } else {
+                 message = `Decisión no óptima desde perspectiva ética/estratégica. ${points !== 0 ? '(' + points + ' Pts)' : ''}`;
+             }
+
+             // Mostrar feedback
+              feedbackDiv.innerHTML = message;
+              feedbackDiv.className = 'feedback ' + type;
+              feedbackDiv.style.display = 'block';
+
+             // Marcar como respondido y sumar puntos
+              scenarioAnswered[scenarioKey] = true;
+              updatePoints(points);
+        }
+
+
+        // Añadir puntos fijos por lectura al cargar la página (si se desea)
+         document.addEventListener('DOMContentLoaded', () => {
+             updatePoints(0); // Inicia puntos en 0
+             // Ejemplo:
+             // updatePoints(10); // Por leer sección Reclutamiento Ético
+             // updatePoints(5); // Por leer sección Capacitación
+             // updatePoints(5); // Por leer sección Liderazgo Adaptativo
+             // updatePoints(5); // Por leer sección Honestidad
+             // updatePoints(2); // Por leer sección IA
+             // document.getElementById('points').innerText = userPoints;
+         });
+
+    </script>
+</body>
+</html>

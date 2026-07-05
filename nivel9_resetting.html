@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 9: La Salida Inteligente del MLM</title>
+    <style>
+        /* --- ESTILOS GENERALES (Consistente, color tema salida/decisión) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid #6c757d; /* Gris para neutralidad/decisión */ }
+        h1, h2, h3 { color: #495057; /* Gris oscuro */ margin-bottom: 15px; }
+        h1 { text-align: center; border-bottom: 2px solid #6c757d; padding-bottom: 10px; font-size: 2em; }
+        p, li { margin-bottom: 12px; color: #555; }
+        strong { color: #343a40; /* Gris más oscuro */ }
+        em { color: #dc3545; font-weight: bold; } /* Rojo para alertas/señales */
+        code { background-color: #e9ecef; padding: 2px 5px; border-radius: 3px; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; }
+        textarea { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px; font-family: inherit; font-size: 1em; }
+
+        /* --- ESTILOS GAMIFICACIÓN (Consistente) --- */
+        .progress-bar-container { width: 100%; background-color: #e9ecef; border-radius: 5px; margin-bottom: 20px; height: 10px; overflow: hidden; }
+        .progress-bar { width: 90%; /* Nivel 9 de 10 */ height: 100%; background-color: #28a745; border-radius: 5px; transition: width 0.5s ease-in-out; }
+        .points-counter { text-align: right; font-size: 1.2em; font-weight: bold; color: #ffc107; margin-bottom: 20px; }
+        .points-counter span { background-color: #495057; color: white; padding: 5px 10px; border-radius: 15px; }
+
+        /* --- ESTILOS INTERACTIVOS (Señales de Alarma, Estrategias de Salida) --- */
+        .exit-section { background-color: #f8f9fa; /* Gris muy pálido */ border: 1px solid #dee2e6; padding: 20px; margin-top: 25px; margin-bottom: 25px; border-radius: 8px; }
+        .exit-section h3 { margin-top: 0; color: #343a40; } /* Gris más oscuro subsecciones */
+        .signal-box { background-color: #fff; border: 1px solid #ddd; border-left: 5px solid #dc3545; /* Rojo alerta */ padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .signal-box h4 { margin-top: 0; margin-bottom: 5px; color: #721c24; } /* Rojo oscuro títulos alerta */
+        .strategy-step { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ccc; }
+        .strategy-step:last-child { border-bottom: none; }
+        .strategy-step h4 { color: #495057; }
+        .action-list li { list-style-type: disc; margin-left: 20px;}
+        button.decision-btn { display: block; width: 100%; padding: 10px 15px; margin-top: 8px; background-color: #6c757d; color: white; border: none; border-radius: 5px; font-size: 0.95em; cursor: pointer; transition: background-color 0.3s ease; text-align: left; }
+        button.decision-btn:hover { background-color: #5a6268; }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; display: none; }
+        .feedback.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .feedback.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+         .feedback.warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; } /* Amarillo advertencia */
+         .feedback.incorrect { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } /* Añadido incorrect */
+        .checklist-item { margin-bottom: 10px; }
+        .checklist-item input[type="checkbox"] { margin-right: 10px; transform: scale(1.1); vertical-align: middle;} /* Alineado */
+        .checklist-item label { font-weight: normal; display: inline; vertical-align: middle;} /* Alineado */
+        .scenario-box { border: 1px dashed #ccc; padding: 15px; margin-top: 15px; border-radius: 5px; background-color: #f8f9fa; } /* Estilo para caja escenario */
+        .scenario-box p { font-style: italic; margin-bottom: 15px; }
+        .scenario-box button { display: block; width: 100%; padding: 10px 15px; margin-top: 8px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 0.95em; cursor: pointer; transition: background-color 0.3s ease; text-align: left; }
+        .scenario-box button:hover { background-color: #0056b3; }
+
+
+        /* --- BOTÓN SIGUIENTE NIVEL (ESTILO AÚN PRESENTE PERO EL BOTÓN NO SE USA) --- */
+         .next-level-btn { display: block; width: fit-content; margin: 30px auto 0 auto; padding: 15px 30px; background-color: #28a745; color: white; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+         .next-level-btn:hover { background-color: #218838; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 9: La Salida Inteligente - Protegiendo Capital y Reputación</h1>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="points-counter">Puntos Lógica Inversora (Nivel 9): <span id="points">0</span></div>
+
+        <h2>Recap Nivel 8: Diversificación y Marca Personal</h2>
+        <p>Has explorado cómo construir un futuro financiero más seguro diversificando y fortaleciendo tu marca personal. Ahora, abordamos una decisión estratégica clave: <strong>saber CUÁNDO es el momento de salir de una inversión o negocio que ya no es rentable o sostenible</strong>, como puede ser el caso de tu participación en MLM.</p>
+        <p>Salir no es fracasar. Es una <strong>decisión de negocio inteligente</strong> basada en datos y análisis, que te permite reasignar tus valiosos recursos (tiempo, dinero, energía) a oportunidades más prometedoras (quizás las que identificaste en el Nivel 8).</p>
+        <p><em>Objetivo de este nivel: Aprender a reconocer las SEÑALES DE ALARMA que indican que es hora de salir del MLM, y conocer las ESTRATEGIAS para hacerlo de forma ordenada, minimizando pérdidas financieras y protegiendo tu red de contactos y reputación.</em></p>
+        <!-- <p><strong>Mentalidad Growth Mindset (Dweck) aplicada a la Salida:</strong> <em>Ver la salida no como un fracaso personal...</em> (+10 Puntos por Madurez Empresarial)</p> --> <!-- Puntos gestionados en JS si se desea -->
+
+        <!-- === Sección Señales de Alarma === -->
+        <div class="exit-section">
+            <h3>Reconociendo las Señales de Alarma (¡Escucha a los Datos!)</h3>
+            <p>Tu análisis de los niveles anteriores (especialmente Nivel 5: ROI y Ganancia/Hora) es clave. ¿Identificas alguna de estas señales persistentes?</p>
+
+            <form id="warning-signals-checklist">
+                <div class="signal-box">
+                    <h4>1. Rentabilidad Consistentemente Negativa o Muy Baja</h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="signal1" name="signals"> <label for="signal1">¿Tus cálculos (Nivel 5) muestran pérdidas mes tras mes, o una ganancia por hora muy por debajo del mínimo aceptable para ti, a pesar de aplicar estrategias y esfuerzo sostenido?</label>
+                    </div>
+                </div>
+                 <div class="signal-box">
+                    <h4>2. Cambios Negativos en la Empresa</h4>
+                     <div class="checklist-item">
+                        <input type="checkbox" id="signal2" name="signals"> <label for="signal2">¿La empresa ha cambiado el plan de compensación de forma desfavorable, ha empeorado la calidad del producto, o ha modificado políticas clave en tu contra?</label>
+                    </div>
+                </div>
+                <div class="signal-box">
+                     <h4>3. Problemas Legales o Regulatorios</h4>
+                      <div class="checklist-item">
+                        <input type="checkbox" id="signal3" name="signals"> <label for="signal3">¿La empresa enfrenta demandas importantes, investigaciones por parte de autoridades (FTC, PROFECO, etc.), o tiene mala prensa recurrente sobre sus prácticas?</label>
+                    </div>
+                </div>
+                 <div class="signal-box">
+                     <h4>4. Saturación Evidente del Mercado</h4>
+                      <div class="checklist-item">
+                        <input type="checkbox" id="signal4" name="signals"> <label for="signal4">¿Te resulta cada vez más difícil encontrar nuevos clientes O reclutas porque 'todo el mundo' en tu zona ya conoce la marca o ha sido contactado?</label>
+                    </div>
+                 </div>
+                 <div class="signal-box">
+                     <h4>5. Desgaste Personal Extremo</h4>
+                     <div class="checklist-item">
+                        <input type="checkbox" id="signal5" name="signals"> <label for="signal5">¿El negocio está afectando gravemente tu salud (estrés, ansiedad), tus finanzas personales (deudas) o tus relaciones sociales/familiares?</label>
+                    </div>
+                 </div>
+                  <div class="signal-box">
+                     <h4>6. Conflicto Ético Insostenible</h4>
+                      <div class="checklist-item">
+                        <input type="checkbox" id="signal6" name="signals"> <label for="signal6">¿Sientes que para tener éxito (o simplemente para cumplir con lo que pide tu línea ascendente) tienes que comprometer constantemente tus valores o usar tácticas con las que no estás cómodo/a?</label>
+                    </div>
+                  </div>
+            </form>
+             <button type="button" class="decision-btn" style="background-color:#dc3545; margin-top:20px;" onclick="evaluateSignals()">Evaluar Señales de Alarma</button>
+             <div id="feedback-signals" class="feedback"></div>
+        </div>
+
+
+        <!-- === Sección Estrategias para Salir Ordenadamente === -->
+        <div class="exit-section">
+            <h3>Estrategias para una Salida Ordenada y Profesional</h3>
+            <p>Si has decidido que es momento de salir, hazlo con cabeza fría y estrategia, no con portazos emocionales.</p>
+
+            <div class="strategy-step">
+                <h4>1. Decisión Firme y Comunicación Profesional</h4>
+                <ul class="action-list">
+                    <li><strong>Toma la decisión basada en tus datos y análisis.</strong> No te dejes persuadir...</li>
+                    <li><strong>Comunica tu decisión</strong> a tu upline directo de forma breve, profesional y respetuosa...</li>
+                    <li>Si tienes un equipo (downline) activo y ético, infórmales también...</li>
+                </ul>
+                 <!-- <p><em>Mantén la calma y la profesionalidad.</em> (+5 Puntos por Profesionalismo)</p> -->
+            </div>
+
+             <div class="strategy-step">
+                <h4>2. Liquidación Inteligente de Inventario (Minimizar Pérdidas)</h4>
+                 <ul class="action-list">
+                     <li><strong>Revisa INMEDIATAMENTE la política de devolución de la empresa.</strong> ¡Aprovéchalo al máximo!</li>
+                     <li><strong>Ofrece descuentos atractivos a tus clientes finales existentes</strong>...</li>
+                     <li><strong>Considera vender en lotes a otros distribuidores</strong> (con precaución y transparencia)...</li>
+                     <li><strong>Usa plataformas online</strong> (Marketplace de Facebook, etc.)...</li>
+                     <li><strong>Objetivo CLAVE:</strong> Recuperar la MAYOR parte posible de tu costo... <em>Actúa rápido y sé realista con los precios.</em></li>
+                 </ul>
+                 <!-- <p><em>Minimiza pérdidas.</em> (+10 Puntos por Gestión Financiera)</p> -->
+            </div>
+
+             <div class="strategy-step">
+                 <h4>3. Cortar Lazos Administrativos y Financieros</h4>
+                 <ul class="action-list">
+                     <li><strong>Cancela cualquier suscripción mensual</strong> o pago recurrente...</li>
+                     <li><strong>Cierra formalmente tu cuenta de distribuidor</strong>...</li>
+                     <li><strong>Si tienes perfiles de redes sociales dedicados EXCLUSIVAMENTE a esa marca MLM, decide qué hacer...</strong></li>
+                 </ul>
+                 <!-- <p><em>No dejes cabos sueltos.</em> (+5 Puntos por Organización)</p> -->
+            </div>
+        </div>
+
+        <!-- === Sección Proteger Reputación y Red de Contactos === -->
+        <div class="exit-section">
+             <h3>Protegiendo tu Reputación y tu Red de Contactos</h3>
+             <p>Salir de un MLM no tiene por qué significar quemar puentes. Tu red de contactos es un activo valioso.</p>
+              <div class="strategy-step">
+                 <h4>1. Evita el Drama y la Negatividad Pública</h4>
+                  <ul class="action-list">
+                      <li>Aunque te sientas frustrado/a, evita despotricar...</li>
+                      <li>Si te preguntan por qué saliste, mantén una respuesta profesional y diplomática: <em>"Decidí enfocar mi energía en otros proyectos..."</em>, <em>"Estoy desarrollando mi propia marca..."</em>, <em>"Evalué mis números..."</em>.</li>
+                 </ul>
+                 <!-- <p><em>La discreción y el profesionalismo son clave.</em> (+5 Puntos por Inteligencia Emocional)</p> -->
+              </div>
+               <div class="strategy-step">
+                 <h4>2. Mantén Relaciones Cordiales (Donde sea Posible y Sano)</h4>
+                  <ul class="action-list">
+                      <li>No tienes que seguir siendo el mejor amigo de tu upline, pero intenta mantener la cordialidad...</li>
+                      <li>Sigue cultivando las relaciones genuinas que hiciste...</li>
+                  </ul>
+               </div>
+               <div class="strategy-step">
+                  <h4>3. Enfócate en tu Futuro y tu Marca Personal</h4>
+                  <ul class="action-list">
+                      <li>Redirige tu energía hacia tus nuevos proyectos (Nivel 8).</li>
+                      <li>Comunica tu nueva dirección profesional a través de los canales de tu marca personal.</li>
+                  </ul>
+                   <!-- <p><em>Tu futuro es más importante que tu pasado en MLM.</em> (+5 Puntos por Visión de Futuro)</p> -->
+              </div>
+
+             <div class="scenario-box" style="margin-top: 20px;">
+                 <h4>Simulación: ¿Cómo Comunicas tu Salida?</h4>
+                 <p>Tu upline te llama insistentemente tras anunciar tu salida, pidiendo explicaciones y tratando de convencerte.</p>
+                 <button onclick="handleCommunication('blame', 'feedback-communication', -10, this)">A) Explotar y decirle todo lo que piensas de la empresa y de él/ella.</button>
+                 <button onclick="handleCommunication('vague', 'feedback-communication', -5, this)">B) Ignorar las llamadas o dar excusas vagas y poco creíbles.</button>
+                 <button onclick="handleCommunication('professional', 'feedback-communication', 15, this)">C) Responder cortésmente pero firme: "Agradezco tu interés, [Nombre]. Como te comenté, he tomado una decisión de negocio basada en mi análisis personal y me estoy enfocando en nuevos proyectos. Te deseo lo mejor." (Y si insiste, repetir la misma idea o cortar amablemente).</button>
+                 <div id="feedback-communication" class="feedback"></div>
+             </div>
+        </div>
+
+
+        <h2>Reflexión Final del Nivel 9</h2>
+        <p>Saber cuándo y cómo salir de una inversión o negocio es una habilidad CRÍTICA para cualquier empresario o inversionista serio. Has aprendido a identificar las señales de alarma basadas en DATOS y a planificar una salida estratégica que minimice pérdidas y proteja tu reputación.</p>
+        <p><strong>Retirarse a tiempo no es rendirse, es tomar el control y redirigir tus recursos hacia donde generen mayor valor y bienestar. Es una decisión de CEO, no de víctima.</strong></p>
+        <p><strong>Puntos Clave de Hoy:</strong> Reconoce las señales de alarma (financieras, empresariales, personales, éticas). Actúa con decisión y profesionalismo al comunicar tu salida. Liquida inventario inteligentemente para minimizar pérdidas. Corta lazos administrativos. Protege tu reputación evitando dramas y enfocándote en tu futuro.</p>
+        <p>¡Estás a un solo paso de completar tu transformación! El Nivel 10 te mostrará alternativas concretas al MLM y te ayudará a consolidar tu plan de acción final.</p>
+
+        <!-- EL BOTÓN FINAL HA SIDO ELIMINADO -->
+        <!-- Ya no hay botón <a href="..." class="next-level-btn"> aquí -->
+
+    </div>
+
+    <script>
+        let userPoints = 0; // Reinicia en cada nivel
+
+        function updatePoints(points) {
+            userPoints += points;
+            document.getElementById('points').innerText = userPoints;
+             const pointsSpan = document.getElementById('points');
+             pointsSpan.style.transform = 'scale(1.2)';
+             pointsSpan.style.transition = 'transform 0.2s ease-out';
+             setTimeout(() => { pointsSpan.style.transform = 'scale(1)'; }, 200);
+        }
+
+        // Variable para rastrear si los puntos ya se dieron por evaluar señales
+        let pointsGivenSignals = false;
+        function evaluateSignals() {
+            const checklist = document.getElementById('warning-signals-checklist'); // ID correcto
+            const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
+            let signalsChecked = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    signalsChecked++;
+                }
+            });
+
+            const feedbackDiv = document.getElementById('feedback-signals');
+            const button = feedbackDiv.previousElementSibling; // Botón antes del feedback
+            let message = '';
+            let points = 0;
+             let type = 'info';
+
+            if (signalsChecked === 0) {
+                message = "<strong>Análisis Preliminar:</strong> No has marcado señales de alarma significativas. ¡Excelente! Sigue monitoreando.";
+                type = 'success'; points = 5;
+            } else if (signalsChecked <= 2) {
+                message = `<strong>Análisis Preliminar:</strong> Has identificado ${signalsChecked} señal(es) de alarma. ¡Atención! Investiga a fondo. Monitoreo INTENSIVO.`;
+                type = 'warning'; points = 10;
+            } else {
+                message = `<strong>¡ALERTA MÁXIMA!</strong> ${signalsChecked} señales importantes. Viabilidad COMPROMETIDA. Considera seriamente salida inteligente AHORA.`;
+                 type = 'incorrect'; points = 15;
+            }
+
+             feedbackDiv.innerHTML = message;
+             feedbackDiv.className = 'feedback ' + type;
+             feedbackDiv.style.display = 'block';
+
+             // Otorgar puntos y deshabilitar botón SOLO la primera vez
+             if (!pointsGivenSignals) {
+                 updatePoints(points);
+                 pointsGivenSignals = true;
+                 // button.disabled = true; // Opcional deshabilitar
+                 // button.style.opacity = '0.7';
+             }
+        }
+
+        // Variable para rastrear si los puntos de comunicación ya se dieron
+        const communicationAnswered = {};
+        function handleCommunication(choice, feedbackId, pointsValue, buttonElement) {
+             const feedbackDiv = document.getElementById(feedbackId);
+             const scenarioContainer = buttonElement.closest('.scenario-box');
+             const scenarioKey = feedbackId; // Clave única
+
+              // Evitar recalcular si ya se respondió
+             if (communicationAnswered[scenarioKey]) {
+                 feedbackDiv.style.display = 'block';
+                 return;
+             }
+
+             let message = '';
+             let points = pointsValue;
+             let type = 'incorrect';
+
+              // Deshabilitar botones del escenario
+             const buttons = scenarioContainer.querySelectorAll('button');
+             buttons.forEach(btn => { btn.disabled = true; btn.style.opacity = '0.6'; });
+
+
+             if (choice === 'professional') {
+                 message = "¡Perfecto! Comunicación asertiva, profesional y protectora. (+15 Pts Inteligencia Comunicacional)"; type = 'success';
+             } else if (choice === 'blame') {
+                  message = "Error. Quemar puentes con ira daña tu imagen. (-10 Pts)"; type = 'incorrect';
+             } else { // vague
+                 message = "Poco efectivo y profesional. Evitar prolonga insistencia. (-5 Pts)"; type = 'warning';
+             }
+
+             feedbackDiv.innerHTML = message;
+              feedbackDiv.className = 'feedback ' + type;
+             feedbackDiv.style.display = 'block';
+
+             // Marcar como respondido y sumar puntos
+             communicationAnswered[scenarioKey] = true;
+             updatePoints(points);
+        }
+
+
+        // Añadir puntos fijos por lectura al cargar la página (si se desea)
+         document.addEventListener('DOMContentLoaded', () => {
+             updatePoints(0); // Inicia puntos en 0
+             // Ejemplo:
+             // updatePoints(10); // Por leer Growth Mindset Salida
+             // updatePoints(5); // Por leer Profesionalismo Salida
+             // updatePoints(10); // Por leer Gestión Financiera Salida
+             // updatePoints(5); // Por leer Organización Salida
+             // updatePoints(5); // Por leer Inteligencia Emocional Salida
+             // updatePoints(5); // Por leer Visión de Futuro Salida
+             // document.getElementById('points').innerText = userPoints;
+         });
+
+    </script>
+</body>
+</html>

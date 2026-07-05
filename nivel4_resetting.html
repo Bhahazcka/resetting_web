@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 4: Tus Números Reales - Costos y Gastos</title>
+    <style>
+        /* --- ESTILOS GENERALES (Consistente, nuevo color tema) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid #20c997; /* Verde azulado para finanzas */ }
+        h1, h2, h3 { color: #0a8f79; /* Verde azulado oscuro */ margin-bottom: 15px; }
+        h1 { text-align: center; border-bottom: 2px solid #20c997; padding-bottom: 10px; font-size: 2em; }
+        p, li { margin-bottom: 12px; color: #555; }
+        strong { color: #0a8f79; }
+        em { color: #dc3545; font-weight: bold; } /* Rojo para alertas financieras */
+        code { background-color: #e9ecef; padding: 2px 5px; border-radius: 3px; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; }
+        input[type=number], input[type=text] { padding: 10px; border: 1px solid #ccc; border-radius: 4px; width: 95%; margin-bottom: 10px; }
+        input[type=number]:focus, input[type=text]:focus { border-color: #20c997; outline: none; } /* Ajustado :focus */
+
+        /* --- ESTILOS GAMIFICACIÓN (Consistente) --- */
+        .progress-bar-container { width: 100%; background-color: #e9ecef; border-radius: 5px; margin-bottom: 20px; height: 10px; overflow: hidden; }
+        .progress-bar { width: 40%; /* Nivel 4 de 10 */ height: 100%; background-color: #28a745; border-radius: 5px; transition: width 0.5s ease-in-out; }
+        .points-counter { text-align: right; font-size: 1.2em; font-weight: bold; color: #ffc107; margin-bottom: 20px; }
+        .points-counter span { background-color: #0a8f79; color: white; padding: 5px 10px; border-radius: 15px; }
+
+        /* --- ESTILOS INTERACTIVOS (Calculadoras Financieras) --- */
+        .calculator-section { background-color: #e6f8f5; /* Verde muy pálido */ border: 1px solid #b2dfdb; padding: 20px; margin-top: 25px; margin-bottom: 25px; border-radius: 8px; }
+        .calculator-section h3 { margin-top: 0; color: #087f7b; } /* Verde más oscuro subsecciones */
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #0a8f79; }
+        .calculation-result { font-size: 1.2em; font-weight: bold; text-align: center; margin-top: 15px; padding: 12px; border-radius: 5px; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+        .total-cost-panel { background-color: #f8d7da; /* Rojo alerta para costos totales */ color: #721c24; padding: 20px; margin-top: 20px; border-radius: 8px; border: 2px solid #f5c6cb; }
+        .total-cost-panel h3 { color: #721c24; margin-top: 0; }
+        .total-cost-panel p { font-size: 1.1em; margin-bottom: 8px; }
+        .total-cost-panel strong { font-size: 1.3em; }
+        button.calculate-btn { display: inline-block; width: auto; padding: 10px 25px; margin-top: 10px; background-color: #20c997; color: white; border: none; border-radius: 5px; font-size: 1em; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; text-align: center; }
+        button.calculate-btn:hover { background-color: #1aa883; }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; display: none; }
+        .feedback.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .feedback.warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; } /* Amarillo advertencia */
+        .hidden-cost-item { margin-bottom: 10px; }
+        .hidden-cost-item input[type="checkbox"] { margin-right: 10px; transform: scale(1.1); vertical-align: middle; } /* Checkbox alineado */
+        .hidden-cost-item label { display: inline; vertical-align: middle; } /* Label alineado */
+
+        /* --- BOTÓN SIGUIENTE NIVEL (ESTILO AÚN PRESENTE PERO EL BOTÓN NO SE USA) --- */
+         .next-level-btn { display: block; width: fit-content; margin: 30px auto 0 auto; padding: 15px 30px; background-color: #28a745; color: white; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+         .next-level-btn:hover { background-color: #218838; transform: translateY(-2px); }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 4: Conviértete en tu Propio Contador - Costos REALES</h1>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="points-counter">Puntos Lógica Inversora (Nivel 4): <span id="points">0</span></div>
+
+        <h2>Recap Nivel 3: Modelo Bajo la Lupa</h2>
+        <p>En el nivel anterior, aprendimos a evaluar la estructura del negocio y la viabilidad del producto. Asumiendo que has determinado que el modelo *podría* ser legítimo y el producto *tiene algún* potencial, ahora viene la pregunta clave del inversionista: <strong>¿CUÁNTO CUESTA REALMENTE operar este negocio?</strong>.</p>
+        <p>Aquí es donde muchos fallan. Se enfocan en las posibles ganancias (a menudo infladas) e ignoran o minimizan los gastos. ¡Nosotros no cometeremos ese error!</p>
+        <p><em>Objetivo de este nivel: Identificar, cuantificar y tomar conciencia de TODOS los costos asociados a tu negocio MLM, incluyendo los famosos (y peligrosos) costos ocultos. ¡Prepara tu hoja de cálculo mental (o real)!</em></p>
+        <p><strong>Frase clave de hoy: "Si no mides, no gestionas. Si no gestionas, no es un negocio, es un hobby caro."</strong> </p> <!-- Puntos asociados se manejan en JS si es necesario -->
+
+
+        <!-- === Sección Inversión Inicial === -->
+        <div class="calculator-section">
+            <h3>Calculadora de Inversión Inicial REAL</h3>
+            <p>Más allá del "kit básico", ¿cuánto necesitas DESEMBOLSAR realmente para empezar?</p>
+            <form id="initial-investment-form">
+                <div class="input-group">
+                    <label for="kit_cost">Costo del Kit de Inicio / Paquete Fundador:</label>
+                    <input type="number" id="kit_cost" name="kit_cost" min="0" value="0" placeholder="Ej: 300">
+                </div>
+                <div class="input-group">
+                     <label for="mandatory_products">Costo de Productos Obligatorios Adicionales (si aplica):</label>
+                     <input type="number" id="mandatory_products" name="mandatory_products" min="0" value="0" placeholder="Ej: 150">
+                </div>
+                <div class="input-group">
+                    <label for="fees">Cuotas de Inscripción / Anualidad / Plataforma Web (Primer Año):</label>
+                    <input type="number" id="fees" name="fees" min="0" value="0" placeholder="Ej: 50">
+                </div>
+                 <div class="input-group">
+                    <label for="initial_training">Costo de Capacitaciones / Eventos INICIALES (si son 'altamente recomendados'):</label>
+                    <input type="number" id="initial_training" name="initial_training" min="0" value="0" placeholder="Ej: 100">
+                </div>
+                <button type="button" class="calculate-btn" onclick="calculateInitialInvestment()">Calcular Inversión Inicial Total</button>
+                <div id="initial-investment-result" class="calculation-result" style="display: none;"></div>
+            </form>
+        </div>
+
+        <!-- === Sección Costos Operativos Mensuales === -->
+        <div class="calculator-section">
+            <h3>Estimador de Costos Operativos MENSUALES</h3>
+            <p>El negocio no termina con la inversión inicial. ¿Cuánto gastarás CADA MES para mantenerlo funcionando? Sé realista.</p>
+            <form id="monthly-costs-form">
+                 <div class="input-group">
+                    <label for="monthly_product">Compra Mínima de Productos (Autoconsumo o Inventario para calificar):</label>
+                    <input type="number" id="monthly_product" name="monthly_product" min="0" value="0" placeholder="Ej: 100">
+                </div>
+                 <div class="input-group">
+                    <label for="samples_marketing">Muestras, Catálogos, Folletos, Tarjetas:</label>
+                    <input type="number" id="samples_marketing" name="samples_marketing" min="0" value="0" placeholder="Ej: 30">
+                </div>
+                 <div class="input-group">
+                    <label for="phone_internet">Teléfono e Internet (Parte proporcional usada para el negocio):</label>
+                    <input type="number" id="phone_internet" name="phone_internet" min="0" value="0" placeholder="Ej: 20">
+                </div>
+                 <div class="input-group">
+                    <label for="transport">Transporte (Gasolina, Pasajes, Desgaste Vehículo para reuniones/entregas):</label>
+                    <input type="number" id="transport" name="transport" min="0" value="0" placeholder="Ej: 50">
+                </div>
+                 <div class="input-group">
+                    <label for="events_training">Eventos, Reuniones, Capacitaciones Pagas (Promedio mensual):</label>
+                    <input type="number" id="events_training" name="events_training" min="0" value="0" placeholder="Ej: 40">
+                </div>
+                 <div class="input-group">
+                    <label for="software_apps">Software, Apps, Herramientas Online (Promedio mensual):</label>
+                    <input type="number" id="software_apps" name="software_apps" min="0" value="0" placeholder="Ej: 10">
+                </div>
+                 <div class="input-group">
+                    <label for="other_costs">Otros (Cafés con prospectos, envíos, etc.):</label>
+                    <input type="number" id="other_costs" name="other_costs" min="0" value="0" placeholder="Ej: 25">
+                </div>
+                 <button type="button" class="calculate-btn" onclick="calculateMonthlyCosts()">Calcular Costos Mensuales Totales</button>
+                 <div id="monthly-costs-result" class="calculation-result" style="display: none;"></div>
+            </form>
+        </div>
+
+        <!-- === Sección Costos Ocultos === -->
+        <div class="calculator-section" style="border-color: #f5c6cb; background-color: #f8d7da;"> <!-- Rojo alerta -->
+            <h3 style="color: #721c24;">Los Costos Ocultos: ¡Los que más duelen y menos se cuentan!</h3>
+
+            <h4>1. Tu TIEMPO Vale Dinero (Costo de Oportunidad)</h4>
+            <p>Cada hora que dedicas al MLM es una hora que NO dedicas a un trabajo pagado, a otro negocio, a tu familia o a descansar. ¡Calcula su valor!</p>
+            <form id="time-cost-form">
+                <div class="input-group">
+                    <label for="hours_week">Horas REALES dedicadas al MLM por SEMANA (Incluye TODO: prospectar, seguir, reuniones, viajar, capacitarse, logística):</label>
+                    <input type="number" id="hours_week" name="hours_week" min="0" value="0" placeholder="Ej: 15">
+                </div>
+                 <div class="input-group">
+                    <label for="hourly_rate">¿Cuánto podrías ganar por hora en un empleo/freelance alternativo? (Ej: Salario mínimo/hora, tarifa profesional):</label>
+                    <input type="number" id="hourly_rate" name="hourly_rate" min="0" value="0" placeholder="Ej: 5 (USD o tu moneda)">
+                </div>
+                 <button type="button" class="calculate-btn" style="background-color: #dc3545;" onclick="calculateTimeCost()">Calcular Costo Mensual de tu Tiempo</button>
+                 <div id="time-cost-result" class="calculation-result" style="display: none; background-color: #f8d7da; border-color: #f5c6cb;"></div>
+             </form>
+
+             <h4 style="margin-top: 25px;">2. Costos Emocionales y Sociales (No monetarios, pero REALES)</h4>
+             <p>Reconoce estos desgastes que impactan tu energía y bienestar:</p>
+             <form id="hidden-costs-awareness">
+                 <div class="hidden-cost-item">
+                     <input type="checkbox" id="hc1" name="hidden_costs"> <label for="hc1">Estrés por presión de upline/metas.</label>
+                 </div>
+                  <div class="hidden-cost-item">
+                     <input type="checkbox" id="hc2" name="hidden_costs"> <label for="hc2">Frustración por rechazos constantes.</label>
+                 </div>
+                  <div class="hidden-cost-item">
+                     <input type="checkbox" id="hc3" name="hidden_costs"> <label for="hc3">Ansiedad por no ver resultados económicos.</label>
+                 </div>
+                 <div class="hidden-cost-item">
+                     <input type="checkbox" id="hc4" name="hidden_costs"> <label for="hc4">Conflictos con amigos/familia por intentar venderles/reclutarlos.</label>
+                 </div>
+                  <div class="hidden-cost-item">
+                     <input type="checkbox" id="hc5" name="hidden_costs"> <label for="hc5">Culpa por invertir tiempo/dinero que podría usarse para otra cosa.</label>
+                 </div>
+             </form>
+             <p class="feedback info" style="display: block;"><strong>Reflexión del Inversionista:</strong> Estos costos no van a la hoja de cálculo, pero SÍ afectan tu capacidad de tomar decisiones lógicas y tu sostenibilidad a largo plazo. ¡No los ignores! </p> <!-- Puntos asociados se manejan en JS si es necesario -->
+        </div>
+
+        <!-- === Panel de Costos Totales (Resumen) === -->
+        <div class="total-cost-panel" id="total-cost-summary" style="display: none;">
+             <h3>Tu Panorama Financiero (Estimado Inicial)</h3>
+             <p>Inversión Inicial Total: <strong id="summary-initial"> $0</strong></p>
+             <p>Costos Operativos Mensuales: <strong id="summary-monthly"> $0 / mes</strong></p>
+             <p>Costo Mensual Estimado de tu Tiempo: <strong id="summary-time"> $0 / mes</strong></p>
+             <hr>
+             <p><strong>Costos Totales (Operativos + Tiempo) Mensuales: <strong id="summary-total-monthly" style="font-size: 1.4em;"> $0 / mes</strong></strong></p>
+             <p style="font-size: 0.9em; margin-top: 15px;"><em>¡Este es el número que tus INGRESOS deben superar CADA MES solo para empezar a ser rentable (sin contar la recuperación de la inversión inicial)!</em></p>
+        </div>
+
+         <!-- === Sección IA para Optimizar Gastos (Mención) === -->
+         <div class="calculator-section" style="background-color: #e9ecef; border-color:#dee2e6;">
+            <h3 style="color: #6c757d;">IA para Optimizar Gastos (Potencial Futuro)</h3>
+            <p>Herramientas de IA podrían ayudarte a:</p>
+            <ul>
+                <li>Analizar tus patrones de gasto e identificar dónde reducir.</li>
+                <li>Encontrar alternativas más económicas para software, materiales, etc.</li>
+                <li>Optimizar rutas de transporte.</li>
+            </ul>
+            <p><em>Por ahora, la mejor herramienta es tu disciplina y una hoja de cálculo bien llevada.</em></p>
+            <!-- <p class="feedback info" style="display: block;"><strong>+2 Puntos Visión Tecnológica</strong></p> --> <!-- Se pueden añadir puntos fijos en JS al cargar -->
+         </div>
+
+        <!-- === Actividad y Reflexión Final === -->
+         <div class="calculator-section">
+            <h3>Actividad: ¡Empieza tu Propio Registro YA!</h3>
+            <p>La conciencia es el primer paso. Ahora, la acción. Comprométete a:</p>
+            <ol>
+                <li><strong>Registrar CADA GASTO</strong> relacionado con tu MLM durante el próximo mes (usa una app, libreta, hoja de cálculo).</li>
+                <li><strong>Registrar CADA HORA</strong> que dedicas al negocio.</li>
+            </ol>
+             <!-- Opcional: Si tienes una plantilla para ofrecer -->
+             <!-- <p><a href="URL_DE_TU_PLANTILLA" target="_blank">Descarga aquí una Plantilla de Seguimiento de Gastos y Tiempo (Excel/Google Sheets)</a></p> -->
+             <p><em>Esta disciplina te dará el poder de los DATOS REALES para tomar decisiones en los siguientes niveles.</em></p> <!-- Puntos asociados se manejan en JS si es necesario -->
+         </div>
+
+
+        <h2>Reflexión Final del Nivel 4</h2>
+        <p>¡Felicidades! Acabas de hacer algo que la mayoría de los participantes de MLM evitan: <strong>mirar de frente los costos REALES</strong>. Ver estos números sumados puede ser impactante (quizás el momento "шокирующим" que buscabas), pero es absolutamente necesario.</p>
+        <p><strong>La ignorancia financiera es el mayor enemigo de la rentabilidad. Ahora tienes una visión mucho más clara de lo que CUESTA operar este negocio.</strong></p>
+        <p><strong>Puntos Clave de Hoy:</strong> Calcula tu inversión inicial REAL, estima tus gastos operativos mensuales SIN OMISIONES, VALORA tu tiempo como un costo de oportunidad y no ignores los costos emocionales/sociales. ¡Registra todo!</p>
+        <p>Con esta base sólida de costos, estamos listos para el siguiente nivel: <strong>Medir el Retorno de la Inversión (ROI) Real</strong>. Ahí compararemos estos costos con los ingresos. ¡Prepárate!</p>
+
+        <!-- EL BOTÓN FINAL HA SIDO ELIMINADO -->
+        <!-- Ya no hay botón <a href="..." class="next-level-btn"> aquí -->
+
+    </div>
+
+    <script>
+        let userPoints = 0; // Reinicia en cada nivel
+        let initialInvestment = 0;
+        let monthlyCosts = 0;
+        let timeCostMonthly = 0;
+
+        function updatePoints(points) {
+            userPoints += points;
+            document.getElementById('points').innerText = userPoints;
+             const pointsSpan = document.getElementById('points');
+             pointsSpan.style.transform = 'scale(1.2)';
+             pointsSpan.style.transition = 'transform 0.2s ease-out';
+             setTimeout(() => { pointsSpan.style.transform = 'scale(1)'; }, 200);
+        }
+
+        // Helper para obtener valor numérico de input
+        function getNumValue(id) {
+            const value = parseFloat(document.getElementById(id).value);
+            return isNaN(value) ? 0 : value;
+        }
+
+        // Variable para rastrear si los puntos ya se dieron por este cálculo
+        let pointsGivenInitial = false;
+        function calculateInitialInvestment() {
+            const kit = getNumValue('kit_cost');
+            const products = getNumValue('mandatory_products');
+            const fees = getNumValue('fees');
+            const training = getNumValue('initial_training');
+            initialInvestment = kit + products + fees + training;
+
+            const resultDiv = document.getElementById('initial-investment-result');
+            resultDiv.innerHTML = `Tu Inversión Inicial REAL estimada es: <strong>$${initialInvestment.toFixed(2)}</strong>`;
+            resultDiv.style.display = 'block';
+            updateTotalSummary();
+
+            // Otorgar puntos por calcular SOLO la primera vez
+             if (!pointsGivenInitial) {
+                 updatePoints(10); // Ejemplo: 10 puntos por este cálculo
+                 pointsGivenInitial = true;
+                 // Opcional: deshabilitar el botón
+                 const button = document.querySelector('#initial-investment-form button');
+                 // button.disabled = true;
+                 // button.style.opacity = '0.7';
+            }
+        }
+
+        let pointsGivenMonthly = false;
+        function calculateMonthlyCosts() {
+             const product = getNumValue('monthly_product');
+             const samples = getNumValue('samples_marketing');
+             const comms = getNumValue('phone_internet');
+             const transport = getNumValue('transport');
+             const events = getNumValue('events_training');
+             const software = getNumValue('software_apps');
+             const other = getNumValue('other_costs');
+             monthlyCosts = product + samples + comms + transport + events + software + other;
+
+            const resultDiv = document.getElementById('monthly-costs-result');
+            resultDiv.innerHTML = `Tus Costos Operativos Mensuales estimados son: <strong>$${monthlyCosts.toFixed(2)} / mes</strong>`;
+            resultDiv.style.display = 'block';
+            updateTotalSummary();
+
+             // Otorgar puntos por calcular SOLO la primera vez
+             if (!pointsGivenMonthly) {
+                  updatePoints(15); // Ejemplo: 15 puntos
+                  pointsGivenMonthly = true;
+                   const button = document.querySelector('#monthly-costs-form button');
+                 // button.disabled = true;
+                 // button.style.opacity = '0.7';
+             }
+        }
+
+         let pointsGivenTime = false;
+        function calculateTimeCost() {
+            const hoursWeek = getNumValue('hours_week');
+            const hourlyRate = getNumValue('hourly_rate');
+            // Asumiendo 4 semanas por mes para simplificar
+            timeCostMonthly = hoursWeek * hourlyRate * 4;
+
+            const resultDiv = document.getElementById('time-cost-result');
+            resultDiv.innerHTML = `El Costo de Oportunidad de tu Tiempo estimado es: <strong>$${timeCostMonthly.toFixed(2)} / mes</strong><br><small>(¡Este es el dinero que DEJAS de ganar por dedicar ${hoursWeek*4} horas/mes a esto!)</small>`;
+            resultDiv.style.display = 'block';
+            updateTotalSummary();
+
+             // Otorgar puntos por calcular SOLO la primera vez
+             if (!pointsGivenTime) {
+                  updatePoints(20); // Ejemplo: 20 puntos
+                  pointsGivenTime = true;
+                  const button = document.querySelector('#time-cost-form button');
+                 // button.disabled = true;
+                 // button.style.opacity = '0.7';
+             }
+        }
+
+        function updateTotalSummary() {
+            if (initialInvestment > 0 || monthlyCosts > 0 || timeCostMonthly > 0) {
+                document.getElementById('summary-initial').innerText = `$${initialInvestment.toFixed(2)}`;
+                document.getElementById('summary-monthly').innerText = `$${monthlyCosts.toFixed(2)} / mes`;
+                document.getElementById('summary-time').innerText = `$${timeCostMonthly.toFixed(2)} / mes`;
+                const totalMonthly = monthlyCosts + timeCostMonthly;
+                document.getElementById('summary-total-monthly').innerText = `$${totalMonthly.toFixed(2)} / mes`;
+                document.getElementById('total-cost-summary').style.display = 'block';
+            }
+        }
+
+        // Añadir puntos fijos por lectura al cargar la página
+         document.addEventListener('DOMContentLoaded', () => {
+             updatePoints(0); // Inicia puntos en 0
+             // Ejemplo de puntos fijos por leer secciones (si lo deseas)
+             // updatePoints(5); // Por leer frase clave
+             // updatePoints(5); // Por leer sección costos ocultos no monetarios
+             // updatePoints(2); // Por leer sección IA
+             // updatePoints(10); // Por leer compromiso a la acción
+             // Asegura que el contador muestre los puntos iniciales (si los hay)
+             // document.getElementById('points').innerText = userPoints;
+         });
+
+    </script>
+</body>
+</html>

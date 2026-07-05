@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 6: Creando Tu Plan de Negocio Estratégico</title>
+    <style>
+        /* --- ESTILOS GENERALES (Consistente, color tema estrategia) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid #007bff; /* Azul para estrategia/planificación */ }
+        h1, h2, h3 { color: #0056b3; /* Azul oscuro */ margin-bottom: 15px; }
+        h1 { text-align: center; border-bottom: 2px solid #007bff; padding-bottom: 10px; font-size: 2em; }
+        p, li { margin-bottom: 12px; color: #555; }
+        strong { color: #0056b3; }
+        em { color: #17a2b8; font-weight: bold; } /* Cian para énfasis positivo */
+        code { background-color: #e9ecef; padding: 2px 5px; border-radius: 3px; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; }
+        textarea { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px; font-family: inherit; font-size: 1em; }
+        input[type=text], input[type=number], select { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; }
+        input:focus, textarea:focus, select:focus { border-color: #007bff; outline: none; }
+
+        /* --- ESTILOS GAMIFICACIÓN (Consistente) --- */
+        .progress-bar-container { width: 100%; background-color: #e9ecef; border-radius: 5px; margin-bottom: 20px; height: 10px; overflow: hidden; }
+        .progress-bar { width: 60%; /* Nivel 6 de 10 */ height: 100%; background-color: #28a745; border-radius: 5px; transition: width 0.5s ease-in-out; }
+        .points-counter { text-align: right; font-size: 1.2em; font-weight: bold; color: #ffc107; margin-bottom: 20px; }
+        .points-counter span { background-color: #0056b3; color: white; padding: 5px 10px; border-radius: 15px; }
+
+        /* --- ESTILOS INTERACTIVOS (Plan de Negocio) --- */
+        .plan-section { background-color: #e7f3ff; /* Azul muy pálido */ border: 1px solid #cce0ff; padding: 20px; margin-top: 25px; margin-bottom: 25px; border-radius: 8px; }
+        .plan-section h3 { margin-top: 0; color: #004085; } /* Azul más oscuro subsecciones */
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #0056b3; }
+        .input-group small { color: #6c757d; display: block; margin-top: -5px; margin-bottom: 5px; font-style: italic; font-size: 0.9em; } /* Ajustado tamaño small */
+        button.action-btn { display: inline-block; width: auto; padding: 10px 25px; margin-top: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 1em; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; text-align: center; }
+        button.action-btn:hover { background-color: #0056b3; }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; display: none; }
+        .feedback.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .feedback.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; } /* Verde éxito */
+        .idea-generator button { background-color: #17a2b8; margin-right: 10px; border: none; color: white; padding: 8px 15px; border-radius: 5px; cursor:pointer; transition: background-color 0.3s ease;} /* Ajustado estilo botón IA */
+        .idea-generator button:hover { background-color: #117a8b; }
+        .example-box { background-color: #f8f9fa; border: 1px dashed #ccc; padding: 10px; margin-top: 5px; border-radius: 4px; font-size: 0.9em;}
+
+        /* --- BOTÓN SIGUIENTE NIVEL (ESTILO AÚN PRESENTE PERO EL BOTÓN NO SE USA) --- */
+         .next-level-btn { display: block; width: fit-content; margin: 30px auto 0 auto; padding: 15px 30px; background-color: #28a745; color: white; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+         .next-level-btn:hover { background-color: #218838; transform: translateY(-2px); }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 6: Creando Tu Plan de Negocio Sólido (¡El Tuyo, no el de tu Upline!)</h1>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="points-counter">Puntos Lógica Inversora (Nivel 6): <span id="points">0</span></div>
+
+        <h2>Recap Nivel 5: La Radiografía Financiera</h2>
+        <p>¡Dominaste los números! Ya sabes cuánto cuesta tu negocio (Nivel 4) y si actualmente te genera ganancias reales y una compensación justa por tu tiempo (Nivel 5). Con esta información crítica, es hora de pasar de ser un simple 'distribuidor' que sigue un guion, a ser el <strong>CEO estratégico de 'Tu Nombre S.A.'</strong>.</p>
+        <p>Esto significa crear un <strong>PLAN DE NEGOCIO</strong> propio, realista y adaptado a TU situación, tus fortalezas y los datos que has recopilado. Olvida los discursos motivacionales genéricos; esto es estrategia pura.</p>
+        <p><em>Objetivo de este nivel: Esbozar los componentes clave de tu propio plan de negocio (Definición, Mercado, Marketing y Ventas, Reclutamiento Ético -si aplica-, Metas SMART) utilizando principios empresariales y tu análisis previo. ¡Toma el timón!</em></p>
+        <p><strong>Mentalidad de CEO vs. Mentalidad de Seguidor:</strong> El CEO analiza, planifica, ejecuta, mide y ajusta. El seguidor... sigue. <em>¿Quién eliges ser HOY?</em> </p> <!-- Puntos asociados en JS si se desea -->
+
+        <!-- === Sección Plan de Negocio Interactivo === -->
+        <div class="plan-section">
+            <h3>Esbozo de Tu Plan de Negocio Personalizado</h3>
+            <p>Completa (o empieza a completar) las siguientes secciones. Sé conciso pero específico. ¡Este es TU plan!</p>
+            <form id="business-plan-form">
+
+                <h4>1. Definición del Negocio y Propuesta de Valor ÚNICA</h4>
+                <div class="input-group">
+                    <label for="bp_problem">¿Qué problema REAL resuelves para tus clientes finales (más allá de 'ganar dinero')?</label>
+                    <textarea id="bp_problem" name="bp_problem" rows="2" placeholder="Ej: Ayudo a mujeres ocupadas a tener una rutina de cuidado facial simple y efectiva."></textarea>
+                </div>
+                 <div class="input-group">
+                    <label for="bp_value_prop">¿Cuál es tu propuesta de valor ÚNICA? (¿Por qué te comprarían a TI y no a otro distribuidor o a una tienda?)</label>
+                    <textarea id="bp_value_prop" name="bp_value_prop" rows="3" placeholder="Ej: Ofrezco asesoramiento personalizado basado en tipo de piel, hago seguimiento post-venta, creo contenido útil sobre bienestar, garantizo entrega rápida localmente..."></textarea>
+                     <small>Piensa más allá del producto genérico de la empresa.</small>
+                 </div>
+
+                 <h4>2. Análisis de Mercado REALISTA</h4>
+                 <div class="input-group">
+                     <label for="bp_target_market">¿Quién es tu CLIENTE IDEAL? (Sé específico: Demografía, intereses, necesidades, dónde encontrarlos)</label>
+                     <textarea id="bp_target_market" name="bp_target_market" rows="3" placeholder="Ej: Profesionales 30-50 años en [Tu Ciudad/Zona], interesados en salud natural, activos en grupos de Facebook de [Tema], frecuentan [Tipo de tiendas/eventos]. NO solo 'amigos y familia'."></textarea>
+                 </div>
+                  <div class="input-group">
+                     <label for="bp_competition">¿Quién es tu COMPETENCIA? (Otros distribuidores, otras marcas MLM, tiendas online, tiendas físicas)</label>
+                     <textarea id="bp_competition" name="bp_competition" rows="2" placeholder="Ej: Distribuidores de [Otra Marca MLM], Tiendas naturistas locales, grandes retailers online como Amazon/MercadoLibre, farmacias con dermocosmética."></textarea>
+                 </div>
+                 <div class="input-group">
+                     <label for="bp_differentiation">¿Cómo te DIFERENCIARÁS de la competencia? (Basado en tu propuesta de valor)</label>
+                     <textarea id="bp_differentiation" name="bp_differentiation" rows="2" placeholder="Ej: Servicio hiper-personalizado, contenido experto, crear una comunidad local, especializarme en un nicho (piel sensible, deportistas...)."></textarea>
+                     <small>Aplica Estrategias Competitivas (Porter): Liderazgo en Costos (difícil en MLM), Diferenciación (clave aquí), Enfoque/Nicho.</small>
+                 </div>
+
+                 <h4>3. Estrategia de Marketing y Ventas (RENTABLE y ÉTICA)</h4>
+                 <div class="input-group">
+                     <label for="bp_marketing_channels">¿Qué canales usarás para llegar a tu cliente ideal (SIN SPAM)?</label>
+                     <textarea id="bp_marketing_channels" name="bp_marketing_channels" rows="3" placeholder="Ej: Instagram con contenido de valor sobre [Tema], Grupo de Facebook privado sobre [Tema], Networking en eventos locales de [Interés], Colaboraciones con negocios pequeños complementarios, Email marketing a base de clientes (con permiso)."></textarea>
+                     <small>¡NO más perseguir amigos y familiares!</small>
+                 </div>
+                  <div class="input-group">
+                     <label for="bp_sales_process">¿Cómo será tu proceso de VENTA a clientes finales? (Enfoque en resolver su problema)</label>
+                     <textarea id="bp_sales_process" name="bp_sales_process" rows="2" placeholder="Ej: Escucha activa de necesidades, recomendación honesta (incluso si es un producto más barato), ofrecer muestras si es viable, seguimiento post-venta, programa de fidelización simple."></textarea>
+                 </div>
+
+                 <h4>4. Estrategia de Reclutamiento (Si decides construir red - ÉTICA y SELECTIVA)</h4>
+                  <div class="input-group">
+                     <label for="bp_recruiting_profile">Si reclutas, ¿qué PERFIL buscarás? (Mentalidad, habilidades, compromiso)</label>
+                     <textarea id="bp_recruiting_profile" name="bp_recruiting_profile" rows="2" placeholder="Ej: Personas con mentalidad empresarial, autodisciplinadas, dispuestas a invertir tiempo/dinero REALISTA, éticas, con habilidades de comunicación o ventas (o ganas de aprender). NO gente desesperada."></textarea>
+                 </div>
+                 <div class="input-group">
+                     <label for="bp_recruiting_pitch">¿Cómo presentarás la oportunidad con TOTAL TRANSPARENCIA? (Incluyendo costos, tiempo, estadísticas reales)</label>
+                     <textarea id="bp_recruiting_pitch" name="bp_recruiting_pitch" rows="3" placeholder="Ej: Explicar claramente la inversión inicial y gastos mensuales (usando la info de Nivel 4), mostrar datos REALISTAS de ganancias promedio (incluso si son bajos), enfocar en el trabajo requerido, aplicar Negociación Basada en Principios (intereses mutuos, opciones, criterios objetivos)."></textarea>
+                     <small>¡Cero exageraciones, cero presión!</small>
+                 </div>
+
+                 <h4>5. Metas Financieras SMART (Basadas en tus cálculos de Nivel 5)</h4>
+                 <div class="input-group">
+                      <label for="bp_goal1">Meta SMART 1 (Ej: Ventas Netas a Clientes Finales)</label>
+                      <textarea id="bp_goal1" name="bp_goal1" rows="2" placeholder="Ej: Lograr $XXX en ventas netas a clientes finales (descontando mi costo) para [Mes/Trimestre], midiendo semanalmente."></textarea>
+                 </div>
+                  <div class="input-group">
+                      <label for="bp_goal2">Meta SMART 2 (Ej: Alcanzar Punto de Equilibrio Real)</label>
+                      <textarea id="bp_goal2" name="bp_goal2" rows="2" placeholder="Ej: Alcanzar el punto de equilibrio (Ingresos Totales >= Gastos Operativos + Costo de Oportunidad del Tiempo) en los próximos X meses, revisando mensualmente mis cálculos de Nivel 5."></textarea>
+                 </div>
+                  <div class="input-group">
+                      <label for="bp_goal3">Meta SMART 3 (Ej: Ganancia Neta Específica)</label>
+                      <textarea id="bp_goal3" name="bp_goal3" rows="2" placeholder="Ej: Generar una ganancia neta mensual de $XXX (después de TODOS los costos, incluido tiempo) de forma consistente para finales de [Año/Trimestre]."></textarea>
+                      <small><strong>S</strong>pecific, <strong>M</strong>easurable, <strong>A</strong>chievable, <strong>R</strong>elevant, <strong>T</strong>ime-bound.</small>
+                 </div>
+
+                <button type="button" class="action-btn" onclick="savePlanDraft()">Guardar Borrador del Plan (Conceptual)</button>
+                 <div id="feedback-plan" class="feedback"></div>
+
+            </form>
+        </div>
+
+        <!-- === Sección IA para Estrategia === -->
+        <div class="plan-section">
+             <h3>IA como Asistente Estratégico (Nivel Intermedio)</h3>
+             <p>Herramientas como ChatGPT pueden ayudarte a:</p>
+             <div class="idea-generator">
+                <label for="ia_prompt" style="font-weight:bold; color: #0056b3;">Generador de Ideas (Ejemplo con IA):</label><br>
+                 <small>Pídele ideas a una IA (como ChatGPT - úsalo en otra ventana). Ejemplos de 'prompts':</small>
+                 <div class="example-box">
+                    <code>"Dame 5 ideas de contenido para Instagram para alguien que vende [tu tipo de producto] enfocado en [tu cliente ideal]."</code><br>
+                    <code>"Sugiere 3 formas de diferenciarme de otros vendedores de [tu tipo de producto] en [tu ciudad]."</code><br>
+                    <code>"Describe 3 posibles nichos de mercado para [tu tipo de producto]."</code>
+                 </div>
+                 <button type="button" class="action-btn" onclick="showIaBenefits()">Ver más beneficios de IA para estrategia</button>
+                 <div id="feedback-ia" class="feedback"></div>
+             </div>
+             <ul id="ia-benefits-list" style="display:none; margin-top:15px;">
+                 <li><strong>Brainstorming:</strong> Ideas de marketing, contenido, nichos.</li>
+                 <li><strong>Análisis de Competencia (Básico):</strong> Ayuda a investigar qué hacen otros online (buscando manualmente o con herramientas más avanzadas).</li>
+                 <li><strong>Personalización:</strong> Sugerencias para segmentar tu lista de contactos y adaptar mensajes (¡siempre con ética!).</li>
+                  <li><strong>Redacción:</strong> Ayuda a redactar borradores de emails, posts, descripciones (¡siempre revisa y personaliza!).</li>
+             </ul>
+             <p class="feedback info" style="display: block;"><strong>Mentalidad de Inversionista Tecnológico:</strong> Usa la IA como una herramienta para POTENCIAR tu estrategia, no para reemplazar tu pensamiento crítico. </p> <!-- Puntos asociados en JS si se desea -->
+        </div>
+
+
+        <h2>Reflexión Final del Nivel 6</h2>
+        <p>¡Felicidades, CEO! Has esbozado los pilares de TU propio plan de negocio estratégico. Este no es un documento estático; es una hoja de ruta VIVA que revisarás y ajustarás a medida que ejecutes, midas resultados y aprendas.</p>
+        <p><strong>Un sueño sin un plan es solo una ilusión. Un inversionista tiene una estrategia clara, medible y adaptativa.</strong> Este plan, basado en tu análisis previo (mercado, producto, finanzas), te da una dirección clara y te aleja de las tácticas genéricas y poco efectivas.</p>
+        <p><strong>Puntos Clave de Hoy:</strong> Define tu negocio y valor único. Identifica tu cliente ideal y competencia REAL. Diseña una estrategia de marketing/ventas RENTABLE y ética. Si reclutas, hazlo con transparencia y buscando el perfil correcto. Establece metas financieras SMART basadas en tus números.</p>
+        <p>Con este plan en mano, entramos al Módulo 3: El Empresario Estratega. En el Nivel 7, veremos cómo liderar (si construyes equipo) de forma consciente y ética.</p>
+
+        <!-- EL BOTÓN FINAL HA SIDO ELIMINADO -->
+        <!-- Ya no hay botón <a href="..." class="next-level-btn"> aquí -->
+
+    </div>
+
+    <script>
+        let userPoints = 0; // Reinicia en cada nivel
+
+        function updatePoints(points) {
+            userPoints += points;
+            document.getElementById('points').innerText = userPoints;
+             const pointsSpan = document.getElementById('points');
+             pointsSpan.style.transform = 'scale(1.2)';
+             pointsSpan.style.transition = 'transform 0.2s ease-out';
+             setTimeout(() => { pointsSpan.style.transform = 'scale(1)'; }, 200);
+        }
+
+        // Variable para rastrear si los puntos ya se dieron por guardar plan
+        let pointsGivenPlan = false;
+        function savePlanDraft() {
+            const feedbackDiv = document.getElementById('feedback-plan');
+            // Aquí no guardamos realmente, solo damos feedback conceptual
+            feedbackDiv.innerHTML = "<strong>¡Plan Esbozado!</strong> Excelente primer paso como CEO de tu negocio. Recuerda que este es un documento VIVO. Revísalo y ajústalo constantemente basado en tus resultados reales. ¡La estrategia es acción y adaptación!";
+            feedbackDiv.className = 'feedback success';
+            feedbackDiv.style.display = 'block';
+
+            // Otorgar puntos solo una vez
+             if (!pointsGivenPlan) {
+                updatePoints(20); // Ejemplo: 20 puntos por planificar
+                pointsGivenPlan = true;
+                 // Deshabilitar botón
+                const button = document.querySelector('#business-plan-form button');
+                // button.disabled = true; // Opcional deshabilitar
+                // button.style.opacity = '0.7';
+                button.textContent = 'Borrador Guardado (Conceptualmente)';
+            }
+        }
+
+        let pointsGivenIaBenefits = false;
+        function showIaBenefits() {
+            const list = document.getElementById('ia-benefits-list');
+            const feedbackDiv = document.getElementById('feedback-ia');
+            const button = document.querySelector('.idea-generator button');
+
+            list.style.display = 'block';
+            feedbackDiv.innerHTML = "<strong>¡Potencial Desbloqueado!</strong> La IA puede ser un gran aliado para investigar, generar ideas y optimizar tareas. ¡Explora estas herramientas!";
+             feedbackDiv.className = 'feedback info';
+             feedbackDiv.style.display = 'block';
+
+             // Otorgar puntos y ocultar botón solo una vez
+             if (!pointsGivenIaBenefits) {
+                 updatePoints(5); // Ejemplo: 5 puntos por ver beneficios IA
+                 pointsGivenIaBenefits = true;
+                 button.style.display = 'none'; // Ocultar botón
+             }
+        }
+
+
+        // Añadir puntos fijos por lectura al cargar la página
+         document.addEventListener('DOMContentLoaded', () => {
+             updatePoints(0); // Inicia puntos en 0
+             // Ejemplo: Puntos fijos por leer secciones
+             // updatePoints(5); // Por leer Mentalidad CEO
+             // updatePoints(5); // Por leer sección IA
+
+             // Asegurar que el contador muestre los puntos iniciales
+             // document.getElementById('points').innerText = userPoints;
+         });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 5: Midiendo el ROI Real y Ganancia por Hora</title>
+    <style>
+        /* --- ESTILOS GENERALES (Consistente, color tema finanzas) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid #6f42c1; /* Púrpura para ROI/Resultados */ }
+        h1, h2, h3 { color: #4a2391; /* Púrpura oscuro */ margin-bottom: 15px; }
+        h1 { text-align: center; border-bottom: 2px solid #6f42c1; padding-bottom: 10px; font-size: 2em; }
+        p, li { margin-bottom: 12px; color: #555; }
+        strong { color: #4a2391; }
+        em { color: #dc3545; font-weight: bold; }
+        code { background-color: #e9ecef; padding: 2px 5px; border-radius: 3px; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; }
+        input[type=number] { padding: 10px; border: 1px solid #ccc; border-radius: 4px; width: 95%; margin-bottom: 10px; }
+        input[type=number]:focus { border-color: #6f42c1; outline: none; }
+
+        /* --- ESTILOS GAMIFICACIÓN (Consistente) --- */
+        .progress-bar-container { width: 100%; background-color: #e9ecef; border-radius: 5px; margin-bottom: 20px; height: 10px; overflow: hidden; }
+        .progress-bar { width: 50%; /* Nivel 5 de 10 */ height: 100%; background-color: #28a745; border-radius: 5px; transition: width 0.5s ease-in-out; }
+        .points-counter { text-align: right; font-size: 1.2em; font-weight: bold; color: #ffc107; margin-bottom: 20px; }
+        .points-counter span { background-color: #4a2391; color: white; padding: 5px 10px; border-radius: 15px; }
+
+        /* --- ESTILOS INTERACTIVOS (Calculadoras ROI) --- */
+        .calculator-section { background-color: #f3eefc; /* Púrpura muy pálido */ border: 1px solid #dcd0f5; padding: 20px; margin-top: 25px; margin-bottom: 25px; border-radius: 8px; }
+        .calculator-section h3 { margin-top: 0; color: #5a32a1; } /* Púrpura más oscuro subsecciones */
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #4a2391; }
+        .calculation-result { font-size: 1.2em; font-weight: bold; text-align: center; margin-top: 15px; padding: 12px; border-radius: 5px; }
+        .profit { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; } /* Verde para Ganancia */
+        .loss { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } /* Rojo para Pérdida */
+        .neutral { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; } /* Amarillo para Cero/Equilibrio */
+        .hourly-rate-impact { font-size: 1.4em !important; margin-top: 10px !important; } /* Resaltar Ganancia por Hora */
+        button.calculate-btn { display: inline-block; width: auto; padding: 10px 25px; margin-top: 10px; background-color: #6f42c1; color: white; border: none; border-radius: 5px; font-size: 1em; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; text-align: center; }
+        button.calculate-btn:hover { background-color: #5a32a1; }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; display: none; }
+        .feedback.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .feedback.warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; } /* Amarillo advertencia */
+        .feedback.correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; } /* Añadido feedback correct */
+        .feedback.incorrect { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; } /* Añadido feedback incorrect */
+
+        .scenario-box { border: 1px dashed #ccc; padding: 15px; margin-top: 15px; border-radius: 5px; background-color: #f8f9fa; }
+        .scenario-box button { background-color: #ffc107; color: #333; margin-right: 10px; border: none; padding: 8px 15px; border-radius: 5px; cursor:pointer; transition: background-color 0.3s ease;} /* Estilos añadidos/ajustados */
+        .scenario-box button:hover { background-color: #e0a800;}
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #6f42c1; color: white; font-weight: bold; }
+        tr:nth-child(even) { background-color: #f3eefc; } /* Fondo púrpura pálido filas pares */
+
+        /* --- BOTÓN SIGUIENTE NIVEL (ESTILO AÚN PRESENTE PERO EL BOTÓN NO SE USA) --- */
+         .next-level-btn { display: block; width: fit-content; margin: 30px auto 0 auto; padding: 15px 30px; background-color: #28a745; color: white; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+         .next-level-btn:hover { background-color: #218838; transform: translateY(-2px); }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 5: Midiendo el ROI Real y la Ganancia por Hora</h1>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="points-counter">Puntos Lógica Inversora (Nivel 5): <span id="points">0</span></div>
+
+        <h2>Recap Nivel 4: La Verdad de los Costos</h2>
+        <p>¡Felicidades por superar el Nivel 4! Ya conoces (o tienes una idea clara de) tus costos reales: la inversión inicial, los gastos operativos mensuales y el crucial costo de oportunidad de tu tiempo. Ahora, la pregunta del millón (literalmente): <strong>¿Estás GANANDO dinero?</strong> Y si es así, ¿cuánto?</p>
+        <p>Este nivel es donde la goma se encuentra con el camino. Calcularemos tu <strong>Beneficio Neto</strong> (o pérdida), tu <strong>Retorno de la Inversión (ROI)</strong> y la métrica más reveladora de todas: tu <strong>Ganancia REAL por Hora Trabajada</strong>.</p>
+        <p><em>Objetivo de este nivel: Ponerle números fríos a tus resultados financieros para tomar decisiones 100% basadas en datos. ¡Prepárate para la verdad, sea cual sea!</em></p>
+
+
+        <!-- === Calculadora de Rentabilidad Mensual === -->
+        <div class="calculator-section">
+            <h3>Calculadora de Rentabilidad Mensual REAL</h3>
+            <p>Introduce tus cifras MENSUALES (o estimadas realistas). Sé brutalmente honesto.</p>
+            <form id="profitability-form">
+                <div class="input-group">
+                    <label for="total_sales">Ingresos Brutos por Ventas a Clientes Finales (Precio de venta total):</label>
+                    <input type="number" id="total_sales" name="total_sales" min="0" value="0" placeholder="Ej: 500">
+                </div>
+                 <div class="input-group">
+                    <label for="cogs">Costo de los Productos que VENDISTE (Tu costo de compra):</label>
+                    <input type="number" id="cogs" name="cogs" min="0" value="0" placeholder="Ej: 300">
+                </div>
+                 <div class="input-group">
+                    <label for="commissions">Ingresos por Comisiones de tu Red (Si aplica):</label>
+                    <input type="number" id="commissions" name="commissions" min="0" value="0" placeholder="Ej: 50">
+                </div>
+                <hr style="margin: 20px 0;">
+                 <div class="input-group">
+                    <label for="monthly_expenses">Costos Operativos Mensuales TOTALES (Del Nivel 4):</label>
+                    <input type="number" id="monthly_expenses" name="monthly_expenses" min="0" value="0" placeholder="Introduce el total del Nivel 4">
+                </div>
+                 <div class="input-group">
+                    <label for="hours_worked">Horas TOTALES trabajadas en el mes (Del Nivel 4):</label>
+                    <input type="number" id="hours_worked" name="hours_worked" min="1" value="1" placeholder="Introduce las horas del Nivel 4 (mínimo 1)"> <!-- Cambiado min a 1 -->
+                </div>
+
+                 <button type="button" class="calculate-btn" onclick="calculateProfitability()">Calcular Rentabilidad Mensual</button>
+
+                <div id="profitability-results" style="margin-top: 20px; display: none;">
+                    <h3>Resultados Financieros del Mes:</h3>
+                    <p>Margen Bruto (Ventas - Costo Producto Vendido): <strong id="gross-margin"> $0</strong></p>
+                    <p>Ingresos Totales (Margen Bruto + Comisiones): <strong id="total-revenue"> $0</strong></p>
+                    <p>Costos Operativos Totales: <strong id="total-expenses"> $0</strong></p>
+                    <hr>
+                    <div id="net-profit-loss" class="calculation-result neutral">Beneficio Neto (o Pérdida) Mensual: <strong> $0</strong></div> <!-- Clase neutral inicial -->
+                    <div id="hourly-rate" class="calculation-result neutral hourly-rate-impact" style="margin-top: 10px;">Ganancia (o Pérdida) REAL por Hora Trabajada: <strong> $0 / hora</strong></div> <!-- Clase neutral inicial -->
+                     <div id="feedback-profitability" class="feedback" style="margin-top: 15px;"></div>
+                 </div>
+            </form>
+        </div>
+
+        <!-- === Análisis de la Ganancia por Hora === -->
+        <div class="calculator-section">
+             <h3>La Métrica Más Impactante: Ganancia por Hora</h3>
+             <p>El Beneficio Neto es importante, pero dividirlo por las horas trabajadas revela el verdadero valor de tu tiempo en este negocio. <strong>¿Cómo se compara tu ganancia por hora con otras opciones en Latinoamérica?</strong></p>
+             <table>
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Valor Aproximado por Hora (USD - Ejemplos LatAm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tu Ganancia/Hora Calculada</td>
+                        <td><strong id="comparison-your-rate">$0.00 / hora</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Salario Mínimo por Hora (Promedio LatAm)</td>
+                        <td>~$1.50 - $2.50 USD / hora</td>
+                    </tr>
+                    <tr>
+                        <td>Empleado Formal Promedio (Ej: Administrativo)</td>
+                        <td>~$3.00 - $6.00 USD / hora</td>
+                    </tr>
+                    <tr>
+                        <td>Freelancer Básico (Ej: Asistente Virtual, Redactor Jr.)</td>
+                        <td>~$5.00 - $15.00 USD / hora</td>
+                    </tr>
+                     <tr>
+                        <td>Freelancer Especializado (Ej: Programador, Diseñador Sr.)</td>
+                        <td>~$15.00 - $50.00+ USD / hora</td>
+                    </tr>
+                </tbody>
+             </table>
+             <p style="text-align: center; margin-top: 15px;"><em>(Valores ilustrativos, pueden variar mucho por país y sector)</em></p>
+             <p class="feedback info" style="display: block;"><strong>Reflexión del Inversionista:</strong> Si tu ganancia por hora es significativamente MENOR que el salario mínimo, ¿estás realmente construyendo un negocio o tienes un hobby muy caro y demandante de tiempo? Si es positiva pero baja, ¿el potencial de crecimiento justifica la inversión actual de tiempo? <strong>¡Los números deben guiar tu decisión!</strong> </p> <!-- Puntos fijos asociados en JS si se desea -->
+        </div>
+
+        <!-- === Calculadora de ROI y Punto de Equilibrio (Simplificado) === -->
+        <div class="calculator-section">
+            <h3>ROI y Punto de Equilibrio (Visión General)</h3>
+
+            <h4>1. Retorno de la Inversión (ROI) Mensual (Simplificado)</h4>
+            <p>¿Qué porcentaje de tus gastos operativos estás recuperando (o superando) con tu beneficio neto este mes?</p>
+            <p><code>ROI Mensual (%) = (Beneficio Neto Mensual / Gastos Operativos Mensuales) * 100</code></p>
+            <div id="roi-result" class="calculation-result neutral" style="display: none;">ROI Mensual: <strong>0%</strong></div>
+
+             <h4>2. Punto de Equilibrio (Estimación Rápida)</h4>
+             <p>¿Cuántos DÓLARES en Margen Bruto + Comisiones necesitas generar al mes SOLO para cubrir tus Gastos Operativos Mensuales (sin contar tu tiempo)?</p>
+             <div id="breakeven-result" class="calculation-result neutral" style="display: none;">Punto de Equilibrio (para cubrir gastos): <strong>$0 / mes</strong></div>
+              <p style="text-align:center; margin-top:10px;"><small>(Un análisis más profundo incluiría el costo del tiempo y la recuperación de la inversión inicial).</small></p>
+              <p class="feedback info" style="display: block;"><strong>Concepto Clave:</strong> Si ni siquiera cubres tus gastos operativos (Punto de Equilibrio), estás perdiendo dinero cada mes. Si lo cubres pero no cubres el valor de tu tiempo, estás 'trabajando gratis'. Si cubres ambos, ¡felicidades, estás en territorio de ganancias reales! </p> <!-- Puntos fijos asociados en JS si se desea -->
+
+        </div>
+
+         <!-- === Análisis de Escenarios === -->
+        <div class="calculator-section">
+            <h3>Análisis de Escenarios: ¿Qué Pasaría Si...?</h3>
+            <p>Juega con los números para ver el impacto. Usa la calculadora principal de arriba y prueba:</p>
+            <div class="scenario-box">
+                 <button onclick="runScenario('double_sales')">Probar: Duplicar Ventas</button>
+                 <button onclick="runScenario('half_expenses')">Probar: Reducir Gastos 50%</button>
+                 <button onclick="runScenario('more_hours')">Probar: Trabajar Doble Horas (¿Impacto en Ganancia/Hora?)</button>
+                 <p id="scenario-feedback" style="margin-top: 15px; font-style: italic; display: none;"></p> <!-- Oculto inicialmente -->
+            </div>
+            <p style="margin-top: 15px;"><strong>Lección del Inversionista:</strong> ¿Qué palancas tienen MAYOR impacto en tu rentabilidad? ¿Es realista duplicar ventas o reducir gastos drásticamente? ¿Trabajar más horas mejora tu ganancia por hora si los ingresos no suben proporcionalmente? <strong>¡Usa los datos para enfocar tu estrategia!</strong> </p> <!-- Puntos fijos asociados en JS si se desea -->
+        </div>
+
+        <!-- === Mención IA para Proyecciones === -->
+         <div class="calculator-section" style="background-color: #e9ecef; border-color:#dee2e6;">
+            <h3 style="color: #6c757d;">IA para Proyecciones (Potencial Futuro)</h3>
+            <p>Modelos simples de IA podrían analizar tus datos históricos (si los tienes) de ventas, gastos y crecimiento de red para:</p>
+            <ul>
+                <li>Proyectar ingresos futuros con mayor precisión (identificando tendencias estacionales, etc.).</li>
+                <li>Estimar cuánto tiempo REAL tomaría alcanzar cierto nivel de ingresos bajo diferentes escenarios.</li>
+            </ul>
+            <p><em>Por ahora, tus cálculos manuales y análisis de escenarios son tu mejor herramienta de proyección.</em></p>
+             <!-- <p class="feedback info" style="display: block;"><strong>+2 Puntos Visión Tecnológica</strong></p> --> <!-- Se pueden añadir puntos fijos en JS al cargar -->
+         </div>
+
+        <h2>Reflexión Final del Nivel 5</h2>
+        <p>¡Este ha sido el nivel de la verdad financiera! Has calculado tu beneficio (o pérdida), tu ROI mensual simplificado y, lo más importante, tu <strong>ganancia real por hora trabajada</strong>. Estos números, comparados con alternativas y con el punto de equilibrio, son la brújula definitiva para tus decisiones.</p>
+        <p><strong>Un inversionista no se miente a sí mismo. Acepta los números, por duros que sean, y actúa en consecuencia.</strong> ¿Es este negocio una buena inversión de tu tiempo y dinero AHORA MISMO? ¿Qué necesitas cambiar ESTRATÉGICAMENTE para que lo sea?</p>
+        <p><strong>Puntos Clave de Hoy:</strong> Calcula Beneficio Neto = (Ingresos Totales - COGS - Gastos Operativos). Calcula Ganancia/Hora = (Beneficio Neto / Horas Trabajadas). Compara tu Ganancia/Hora con el mercado. Entiende el ROI y el Punto de Equilibrio. Usa escenarios para guiar tu estrategia.</p>
+        <p>Con esta claridad financiera, estamos listos para el siguiente nivel: <strong>Crear un Plan de Negocio Sólido</strong>, basado en estos datos, no en sueños.</p>
+
+        <!-- EL BOTÓN FINAL HA SIDO ELIMINADO -->
+        <!-- Ya no hay botón <a href="..." class="next-level-btn"> aquí -->
+
+    </div>
+
+    <script>
+        let userPoints = 0; // Reinicia en cada nivel
+        let netProfit = 0;
+        let hourlyRateValue = 0;
+        let monthlyExpenses = 0; // Para usar en ROI y Breakeven
+
+        function updatePoints(points) {
+            userPoints += points;
+            document.getElementById('points').innerText = userPoints;
+            const pointsSpan = document.getElementById('points');
+            pointsSpan.style.transform = 'scale(1.2)';
+            pointsSpan.style.transition = 'transform 0.2s ease-out';
+            setTimeout(() => { pointsSpan.style.transform = 'scale(1)'; }, 200);
+        }
+
+        function getNumValue(id) {
+            const value = parseFloat(document.getElementById(id).value);
+            return isNaN(value) ? 0 : value;
+        }
+
+        // Variables para rastrear si se han dado puntos por este cálculo
+        let pointsGivenProfitability = false;
+
+        function calculateProfitability() {
+            const totalSales = getNumValue('total_sales');
+            const cogs = getNumValue('cogs');
+            const commissions = getNumValue('commissions');
+            monthlyExpenses = getNumValue('monthly_expenses'); // Captura gastos operativos
+            const hoursWorked = getNumValue('hours_worked');
+
+             if (hoursWorked <= 0) {
+                 alert("Por favor, introduce un número de horas trabajadas mayor que cero.");
+                 return;
+             }
+
+            const grossMargin = totalSales - cogs;
+            const totalRevenue = grossMargin + commissions;
+            netProfit = totalRevenue - monthlyExpenses;
+            hourlyRateValue = netProfit / hoursWorked;
+
+            // Mostrar resultados
+            document.getElementById('gross-margin').innerText = `$${grossMargin.toFixed(2)}`;
+            document.getElementById('total-revenue').innerText = `$${totalRevenue.toFixed(2)}`;
+            document.getElementById('total-expenses').innerText = `$${monthlyExpenses.toFixed(2)}`;
+
+            const netProfitDiv = document.getElementById('net-profit-loss');
+            netProfitDiv.innerHTML = `Beneficio Neto (o Pérdida) Mensual: <strong>$${netProfit.toFixed(2)}</strong>`;
+            netProfitDiv.className = 'calculation-result'; // Reset class
+            if (netProfit > 0) netProfitDiv.classList.add('profit');
+            else if (netProfit < 0) netProfitDiv.classList.add('loss');
+            else netProfitDiv.classList.add('neutral');
+
+             const hourlyRateDiv = document.getElementById('hourly-rate');
+             hourlyRateDiv.innerHTML = `Ganancia (o Pérdida) REAL por Hora Trabajada: <strong>$${hourlyRateValue.toFixed(2)} / hora</strong>`;
+              hourlyRateDiv.className = 'calculation-result hourly-rate-impact'; // Reset class
+             if (hourlyRateValue > 0) hourlyRateDiv.classList.add('profit');
+             else if (hourlyRateValue < 0) hourlyRateDiv.classList.add('loss');
+             else hourlyRateDiv.classList.add('neutral');
+
+             // Actualizar tabla comparativa
+             document.getElementById('comparison-your-rate').innerText = `$${hourlyRateValue.toFixed(2)} / hora`;
+
+
+             // Calcular y mostrar ROI y Punto de Equilibrio
+             calculateROIAndBreakeven(netProfit, monthlyExpenses);
+
+
+            // Mostrar feedback
+            const feedbackDiv = document.getElementById('feedback-profitability');
+             let type = 'info'; // Tipo de feedback por defecto
+            if (hourlyRateValue < 1.5) { // Asumiendo ~1.5 USD como umbral bajo de salario mínimo
+                feedbackDiv.innerHTML = "<strong>¡Alerta Financiera Mayor!</strong> Tu ganancia por hora es extremadamente baja o negativa. Estás subsidiando el negocio con tu tiempo (y quizás dinero). ¡Requiere acción URGENTE o reconsideración!";
+                type = 'incorrect';
+            } else if (hourlyRateValue < 5) { // Umbral bajo de freelancer
+                 feedbackDiv.innerHTML = "<strong>Rendimiento Bajo.</strong> Ganas algo, pero menos que un empleo básico o freelance sencillo. ¿El potencial futuro justifica este bajo rendimiento actual? Analiza bien.";
+                 type = 'warning';
+            } else {
+                 feedbackDiv.innerHTML = "<strong>Rendimiento Positivo.</strong> Estás generando ganancias por encima de alternativas básicas. ¡Bien! Ahora, ¿cómo optimizar y escalar? (Ver próximos niveles)";
+                  type = 'correct';
+            }
+             feedbackDiv.className = 'feedback ' + type; // Asignar clase de feedback
+            feedbackDiv.style.display = 'block';
+
+             document.getElementById('profitability-results').style.display = 'block';
+
+             // Otorgar puntos por el cálculo completo SOLO la primera vez
+              if (!pointsGivenProfitability) {
+                  updatePoints(25); // Ejemplo: 25 puntos
+                  pointsGivenProfitability = true;
+                   // Opcional: deshabilitar botón
+                   const button = document.querySelector('#profitability-form button');
+                 // button.disabled = true;
+                 // button.style.opacity = '0.7';
+              }
+        }
+
+        function calculateROIAndBreakeven(currentNetProfit, currentMonthlyExpenses) {
+             // ROI Mensual
+             const roiDiv = document.getElementById('roi-result');
+             let roi = 0;
+             if (currentMonthlyExpenses > 0) {
+                 roi = (currentNetProfit / currentMonthlyExpenses) * 100;
+             }
+             roiDiv.innerHTML = `ROI Mensual: <strong>${roi.toFixed(1)}%</strong>`;
+             roiDiv.className = 'calculation-result'; // Reset
+             if (roi > 0) roiDiv.classList.add('profit');
+             else if (roi < 0) roiDiv.classList.add('loss');
+             else roiDiv.classList.add('neutral');
+             roiDiv.style.display = 'block';
+
+             // Punto de Equilibrio (simplificado: ingresos necesarios para cubrir gastos operativos)
+             const breakevenDiv = document.getElementById('breakeven-result');
+             const breakeven = currentMonthlyExpenses; // Necesitas generar ingresos = gastos
+             breakevenDiv.innerHTML = `Punto de Equilibrio (para cubrir gastos): <strong>$${breakeven.toFixed(2)} / mes</strong>`;
+             breakevenDiv.className = 'calculation-result neutral'; // Neutral por definición
+             breakevenDiv.style.display = 'block';
+        }
+
+
+        function runScenario(scenarioType) {
+             // Guarda valores originales (si no existen ya)
+             const form = document.getElementById('profitability-form');
+             const inputs = form.querySelectorAll('input[type=number]');
+             inputs.forEach(input => {
+                 if (!input.hasAttribute('data-original-value')) {
+                     input.setAttribute('data-original-value', input.value);
+                 }
+             });
+
+             // Recupera originales para cálculo
+             const originalSales = parseFloat(document.getElementById('total_sales').getAttribute('data-original-value')) || 0;
+             const originalCogs = parseFloat(document.getElementById('cogs').getAttribute('data-original-value')) || 0;
+             const originalExpenses = parseFloat(document.getElementById('monthly_expenses').getAttribute('data-original-value')) || 0;
+             const originalHours = parseFloat(document.getElementById('hours_worked').getAttribute('data-original-value')) || 1;
+
+             // Modifica inputs según escenario
+             const feedbackP = document.getElementById('scenario-feedback');
+             const salesInput = document.getElementById('total_sales');
+             const cogsInput = document.getElementById('cogs');
+             const expensesInput = document.getElementById('monthly_expenses');
+             const hoursInput = document.getElementById('hours_worked');
+
+
+             if (scenarioType === 'double_sales') {
+                 salesInput.value = originalSales * 2;
+                 cogsInput.value = originalCogs * 2; // Asumiendo COGS proporcional
+                 feedbackP.innerText = "Escenario: Ventas Duplicadas. Vuelve a Calcular Rentabilidad.";
+             } else if (scenarioType === 'half_expenses') {
+                 expensesInput.value = originalExpenses * 0.5;
+                 feedbackP.innerText = "Escenario: Gastos Reducidos 50%. Vuelve a Calcular Rentabilidad.";
+             } else if (scenarioType === 'more_hours') {
+                 hoursInput.value = originalHours * 2;
+                  feedbackP.innerText = "Escenario: Horas Duplicadas. Vuelve a Calcular (¡mira impacto Ganancia/Hora!).";
+             }
+             feedbackP.style.display = 'block'; // Mostrar texto del escenario
+
+             // Habilita botón de cálculo y resetea flag de puntos
+             const btn = document.querySelector('#profitability-form button');
+             btn.disabled = false;
+             btn.style.opacity = '1';
+             pointsGivenProfitability = false; // Permite dar puntos de nuevo si se recalcula
+        }
+
+        // Añadir puntos fijos por lectura al cargar la página
+         document.addEventListener('DOMContentLoaded', () => {
+             updatePoints(0); // Inicia puntos en 0
+             // Ejemplo de puntos fijos por leer secciones
+             // updatePoints(10); // Por comparación crítica
+             // updatePoints(10); // Por entender ROI/Equilibrio
+             // updatePoints(5); // Por leer sección escenarios
+             // updatePoints(2); // Por leer sección IA
+             // document.getElementById('points').innerText = userPoints;
+         });
+
+    </script>
+</body>
+</html>

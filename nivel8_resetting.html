@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 8: Diversificación, Expansión y Marca Personal</title>
+    <style>
+        /* --- ESTILOS GENERALES (Consistente, color tema expansión/marca) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid #fd7e14; /* Naranja para diversificación/energía */ }
+        h1, h2, h3 { color: #d95f02; /* Naranja oscuro */ margin-bottom: 15px; }
+        h1 { text-align: center; border-bottom: 2px solid #fd7e14; padding-bottom: 10px; font-size: 2em; }
+        p, li { margin-bottom: 12px; color: #555; }
+        strong { color: #d95f02; }
+        em { color: #20c997; font-weight: bold; } /* Verde azulado para énfasis positivo */
+        code { background-color: #e9ecef; padding: 2px 5px; border-radius: 3px; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; }
+        textarea { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px; font-family: inherit; font-size: 1em; }
+        input[type=text] { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; }
+        input:focus, textarea:focus { border-color: #fd7e14; outline: none; }
+
+        /* --- ESTILOS GAMIFICACIÓN (Consistente) --- */
+        .progress-bar-container { width: 100%; background-color: #e9ecef; border-radius: 5px; margin-bottom: 20px; height: 10px; overflow: hidden; }
+        .progress-bar { width: 80%; /* Nivel 8 de 10 */ height: 100%; background-color: #28a745; border-radius: 5px; transition: width 0.5s ease-in-out; }
+        .points-counter { text-align: right; font-size: 1.2em; font-weight: bold; color: #ffc107; margin-bottom: 20px; }
+        .points-counter span { background-color: #d95f02; color: white; padding: 5px 10px; border-radius: 15px; }
+
+        /* --- ESTILOS INTERACTIVOS (Diversificación y Marca Personal) --- */
+        .strategy-section { background-color: #fff8e1; /* Naranja muy pálido */ border: 1px solid #ffecb3; padding: 20px; margin-top: 25px; margin-bottom: 25px; border-radius: 8px; }
+        .strategy-section h3 { margin-top: 0; color: #c66900; } /* Naranja más oscuro subsecciones */
+        .idea-box { background-color: #fff; border: 1px solid #ddd; border-left: 5px solid #fd7e14; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .idea-box h4 { margin-top: 0; margin-bottom: 5px; color: #d95f02; }
+        .idea-box ul { margin-top: 10px; padding-left: 20px; }
+        .action-item { margin-bottom: 10px; }
+        .action-item input[type="checkbox"] { margin-right: 10px; transform: scale(1.1); }
+        .action-item label { font-weight: normal; }
+        button.brainstorm-btn { display: inline-block; width: auto; padding: 10px 25px; margin-top: 10px; background-color: #fd7e14; color: white; border: none; border-radius: 5px; font-size: 1em; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; text-align: center; }
+        button.brainstorm-btn:hover { background-color: #e66a00; }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; display: none; }
+        .feedback.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .feedback.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .feedback.warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; } /* Añadido warning */
+
+
+        /* --- BOTÓN SIGUIENTE NIVEL (ESTILO AÚN PRESENTE PERO EL BOTÓN NO SE USA) --- */
+         .next-level-btn { display: block; width: fit-content; margin: 30px auto 0 auto; padding: 15px 30px; background-color: #28a745; color: white; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+         .next-level-btn:hover { background-color: #218838; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 8: Diversificación y Expansión - ¡No Seas un 'One-Trick Pony'!</h1>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="points-counter">Puntos Lógica Inversora (Nivel 8): <span id="points">0</span></div>
+
+        <h2>Recap Nivel 7: Liderazgo Consciente</h2>
+        <p>Aprendiste a liderar (si aplica) con ética y estrategia. Pero incluso con el mejor liderazgo y un negocio MLM "legítimo", depender de UNA SOLA fuente de ingresos, especialmente una tan dependiente de factores externos (cambios en la empresa, regulaciones, mercado), es <strong>extremadamente RIESGOSO</strong> desde la perspectiva de un inversionista.</p>
+        <p>Este nivel se trata de <strong>construir tu propio ecosistema financiero y profesional</strong>, yendo más allá del producto estrella o de la estructura única del MLM.</p>
+        <p><em>Objetivo de este nivel: Explorar estrategias CONCRETAS para diversificar tus fuentes de ingresos, expandir tu alcance usando canales online/offline y, fundamentalmente, construir una MARCA PERSONAL sólida que sea INDEPENDIENTE de cualquier empresa de MLM. ¡Piensa como un conglomerado de UNO!</em></p>
+        <!-- <p><strong>Principio del Inversionista:</strong> <em>"La diversificación es la única comida gratis en finanzas."</em> (+5 Puntos por Principio Clave)</p> --> <!-- Puntos gestionados en JS si se desea -->
+
+        <!-- === Sección Riesgo de Dependencia === -->
+        <div class="strategy-section" style="border-color: #f5c6cb; background-color: #f8d7da;"> <!-- Rojo alerta -->
+            <h3 style="color: #721c24;">El Peligro de la Dependencia Total del MLM</h3>
+            <p>¿Qué pasa si mañana...</p>
+            <ul>
+                <li>...la empresa cambia drásticamente el plan de compensación (¡ha pasado!)?</li>
+                <li>...el producto estrella se vuelve obsoleto o enfrenta nueva competencia feroz?</li>
+                <li>...nuevas regulaciones impactan el modelo de negocio en tu país?</li>
+                <li>...la empresa cierra o es vendida?</li>
+                <li>...tu mercado local se satura completamente?</li>
+            </ul>
+            <p><em>Si TODA tu identidad profesional y TODOS tus ingresos dependen de esa única empresa, estás en una posición muy vulnerable.</em> ¡Un inversionista inteligente MITIGA riesgos!</p> <!-- (+10 Puntos por Conciencia de Riesgo) --> <!-- Puntos gestionados en JS si se desea -->
+        </div>
+
+
+        <!-- === Sección Marca Personal Independiente === -->
+        <div class="strategy-section">
+            <h3>Construyendo TU Marca Personal (Tu Activo Más Valioso)</h3>
+            <p>Tu marca personal es tu reputación, tu expertise y la confianza que generas bajo <strong>TU PROPIO NOMBRE</strong>, no el de la empresa MLM.</p>
+
+            <div class="idea-box">
+                <h4>1. Define tu Identidad Profesional</h4>
+                <p>¿Quién eres MÁS ALLÁ del distribuidor de [Producto X]? ¿Qué habilidades o conocimientos tienes o quieres desarrollar?</p>
+                 <label for="personal_brand_id" style="font-weight:bold;">Mi identidad profesional central es/será:</label>
+                 <input type="text" id="personal_brand_id" name="personal_brand_id" placeholder="Ej: Experto/a en Bienestar Holístico, Estratega de Marketing para Pequeños Negocios, Coach de Ventas Éticas, Especialista en Cuidado de la Piel, Educador Financiero Básico...">
+            </div>
+
+            <div class="idea-box">
+                 <h4>2. Crea Contenido de VALOR (No solo Promocional)</h4>
+                 <p>Comparte tu conocimiento y experiencia sobre temas relacionados con tu identidad profesional (y que interesen a tu cliente ideal), no solo sobre los productos MLM.</p>
+                 <label for="content_ideas" style="font-weight:bold;">Ideas de contenido de valor (bajo mi marca personal):</label>
+                 <textarea id="content_ideas" name="content_ideas" rows="3" placeholder="Ej: Tips de nutrición si vendo suplementos, Consejos de productividad si ofrezco coaching, Tutoriales de maquillaje si vendo cosméticos, Análisis de tendencias de mercado si estoy en servicios financieros..."></textarea>
+            </div>
+
+             <div class="idea-box">
+                 <h4>3. Elige Tus Plataformas (Donde esté tu audiencia)</h4>
+                 <p>¿Dónde compartirás tu contenido y construirás tu comunidad?</p>
+                 <label for="platform_choices" style="font-weight:bold;">Plataformas clave para mi marca personal:</label>
+                 <input type="text" id="platform_choices" name="platform_choices" placeholder="Ej: Instagram, LinkedIn, Blog personal, YouTube, Grupo de Facebook, Podcast...">
+                  <small>Empieza con 1 o 2 y sé consistente.</small>
+            </div>
+             <p class="feedback success" style="display: block;"><strong>Resultado:</strong> Construyes una audiencia LEAL a TI, no solo a la marca MLM. Esta audiencia te seguirá incluso si cambias de empresa o emprendes algo totalmente diferente. ¡Es tu red de seguridad y tu plataforma de lanzamiento! </p> <!-- (+15 Puntos por Estrategia de Marca) --> <!-- Puntos gestionados en JS si se desea -->
+        </div>
+
+
+        <!-- === Sección Estrategias de Diversificación === -->
+        <div class="strategy-section">
+            <h3>Estrategias Concretas de Diversificación de Ingresos</h3>
+            <p>Piensa en cómo aprovechar tus habilidades y tu marca personal para crear MÚLTIPLES fuentes de ingreso:</p>
+
+             <div class="idea-box">
+                 <h4>A. Dentro del MLM (Si es viable y ético)</h4>
+                 <ul>
+                     <li><strong>Enfoque en Clientes Finales Rentables:</strong> Cultiva una base de clientes leales que compran regularmente porque AMAN el producto (no por obligación).</li>
+                     <li><strong>Maximiza Margen:</strong> Concéntrate en vender los productos con MEJOR margen de ganancia.</li>
+                      <li><strong>¿Servicios Complementarios Directos?:</strong> Si el producto lo permite (ej. cosméticos), ¿puedes ofrecer un servicio adicional pago (ej. sesión de maquillaje personalizada)?</li>
+                 </ul>
+             </div>
+
+              <div class="idea-box">
+                 <h4>B. Fuera del MLM (Aprovechando tu Expertise y Marca)</h4>
+                 <ul>
+                     <li><strong>Servicios Basados en Habilidades:</strong>
+                         <ul>
+                             <li>Si vendes suplementos y sabes de nutrición/fitness: Ofrece <em>coaching de bienestar personalizado, planes de comidas, entrenamiento personal</em> (si estás cualificado y certificado).</li>
+                             <li>Si desarrollaste habilidades de venta/marketing: Ofrece <em>consultoría o formación a otros pequeños negocios o emprendedores (fuera del MLM)</em>.</li>
+                             <li>Si eres bueno/a organizando/administrando: Ofrece <em>servicios de asistencia virtual</em>.</li>
+                         </ul>
+                     </li>
+                     <li><strong>Productos Propios (Digitales o Físicos):</strong>
+                        <ul>
+                             <li>Crea un <em>ebook o curso online</em> sobre tu área de expertise (ej. "Guía de Alimentación Saludable para Principiantes", "Curso Básico de Marketing en Instagram").</li>
+                             <li>Si tienes habilidad manual, crea <em>productos artesanales</em> relacionados (ej. jabones naturales si estás en bienestar).</li>
+                        </ul>
+                     </li>
+                      <li><strong>Marketing de Afiliados (Ético):</strong> Promociona productos o servicios de OTRAS empresas (que SÍ usarías y recomiendas genuinamente) a tu audiencia, a cambio de una comisión. Debe complementar tu marca.</li>
+                      <li><strong>Otros Negocios Online/Offline:</strong> Explora opciones que te apasionen y tengan potencial de mercado (E-commerce con otros productos, tienda local, etc.).</li>
+                 </ul>
+             </div>
+              <p class="feedback info" style="display: block;"><strong>Mentalidad de Portafolio:</strong> Cada fuente de ingreso es como una 'acción' en tu portafolio financiero personal. ¡Diversifica para reducir el riesgo total! </p> <!-- (+10 Puntos por Mentalidad de Diversificación) --> <!-- Puntos gestionados en JS si se desea -->
+
+             <h4>Brainstorming Personal de Diversificación:</h4>
+             <label for="diversification_ideas" style="font-weight:bold;">Mis primeras 3 ideas para diversificar ingresos (fuera del MLM):</label>
+             <textarea id="diversification_ideas" name="diversification_ideas" rows="3" placeholder="1. ...
+2. ...
+3. ..."></textarea>
+             <button type="button" class="brainstorm-btn" onclick="feedbackBrainstorm()">Validar Ideas (Conceptual)</button>
+             <div id="feedback-brainstorm" class="feedback"></div>
+
+        </div>
+
+        <!-- === Sección Canales de Venta Online/Offline === -->
+         <div class="strategy-section">
+             <h3>Expandiendo tu Alcance: Canales Online y Offline</h3>
+             <p>¿Cómo llegarás a tus clientes (tanto del MLM como de tus otras fuentes de ingreso)?</p>
+              <div class="idea-box">
+                 <h4>Canales Online (Optimizados para TU Marca):</h4>
+                 <ul>
+                     <li><strong>Sitio Web/Blog Propio:</strong> El centro de tu marca personal. Control total sobre contenido y audiencia.</li>
+                     <li><strong>Redes Sociales Profesionales:</strong> Perfiles bien cuidados (LinkedIn, Instagram, Facebook Page) enfocados en aportar valor.</li>
+                     <li><strong>Email Marketing:</strong> Construye tu propia lista de suscriptores (con permiso) para comunicarte directamente.</li>
+                     <li><strong>WhatsApp Business:</strong> Para comunicación profesional y gestión de clientes.</li>
+                 </ul>
+              </div>
+               <div class="idea-box">
+                 <h4>Canales Offline (Si Aplica):</h4>
+                 <ul>
+                      <li><strong>Networking Estratégico:</strong> Asiste a eventos de tu sector (no solo de MLM) para conectar con potenciales clientes o colaboradores.</li>
+                      <li><strong>Mercados Locales/Ferias:</strong> Si vendes productos físicos (MLM u otros) y es rentable.</li>
+                      <li><strong>Alianzas con Negocios Locales:</strong> Colabora con negocios complementarios (ej. gimnasio si vendes suplementos, peluquería si vendes cuidado capilar).</li>
+                      <li><strong>Talleres o Charlas Presenciales:</strong> Comparte tu expertise en persona.</li>
+                 </ul>
+              </div>
+              <p class="feedback info" style="display: block;"><strong>Omnicanalidad Inteligente:</strong> Elige los canales donde esté TU cliente ideal y que se alineen con tu estrategia y presupuesto. No tienes que estar en todos lados. </p> <!-- (+5 Puntos por Estrategia de Canales) --> <!-- Puntos gestionados en JS si se desea -->
+         </div>
+
+
+        <!-- === Mención IA para Identificar Oportunidades === -->
+         <div class="strategy-section" style="background-color: #e9ecef; border-color:#dee2e6;">
+            <h3 style="color: #6c757d;">IA como Radar de Oportunidades</h3>
+            <p>La IA puede ayudarte a:</p>
+            <ul>
+                <li><strong>Analizar Tendencias de Mercado:</strong> Identificar nichos emergentes o necesidades no cubiertas donde tus habilidades podrían aplicar.</li>
+                <li><strong>Investigar Demanda de Servicios:</strong> Evaluar si hay búsqueda activa para coaching, consultoría o cursos en tu área de expertise.</li>
+                <li><strong>Automatizar Tareas de Marketing:</strong> Liberar tiempo para que te enfoques en desarrollar nuevas líneas de negocio (Ej: programar posts, segmentar emails básicos).</li>
+            </ul>
+             <!-- <p class="feedback info" style="display: block;"><strong>+2 Puntos Visión Tecnológica</strong></p> --> <!-- Puntos gestionados en JS si se desea -->
+         </div>
+
+
+        <h2>Reflexión Final del Nivel 8</h2>
+        <p>¡Has diseñado tu estrategia de independencia financiera! Entendiste el riesgo de la dependencia única, esbozaste cómo construir tu marca personal y exploraste vías concretas para diversificar tus ingresos y expandir tu alcance.</p>
+        <p><strong>Un empresario inteligente no depende de una sola fuente. Construye un ecosistema robusto y controla sus activos más valiosos: su marca y sus habilidades.</strong></p>
+        <p><strong>Puntos Clave de Hoy:</strong> Reconoce el riesgo de la dependencia. Define y construye tu MARCA PERSONAL independiente. Identifica oportunidades de DIVERSIFICACIÓN (dentro y fuera del MLM). Elige tus canales de expansión online/offline estratégicamente.</p>
+        <p>Con esta visión de diversificación, estamos casi al final. El Nivel 9 te preparará para algo que muchos evitan pero que es crucial: <strong>La Salida Inteligente</strong>, cómo reconocer cuándo es momento de dejar el MLM y hacerlo protegiendo tus finanzas y reputación.</p>
+
+        <!-- EL BOTÓN FINAL HA SIDO ELIMINADO -->
+        <!-- Ya no hay botón <a href="..." class="next-level-btn"> aquí -->
+
+    </div>
+
+    <script>
+        let userPoints = 0; // Reinicia en cada nivel
+
+        function updatePoints(points) {
+            userPoints += points;
+            document.getElementById('points').innerText = userPoints;
+             const pointsSpan = document.getElementById('points');
+             pointsSpan.style.transform = 'scale(1.2)';
+             pointsSpan.style.transition = 'transform 0.2s ease-out';
+             setTimeout(() => { pointsSpan.style.transform = 'scale(1)'; }, 200);
+        }
+
+        // Variable para rastrear si los puntos ya se dieron por el brainstorm
+        let pointsGivenBrainstorm = false;
+        function feedbackBrainstorm() {
+             const ideas = document.getElementById('diversification_ideas').value;
+             const feedbackDiv = document.getElementById('feedback-brainstorm');
+             const button = feedbackDiv.previousElementSibling; // Botón antes del feedback
+
+             let message = "";
+             let type = 'info';
+
+             if (ideas.trim().length > 0) {
+                 message = "<strong>¡Excelentes Primeras Ideas!</strong> Ahora, el siguiente paso es investigar la viabilidad real de cada una: ¿Hay mercado? ¿Qué inversión requiere? ¿Cómo encaja con tu marca personal? ¡Sigue explorando!";
+                 type = 'success';
+                 // Otorgar puntos solo una vez
+                 if (!pointsGivenBrainstorm) {
+                      updatePoints(10); // Ejemplo: 10 puntos
+                      pointsGivenBrainstorm = true;
+                      // Opcional deshabilitar botón
+                      // button.disabled = true;
+                      // button.style.opacity = '0.6';
+                 }
+             } else {
+                 message = "<strong>¡No te quedes en blanco!</strong> Piensa en tus habilidades (¡seguro tienes muchas!), pasiones e intereses. ¿Qué problemas podrías resolver para otros? Pide ideas a una IA si necesitas inspiración.";
+                 type = 'warning';
+             }
+             feedbackDiv.innerHTML = message;
+              feedbackDiv.className = 'feedback ' + type;
+             feedbackDiv.style.display = 'block';
+        }
+
+
+        // Añadir puntos fijos por lectura al cargar la página (si se desea)
+         document.addEventListener('DOMContentLoaded', () => {
+             updatePoints(0); // Inicia puntos en 0
+             // Ejemplo: Puntos fijos por lectura de secciones
+             // updatePoints(5); // Principio Inversionista
+             // updatePoints(10); // Conciencia Riesgo
+             // updatePoints(15); // Estrategia Marca
+             // updatePoints(10); // Mentalidad Diversificación
+             // updatePoints(5); // Estrategia Canales
+             // updatePoints(2); // Visión Tecnológica IA
+             // document.getElementById('points').innerText = userPoints;
+         });
+
+    </script>
+</body>
+</html>

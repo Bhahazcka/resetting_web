@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 3: El Modelo de Negocio - ¿Sostenible o Pirámide?</title>
+    <style>
+        /* --- ESTILOS GENERALES (Consistente, nuevo color tema) --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 8px solid #ffc107; /* Amarillo/Naranja para Análisis/Precaución */ }
+        h1, h2, h3 { color: #d39e00; /* Amarillo oscuro títulos */ margin-bottom: 15px; }
+        h1 { text-align: center; border-bottom: 2px solid #ffc107; padding-bottom: 10px; font-size: 2em; }
+        p, li { margin-bottom: 12px; color: #555; }
+        strong { color: #d39e00; }
+        em { color: #dc3545; font-weight: bold; } /* Énfasis en rojo para alertas */
+        code { background-color: #e9ecef; padding: 2px 5px; border-radius: 3px; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; }
+
+        /* --- ESTILOS GAMIFICACIÓN (Consistente) --- */
+        .progress-bar-container { width: 100%; background-color: #e9ecef; border-radius: 5px; margin-bottom: 20px; height: 10px; overflow: hidden; }
+        .progress-bar { width: 30%; /* Nivel 3 de 10 */ height: 100%; background-color: #28a745; border-radius: 5px; transition: width 0.5s ease-in-out; }
+        .points-counter { text-align: right; font-size: 1.2em; font-weight: bold; color: #ffc107; margin-bottom: 20px; }
+        .points-counter span { background-color: #d39e00; color: white; padding: 5px 10px; border-radius: 15px; }
+
+        /* --- ESTILOS INTERACTIVOS (Consistente + Nuevos para Checklist y Evaluación) --- */
+        .interactive-section { background-color: #fffcf5; /* Amarillo muy pálido */ border: 1px solid #eee8d5; padding: 20px; margin-top: 25px; margin-bottom: 25px; border-radius: 8px; }
+        .interactive-section h3 { margin-top: 0; color: #b58500; } /* Amarillo más oscuro para subsecciones */
+        .checklist-item { margin-bottom: 15px; padding: 10px; border-left: 4px solid #ffc107; background-color: #fff; border-radius: 4px; }
+        .checklist-item input[type="checkbox"] { margin-right: 12px; transform: scale(1.2); cursor: pointer; }
+        .checklist-item label { font-weight: normal; color: #333; cursor: pointer; display: inline; } /* Añadido display inline */
+        #risk-score-display { font-size: 1.3em; font-weight: bold; text-align: center; margin-top: 15px; padding: 10px; border-radius: 5px; }
+        .score-low { background-color: #d4edda; color: #155724; } /* Verde */
+        .score-medium { background-color: #fff3cd; color: #856404; } /* Amarillo */
+        .score-high { background-color: #f8d7da; color: #721c24; } /* Rojo */
+        .product-eval-question { margin-bottom: 20px; }
+        .product-eval-question label { display: block; margin-bottom: 8px; font-weight: bold; color: #b58500; }
+        .product-eval-question select, .product-eval-question input[type=number], .product-eval-question input[type=text] { width: 95%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; }
+        button.eval-btn, button.quiz-btn { display: block; width: 100%; padding: 12px 15px; margin-top: 10px; background-color: #ffc107; color: #333; border: none; border-radius: 5px; font-size: 1em; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; text-align: center; }
+        button.eval-btn:hover, button.quiz-btn:hover { background-color: #e0a800; }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; display: none; }
+        .feedback.correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .feedback.incorrect { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .feedback.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .feedback.warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; } /* Añadido warning */
+        .case-study-box { border: 1px dashed #ccc; padding: 15px; margin-top: 15px; border-radius: 5px; background-color: #f8f9fa; }
+
+        /* --- BOTÓN SIGUIENTE NIVEL (ESTILO AÚN PRESENTE PERO EL BOTÓN NO SE USA) --- */
+         .next-level-btn { display: block; width: fit-content; margin: 30px auto 0 auto; padding: 15px 30px; background-color: #28a745; color: white; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+         .next-level-btn:hover { background-color: #218838; transform: translateY(-2px); }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 3: El Modelo de Negocio - ¿Sostenible o Pirámide Disfrazada?</h1>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="points-counter">Puntos Lógica Inversora (Nivel 3): <span id="points">0</span></div>
+
+        <h2>Recap Nivel 2: El Escudo Psicológico</h2>
+        <p>En el nivel anterior, afilamos nuestro escudo contra la manipulación psicológica. Ahora que podemos pensar con más claridad, es hora de diseccionar la <strong>estructura misma del negocio</strong>. No todas las empresas que usan redes de distribuidores son iguales. Algunas son negocios legítimos (aunque con baja probabilidad de éxito para la mayoría), mientras que otras son <em>esquemas piramidales ilegales disfrazados</em>.</p>
+        <p><em>Objetivo de este nivel: Aprender a diferenciar un MLM potencialmente legítimo de una pirámide, y evaluar objetivamente si el producto o servicio ofrecido tiene viabilidad REAL en el mercado. ¡Ponte tus gafas de detective financiero!</em></p>
+
+        <!-- === Sección MLM vs. Pirámide === -->
+        <div class="interactive-section">
+            <h3>MLM Legítimo vs. Esquema Piramidal: La Delgada Línea Roja</h3>
+            <p>La diferencia FUNDAMENTAL reside en <strong>de dónde proviene la mayor parte del dinero</strong>:</p>
+            <ul>
+                <li><strong>MLM (potencialmente) Legítimo:</strong> Las ganancias significativas (tanto para la empresa como para los distribuidores exitosos) provienen de la <strong>venta de productos/servicios a consumidores FINALES</strong> que están *fuera* de la red de distribuidores. El reclutamiento existe, pero como forma de expandir la fuerza de ventas, no como fuente primaria de ingresos.</li>
+                <li><strong>Esquema Piramidal (Ilegal):</strong> Las ganancias provienen principalmente del <strong>reclutamiento de nuevas personas</strong>. Se les exige pagar altas cuotas de entrada o comprar grandes cantidades de inventario (front-loading). El producto suele ser secundario, de baja calidad, sobrevalorado o simplemente una excusa. El dinero de los nuevos reclutas paga a los de arriba. <em>Estos esquemas colapsan inevitablemente cuando el reclutamiento se detiene.</em></li>
+            </ul>
+
+            <h4>Detector de Pirámides (Checklist Interactivo)</h4>
+            <p>Evalúa una empresa MLM (la tuya o una que conozcas) marcando las casillas que apliquen. Cada marca suma puntos de riesgo:</p>
+            <form id="pyramid-checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="flag1" name="flags" value="3" onclick="updateRiskScore()">
+                    <label for="flag1"><strong>Énfasis Extremo en Reclutamiento:</strong> ¿La mayor parte del tiempo en reuniones y capacitaciones se dedica a cómo reclutar, más que a cómo vender el producto a clientes externos? (3 Pts Riesgo)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="flag2" name="flags" value="2" onclick="updateRiskScore()">
+                    <label for="flag2"><strong>Promesas de Ganancias Fáciles/Rápidas:</strong> ¿Se habla constantemente de hacerse rico rápidamente con poco esfuerzo, mostrando sólo los casos de éxito extremo? (2 Pts Riesgo)</label>
+                </div>
+                 <div class="checklist-item">
+                    <input type="checkbox" id="flag3" name="flags" value="3" onclick="updateRiskScore()">
+                    <label for="flag3"><strong>Altas Inversiones Iniciales Obligatorias:</strong> ¿Se requiere comprar un kit de inicio muy caro o una cantidad significativa de inventario para empezar o para calificar a comisiones? (Front-loading) (3 Pts Riesgo)</label>
+                </div>
+                 <div class="checklist-item">
+                    <input type="checkbox" id="flag4" name="flags" value="2" onclick="updateRiskScore()">
+                    <label for="flag4"><strong>Poca o Nula Venta Minorista Real:</strong> ¿La mayoría de los distribuidores vende principalmente a otros distribuidores o apenas vende a clientes fuera de la red? ¿Es difícil encontrar el producto fuera del MLM? (2 Pts Riesgo)</label>
+                </div>
+                <div class="checklist-item">
+                     <input type="checkbox" id="flag5" name="flags" value="2" onclick="updateRiskScore()">
+                     <label for="flag5"><strong>Producto Sobrevalorado o Dudoso:</strong> ¿El producto es significativamente más caro que alternativas similares en el mercado, o tiene afirmaciones exageradas sin respaldo científico sólido? (2 Pts Riesgo)</label>
+                 </div>
+                 <div class="checklist-item">
+                    <input type="checkbox" id="flag6" name="flags" value="1" onclick="updateRiskScore()">
+                    <label for="flag6"><strong>Plan de Compensación Complejo y Confuso:</strong> ¿Es muy difícil entender cómo se calculan realmente las ganancias, especialmente las que dependen de la estructura de la red? (1 Pto Riesgo)</label>
+                </div>
+                 <div class="checklist-item">
+                    <input type="checkbox" id="flag7" name="flags" value="2" onclick="updateRiskScore()">
+                    <label for="flag7"><strong>Presión para "Comprar para Calificar":</strong> ¿Se te anima o exige comprar más producto del que puedes vender o consumir tú mismo, solo para mantener tu rango o calificar para bonos? (Autoconsumo forzado) (2 Pts Riesgo)</label>
+                </div>
+            </form>
+            <div id="risk-score-display" class="neutral">Puntuación de Riesgo Piramidal: 0 Pts</div> <!-- Clase neutral inicial -->
+             <p style="text-align:center; margin-top:10px;"><small>(Esta es una guía. Una puntuación alta sugiere investigar MUY a fondo o alejarse.)</small></p>
+             <div id="feedback-checklist" class="feedback"></div>
+        </div>
+
+        <!-- === Sección Evaluación del Producto/Servicio === -->
+        <div class="interactive-section">
+            <h3>Evaluando el Producto/Servicio (Mentalidad Inversionista)</h3>
+            <p>Incluso si la estructura no es una pirámide obvia, un negocio sólo es sostenible si ofrece algo que la gente <strong>realmente quiere o necesita</strong>, a un <strong>precio competitivo</strong>, y que sea de <strong>buena calidad</strong>.</p>
+            <p>Hazte estas preguntas clave sobre el producto/servicio del MLM que analizas:</p>
+
+            <form id="product-evaluation">
+                <div class="product-eval-question">
+                    <label for="demand">1. Demanda REAL del Mercado:</label>
+                    <select id="demand" name="demand">
+                        <option value="low">Baja (Poca gente fuera de la red lo compraría a ese precio)</option>
+                        <option value="medium">Media (Hay interés, pero mucha competencia)</option>
+                        <option value="high">Alta (Producto único o con clara ventaja, gente lo busca activamente)</option>
+                    </select>
+                </div>
+                <div class="product-eval-question">
+                     <label for="competition">2. Competencia y Precio:</label>
+                     <select id="competition" name="competition">
+                         <option value="high_price">Mucho más caro que alternativas similares y mejores en el mercado.</option>
+                         <option value="competitive">Precio similar a la competencia, con calidad comparable o superior.</option>
+                         <option value="cheaper">Más barato o con una propuesta de valor claramente superior por el precio.</option>
+                     </select>
+                 </div>
+                 <div class="product-eval-question">
+                     <label for="quality">3. Calidad y Evidencia (Especialmente Suplementos/Salud):</label>
+                     <select id="quality" name="quality">
+                         <option value="poor">Afirmaciones exageradas, sin estudios independientes, dudosas regulaciones (COFEPRIS, ANVISA, INVIMA, etc.).</option>
+                         <option value="average">Calidad aceptable, cumple regulaciones básicas, pero sin nada extraordinario.</option>
+                         <option value="excellent">Alta calidad, respaldado por evidencia (si aplica), cumple y supera regulaciones.</option>
+                     </select>
+                 </div>
+                 <div class="product-eval-question">
+                     <label for="margin">4. Margen de Ganancia por Venta REAL:</label>
+                     <p style="font-size:0.9em; color:#666;">(Precio de Venta al Público - Tu Costo) / Precio de Venta al Público. ¿Es suficiente para cubrir tu tiempo y gastos de venta?</p>
+                     <select id="margin" name="margin">
+                          <option value="low">Muy bajo (< 20-25%), difícil rentabilizar solo con ventas.</option>
+                          <option value="medium">Razonable (25-40%), posible rentabilizar con volumen.</option>
+                          <option value="high">Alto (> 40%), buen potencial de ganancias por venta directa.</option>
+                     </select>
+                 </div>
+
+                <button type="button" class="eval-btn" onclick="evaluateProduct()">Evaluar Viabilidad del Producto</button>
+                <div id="feedback-product" class="feedback"></div>
+            </form>
+        </div>
+
+         <!-- === Sección IA para Investigación de Mercado (Simulación Simple) === -->
+         <div class="interactive-section">
+             <h3>IA Simulada: Investigación de Mercado Rápida</h3>
+             <p>Usemos una 'simulación' de IA para ver el interés del mercado. Escribe un tipo de producto MLM común (ej: "batidos de proteínas", "aceites esenciales", "cursos de trading online", "maquillaje anti-edad") y pulsa 'Analizar'.</p>
+             <input type="text" id="product-query" placeholder="Ej: batidos de proteínas">
+             <button type="button" class="eval-btn" style="background-color:#17a2b8; color:white;" onclick="simulateMarketResearch()">Analizar Interés del Mercado (Simulado)</button>
+             <div id="feedback-ia-research" class="feedback"></div>
+             <p style="text-align:center; margin-top:10px;"><small>(Simulación didáctica. Herramientas reales: Google Trends, SEMrush, análisis de redes sociales).</small></p>
+         </div>
+
+
+        <!-- === Caso Práctico y Decisión === -->
+        <div class="interactive-section">
+             <h3>Caso Práctico Rápido: Empresa A vs. Empresa B</h3>
+             <div class="case-study-box">
+                 <p><strong>Empresa A (Suplementos "Milagro"):</strong> Foco 90% en reclutar. Kits carísimos ($1000 USD). Producto muy caro vs mercado. Poca venta fuera de la red. Eventos constantes llenos de testimonios de riqueza rápida. Plan de compensación inentendible.</p>
+                 <p><strong>Empresa B (Cuidado de la Piel):</strong> Foco 50% venta / 50% reclutar opcional. Kit inicial razonable ($150 USD). Productos de buena calidad, precio competitivo vs. marcas premium. Clientes recurrentes fuera de la red. Capacitación en técnicas de venta y producto. Plan claro.</p>
+             </div>
+
+             <h4>Tu Veredicto de Inversionista:</h4>
+             <p>Basado en el checklist y la evaluación de producto, ¿qué indica tu análisis?</p>
+              <button class="quiz-btn" onclick="handleCaseDecision('A')">Empresa A: Probablemente Pirámide o muy alto riesgo. Producto secundario. <strong>¡Alerta Roja!</strong></button>
+              <button class="quiz-btn" onclick="handleCaseDecision('B')">Empresa B: Parece un MLM más legítimo. Foco en producto, precios razonables. <strong>Requiere análisis financiero más profundo (ROI - Próximos Niveles).</strong></button>
+              <button class="quiz-btn" onclick="handleCaseDecision('C')">Ambas son iguales, solo depende del esfuerzo personal.</button>
+             <div id="feedback-case" class="feedback"></div>
+        </div>
+
+
+        <h2>Reflexión Final del Nivel 3</h2>
+        <p>Hoy hemos aprendido a usar el bisturí del análisis para diseccionar el modelo de negocio MLM. Distinguir una estructura potencialmente legítima de una pirámide es CRUCIAL para proteger tu inversión y tu reputación. Además, hemos visto que un producto viable (demandado, competitivo, de calidad) es la base de CUALQUIER negocio sostenible, incluido el MLM.</p>
+        <p><strong>Un inversionista no se deja llevar por la fachada; analiza la estructura y la demanda real antes de invertir.</strong></p>
+        <p><strong>Puntos Clave de Hoy:</strong> Diferencia MLM vs. Pirámide (foco en venta real vs. reclutamiento), usa el checklist de banderas rojas, evalúa objetivamente el producto (demanda, precio, calidad, margen) y aplica este análisis a casos concretos.</p>
+
+        <!-- EL BOTÓN FINAL HA SIDO ELIMINADO -->
+        <!-- Ya no hay botón <a href="..." class="next-level-btn"> aquí -->
+
+    </div>
+
+    <script>
+        let userPoints = 0; // Reinicia en cada nivel
+
+        function updatePoints(points) {
+            userPoints += points;
+            document.getElementById('points').innerText = userPoints;
+            const pointsSpan = document.getElementById('points');
+            pointsSpan.style.transform = 'scale(1.2)';
+            pointsSpan.style.transition = 'transform 0.2s ease-out';
+            setTimeout(() => { pointsSpan.style.transform = 'scale(1)'; }, 200);
+        }
+
+        let currentRiskScore = 0;
+        function updateRiskScore() {
+            currentRiskScore = 0;
+            const checkboxes = document.querySelectorAll('#pyramid-checklist input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    currentRiskScore += parseInt(cb.value);
+                }
+            });
+
+            const scoreDisplay = document.getElementById('risk-score-display');
+            scoreDisplay.innerText = `Puntuación de Riesgo Piramidal: ${currentRiskScore} Pts`;
+
+            scoreDisplay.className = ''; // Reset class list
+            scoreDisplay.classList.add('risk-score-display'); // Add base class
+            if (currentRiskScore <= 4) {
+                scoreDisplay.classList.add('score-low');
+                 scoreDisplay.title = "Riesgo Bajo: Parece más enfocado en producto, pero sigue analizando.";
+            } else if (currentRiskScore <= 8) {
+                scoreDisplay.classList.add('score-medium');
+                 scoreDisplay.title = "Riesgo Medio: Varias señales de alerta. ¡Investiga a fondo!";
+            } else {
+                scoreDisplay.classList.add('score-high');
+                 scoreDisplay.title = "¡Riesgo Alto! Fuertes indicios de esquema piramidal. ¡Máxima precaución o evitar!";
+            }
+
+             // Feedback general al cambiar el score
+             const feedbackDiv = document.getElementById('feedback-checklist');
+             feedbackDiv.innerHTML = `<strong>Análisis Preliminar:</strong> Una puntuación de ${currentRiskScore} indica ${scoreDisplay.title}. <br><em>Recuerda: Esto es una guía, no un diagnóstico definitivo. Pero una puntuación alta es una SEÑAL DE ALERTA MAYOR.</em>`;
+             feedbackDiv.className = 'feedback'; // Reset class
+             if (currentRiskScore <= 4) feedbackDiv.classList.add('info');
+             else if (currentRiskScore <= 8) feedbackDiv.classList.add('warning');
+             else feedbackDiv.classList.add('incorrect');
+             feedbackDiv.style.display = 'block';
+
+             // Otorgar puntos por interactuar (una vez)
+             if (!scoreDisplay.dataset) scoreDisplay.dataset = {}; // Asegurar que dataset exista
+             if (!scoreDisplay.dataset.interacted) {
+                 updatePoints(10); // Puntos por usar la herramienta
+                 scoreDisplay.dataset.interacted = 'true';
+             }
+        }
+
+
+        function evaluateProduct() {
+            const demand = document.getElementById('demand').value;
+            const competition = document.getElementById('competition').value;
+            const quality = document.getElementById('quality').value;
+            const margin = document.getElementById('margin').value;
+            const feedbackDiv = document.getElementById('feedback-product');
+            const button = feedbackDiv.previousElementSibling; // El botón está antes del div de feedback
+
+            let score = 0;
+            let message = "<strong>Análisis de Viabilidad del Producto:</strong><br>";
+
+            if (demand === 'high') score += 3;
+            else if (demand === 'medium') score += 1;
+
+            if (competition === 'cheaper' || competition === 'competitive') score += 2;
+
+             if (quality === 'excellent') score += 3;
+            else if (quality === 'average') score += 1;
+
+             if (margin === 'high') score += 3;
+            else if (margin === 'medium') score += 1;
+
+             let points = 0;
+             let type = 'info';
+             if (score >= 8) {
+                message += "Producto con potencial. Alta demanda/calidad/margen, precio competitivo. ¡Buenas señales!";
+                points = 15; type = 'correct';
+            } else if (score >= 5) {
+                message += "Producto con viabilidad media. Hay aspectos positivos, pero también desafíos (competencia, margen?). Analiza si el esfuerzo compensa.";
+                points = 10; type = 'warning';
+            } else {
+                 message += "Producto con baja viabilidad aparente. Poca demanda real, muy caro, baja calidad o margen insuficiente. Difícil construir un negocio sostenible SOLO con este producto. ¡Cuidado!";
+                 points = 5; type = 'incorrect';
+             }
+             message += ` (+${points} Puntos Análisis)`;
+
+             feedbackDiv.innerHTML = message;
+             feedbackDiv.className = 'feedback ' + type;
+             feedbackDiv.style.display = 'block';
+
+             // Otorgar puntos y deshabilitar botón SOLO la primera vez
+             if (!button.dataset) button.dataset = {};
+             if (!button.dataset.evaluated) {
+                 updatePoints(points);
+                 button.dataset.evaluated = 'true';
+                 button.disabled = true;
+                 button.style.opacity = '0.6';
+                 button.textContent = 'Evaluación Realizada';
+             }
+        }
+
+        function simulateMarketResearch() {
+            const query = document.getElementById('product-query').value.toLowerCase().trim();
+            const feedbackDiv = document.getElementById('feedback-ia-research');
+             const button = feedbackDiv.previousElementSibling; // Botón antes del feedback
+
+            let message = `<strong>Análisis Simulado para "${query}":</strong><br>`;
+            let points = 0;
+             let type = 'info';
+
+            if (query.includes("proteína") || query.includes("maquillaje") || query.includes("piel")) {
+                message += "Interés de mercado ALTO, pero competencia EXTREMA. Requiere diferenciación CLARA."; points = 5; type = 'info';
+            } else if (query.includes("aceites esenciales") || query.includes("bienestar")) {
+                 message += "Interés de mercado MEDIO-ALTO, competencia creciente. Nicho posible, pero verificar afirmaciones."; points = 5; type = 'info';
+            } else if (query.includes("trading") || query.includes("crypto") || query.includes("viajes")) {
+                 message += "Interés variable, a menudo asociado con esquemas de ALTO RIESGO o promesas exageradas. ¡MUCHA PRECAUCIÓN!"; points = 3; type = 'incorrect';
+            } else if (query === "") {
+                 message = "Por favor, introduce un tipo de producto para analizar."; points = 0; type = 'warning';
+            } else {
+                 message += "Interés de mercado APARENTEMENTE BAJO o muy específico. Verificar demanda real y competencia."; points = 2; type = 'info';
+            }
+             message += ` (+${points} Puntos)`;
+
+            feedbackDiv.innerHTML = message;
+             feedbackDiv.className = 'feedback ' + type;
+            feedbackDiv.style.display = 'block';
+
+            // Otorgar puntos y deshabilitar botón SOLO si se buscó algo y es la primera vez
+             if (!button.dataset) button.dataset = {};
+             if (query !== "" && !button.dataset.researched) {
+                 updatePoints(points);
+                 button.dataset.researched = 'true';
+                 // No deshabilitar para permitir nuevas búsquedas, pero ya no da puntos
+                 // button.disabled = true;
+                 // button.style.opacity = '0.6';
+             }
+        }
+
+        function handleCaseDecision(choice) {
+             const feedbackDiv = document.getElementById('feedback-case');
+             const container = feedbackDiv.closest('.interactive-section'); // Contenedor del caso práctico
+             const buttons = container.querySelectorAll('.quiz-btn');
+
+             // Evitar recalcular si ya se respondió
+             if (container.dataset && container.dataset.answered === 'true') {
+                 feedbackDiv.style.display = 'block'; // Mostrar feedback anterior
+                 return;
+             }
+
+             let message = '';
+             let points = 0;
+             let type = 'incorrect';
+
+             if (choice === 'A') {
+                 message = "¡Correcto! Empresa A tiene todas las banderas rojas de un esquema piramidal. ¡Evitar! (+15 Pts Discernimiento)"; points = 15; type = 'correct';
+             } else if (choice === 'B') {
+                 message = "Análisis acertado. Empresa B parece más legítima, PERO necesita análisis financiero (próximos niveles). ¡Buen juicio! (+10 Pts Discernimiento)"; points = 10; type = 'info';
+             } else { // C
+                  message = "¡Incorrecto! Ignorar las diferencias estructurales es peligroso. El esfuerzo no lo es todo si el modelo está roto. (-10 Pts Discernimiento)"; points = -10; type = 'incorrect';
+             }
+
+              feedbackDiv.innerHTML = message;
+              feedbackDiv.className = 'feedback ' + type;
+              feedbackDiv.style.display = 'block';
+
+             // Deshabilitar botones y marcar como respondido
+              buttons.forEach(button => {
+                  button.disabled = true;
+                  button.style.opacity = '0.6';
+              });
+              if (!container.dataset) container.dataset = {};
+              container.dataset.answered = 'true';
+              updatePoints(points); // Sumar puntos solo la primera vez
+        }
+
+
+         // Inicializar puntos y checklist al cargar
+         document.addEventListener('DOMContentLoaded', () => {
+             updatePoints(0);
+             updateRiskScore(); // Para mostrar el score inicial en 0 y añadir puntos si ya hay algo marcado (raro al inicio)
+         });
+
+    </script>
+</body>
+</html>
